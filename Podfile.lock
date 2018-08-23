@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.7.3)
+  - Kanna (4.0.0)
+  - SVProgressHUD (2.2.5)
+
+DEPENDENCIES:
+  - Alamofire
+  - Kanna
+  - SVProgressHUD
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Kanna
+    - SVProgressHUD
+
+SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Kanna: d5ae2a26472f7e7a474e7f36a9cd8aa2c8c63ad3
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+
+PODFILE CHECKSUM: 0fdd6a705b2fec907a5d37f2bbb757498dc7c102
+
+COCOAPODS: 1.5.0.beta.1
