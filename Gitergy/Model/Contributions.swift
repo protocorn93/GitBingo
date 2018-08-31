@@ -15,12 +15,19 @@ class Contribution {
         return dots.count
     }
     
-    lazy var colors: [UIColor?] = {
+    var colors: [UIColor?] {
+        let colors: [UIColor?] = dots.map {$0.grade?.color}
+        
+        return colors.reversed()
+    }
+    
+    init(dots:[Dot]) {
+        var dots = dots
         
         var thisWeekContributions: [Dot] = []
         let thisWeekContributedDate = dots.count % 7
         let notYetDot = 7 - thisWeekContributedDate
-
+        
         for _ in 0..<thisWeekContributedDate {
             thisWeekContributions.append(dots.removeLast())
         }
@@ -33,12 +40,6 @@ class Contribution {
             dots.append(thisWeekContributions.removeFirst())
         }
         
-        let colors: [UIColor?] = dots.map {$0.grade?.color}
-        
-        return colors.reversed()
-    }()
-    
-    init(dots:[Dot]) {
         self.dots = dots
     }
 }
