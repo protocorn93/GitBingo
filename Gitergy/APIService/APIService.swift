@@ -18,28 +18,37 @@ struct APIService {
     func fetchContributionDots(completion: @escaping (Contribution) -> ()) {
         let user = "ehdrjsdlzzzz"
         let url = "https://github.com/users/\(user)/contributions"
-        SVProgressHUD.show()
-        Alamofire.request(url).responseString { (response) in
-            
-            guard let html = response.result.value else { return }
-            guard let doc = try? HTML(html: html, encoding: .utf8) else { return }
-            
-            guard let contributionsInLastYearElement = doc.at_css("body > div > div > h2") else { return }
-            guard let contributionsInLastYear = contributionsInLastYearElement.content else { return }
-            
-            print(contributionsInLastYear)
-            
-            let dayElement = doc.css(".day")
-            
-            var dots:[Dot] = []
-            dayElement.forEach { (day) in
-                guard let date = day["data-date"] else { return }
-                guard let color = day["fill"] else { return }
-                let dot = Dot(date: date, color: color)
-                dots.append(dot)
+        
+        DispatchQueue.global().async {
+            Alamofire.request(url).responseString { (response) in
+                
+                guard let dayElements = self.parseHTML(from: response) else { return }
+                
+                var dots:[Dot] = []
+                
+                dayElements.forEach { (day) in
+                    guard let date = day["data-date"] else { return }
+                    guard let color = day["fill"] else { return }
+                    let dot = Dot(date: date, color: color)
+                    dots.append(dot)
+                }
+                
+                DispatchQueue.main.async {
+                    completion(Contribution(dots: dots))
+                }
             }
-            
-            completion(Contribution(dots: dots))
         }
+    }
+    
+    fileprivate func parseHTML(from response: DataResponse<String>) -> XPathObject? {
+        guard let html = response.result.value else { return nil }
+        guard let doc = try? HTML(html: html, encoding: .utf8) else { return nil}
+        
+//        guard let contributionsInLastYearElement = doc.at_css("body > div > div > h2") else { return nil }
+//        guard let contributionsInLastYear = contributionsInLastYearElement.content else { return nil }
+        
+//        print(contributionsInLastYear)
+        
+        return doc.css(".day")
     }
 }
