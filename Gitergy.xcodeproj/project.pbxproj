@@ -12,6 +12,11 @@
 		3E9F6AE5212EFE84005E76DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE3212EFE84005E76DA /* Main.storyboard */; };
 		3E9F6AE7212EFE85005E76DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE6212EFE85005E76DA /* Assets.xcassets */; };
 		3E9F6AEA212EFE85005E76DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE8212EFE85005E76DA /* LaunchScreen.storyboard */; };
+		3EBC858A212EFF4C002540A8 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8589212EFF4C002540A8 /* APIService.swift */; };
+		3EBC858D212F0912002540A8 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC858C212F0912002540A8 /* UIColorExtensions.swift */; };
+		3EBC8590212F094D002540A8 /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC858F212F094D002540A8 /* Dot.swift */; };
+		3EBC8592212F09D1002540A8 /* ContributionGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8591212F09D1002540A8 /* ContributionGrade.swift */; };
+		3EBC8594212F0CC3002540A8 /* Contributions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8593212F0CC3002540A8 /* Contributions.swift */; };
 		F282A830FC499A3A7ACCC7B2 /* Pods_Gitergy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0696AA6B21C5C29DA663ABB4 /* Pods_Gitergy.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +29,11 @@
 		3E9F6AE6212EFE85005E76DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E9F6AE9212EFE85005E76DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E9F6AEB212EFE85005E76DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EBC8589212EFF4C002540A8 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		3EBC858C212F0912002540A8 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		3EBC858F212F094D002540A8 /* Dot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dot.swift; sourceTree = "<group>"; };
+		3EBC8591212F09D1002540A8 /* ContributionGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionGrade.swift; sourceTree = "<group>"; };
+		3EBC8593212F0CC3002540A8 /* Contributions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contributions.swift; sourceTree = "<group>"; };
 		D08B302EDCA3A479282D634A /* Pods-Gitergy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gitergy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gitergy/Pods-Gitergy.release.xcconfig"; sourceTree = "<group>"; };
 		F010ECDA10CD69DC4A4B5181 /* Pods-Gitergy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gitergy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gitergy/Pods-Gitergy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +80,9 @@
 		3E9F6ADE212EFE84005E76DA /* Gitergy */ = {
 			isa = PBXGroup;
 			children = (
+				3EBC858E212F093A002540A8 /* Model */,
+				3EBC858B212F08FE002540A8 /* Extensions */,
+				3EBC8588212EFF3F002540A8 /* APIService */,
 				3E9F6ADF212EFE84005E76DA /* AppDelegate.swift */,
 				3E9F6AE1212EFE84005E76DA /* ViewController.swift */,
 				3E9F6AE3212EFE84005E76DA /* Main.storyboard */,
@@ -78,6 +91,32 @@
 				3E9F6AEB212EFE85005E76DA /* Info.plist */,
 			);
 			path = Gitergy;
+			sourceTree = "<group>";
+		};
+		3EBC8588212EFF3F002540A8 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				3EBC8589212EFF4C002540A8 /* APIService.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
+		3EBC858B212F08FE002540A8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3EBC858C212F0912002540A8 /* UIColorExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3EBC858E212F093A002540A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3EBC858F212F094D002540A8 /* Dot.swift */,
+				3EBC8591212F09D1002540A8 /* ContributionGrade.swift */,
+				3EBC8593212F0CC3002540A8 /* Contributions.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D061583B06AA1B9017AB70E9 /* Frameworks */ = {
@@ -205,7 +244,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E9F6AE2212EFE84005E76DA /* ViewController.swift in Sources */,
+				3EBC8594212F0CC3002540A8 /* Contributions.swift in Sources */,
+				3EBC858A212EFF4C002540A8 /* APIService.swift in Sources */,
 				3E9F6AE0212EFE84005E76DA /* AppDelegate.swift in Sources */,
+				3EBC8592212F09D1002540A8 /* ContributionGrade.swift in Sources */,
+				3EBC8590212F094D002540A8 /* Dot.swift in Sources */,
+				3EBC858D212F0912002540A8 /* UIColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +397,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 452DHHAC9T;
 				INFOPLIST_FILE = Gitergy/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dk.Gitergy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -369,7 +416,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 452DHHAC9T;
 				INFOPLIST_FILE = Gitergy/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dk.Gitergy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
