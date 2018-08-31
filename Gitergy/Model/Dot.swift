@@ -15,11 +15,7 @@ class Dot {
     var grade: ContributionGrade? {
         guard let color = rawColor else { return .notYet }
         
-        if let grade = ContributionGrade(rawValue: color) {
-            return grade
-        }
-        
-        return .notYet
+        return ContributionGrade(rawValue: color)
     }
     
     var dateForOrder: Date? {
