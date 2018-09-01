@@ -18,28 +18,34 @@ class Contribution {
     var colors: [UIColor?] {
         let colors: [UIColor?] = dots.map {$0.grade?.color}
         
-        return colors.reversed()
+        return colors
     }
     
     init(dots:[Dot]) {
         var dots = dots
         
-        var thisWeekContributions: [Dot] = []
         let thisWeekContributedDate = dots.count % 7
         let notYetDot = 7 - thisWeekContributedDate
         
-        for _ in 0..<thisWeekContributedDate {
-            thisWeekContributions.append(dots.removeLast())
+        if notYetDot != 7 {
+            for _ in (0..<notYetDot) {
+                dots.append(Dot())
+            }
         }
         
-        for _ in (0..<notYetDot) {
-            dots.append(Dot())
+        var groupedDots: [[Dot]] = []
+        var week: [Dot] = []
+        
+        for (index, dot) in dots.enumerated() {
+            week.append(dot)
+            if (index + 1) % 7 == 0 {
+                groupedDots.append(week)
+                week.removeAll()
+            }
         }
         
-        for _ in 0..<thisWeekContributedDate {
-            dots.append(thisWeekContributions.removeFirst())
-        }
+        groupedDots = groupedDots.reversed()
         
-        self.dots = dots
+        self.dots = groupedDots.flatMap {$0}
     }
 }
