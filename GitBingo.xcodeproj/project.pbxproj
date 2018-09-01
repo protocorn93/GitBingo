@@ -20,6 +20,9 @@
 		3EBC8592212F09D1002540A8 /* ContributionGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8591212F09D1002540A8 /* ContributionGrade.swift */; };
 		3EBC8594212F0CC3002540A8 /* Contributions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8593212F0CC3002540A8 /* Contributions.swift */; };
 		3EFBF117213AA222002B3142 /* RefreshMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF116213AA222002B3142 /* RefreshMode.swift */; };
+		3EFBF11B213AE2BE002B3142 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11A213AE2BE002B3142 /* SectionHeaderView.swift */; };
+		3EFBF11D213AE2CE002B3142 /* SectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11C213AE2CE002B3142 /* SectionFooterView.swift */; };
+		3EFBF11F213AE60F002B3142 /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */; };
 		F282A830FC499A3A7ACCC7B2 /* Pods_Gitergy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0696AA6B21C5C29DA663ABB4 /* Pods_Gitergy.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +43,9 @@
 		3EBC8591212F09D1002540A8 /* ContributionGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionGrade.swift; sourceTree = "<group>"; };
 		3EBC8593212F0CC3002540A8 /* Contributions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contributions.swift; sourceTree = "<group>"; };
 		3EFBF116213AA222002B3142 /* RefreshMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshMode.swift; sourceTree = "<group>"; };
+		3EFBF11A213AE2BE002B3142 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		3EFBF11C213AE2CE002B3142 /* SectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFooterView.swift; sourceTree = "<group>"; };
+		3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
 		D08B302EDCA3A479282D634A /* Pods-Gitergy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gitergy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gitergy/Pods-Gitergy.release.xcconfig"; sourceTree = "<group>"; };
 		F010ECDA10CD69DC4A4B5181 /* Pods-Gitergy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gitergy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gitergy/Pods-Gitergy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +109,7 @@
 		3E9F6ADE212EFE84005E76DA /* GitBingo */ = {
 			isa = PBXGroup;
 			children = (
+				3EFBF118213AE2A1002B3142 /* View */,
 				3E41C2FA213A318300371B4F /* Helper */,
 				3E98A3D621396716002983D8 /* Presenters */,
 				3EBC858E212F093A002540A8 /* Model */,
@@ -130,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				3EBC858C212F0912002540A8 /* UIColorExtensions.swift */,
+				3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -142,6 +150,15 @@
 				3EBC8593212F0CC3002540A8 /* Contributions.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3EFBF118213AE2A1002B3142 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3EFBF11A213AE2BE002B3142 /* SectionHeaderView.swift */,
+				3EFBF11C213AE2CE002B3142 /* SectionFooterView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D061583B06AA1B9017AB70E9 /* Frameworks */ = {
@@ -268,10 +285,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EFBF11B213AE2BE002B3142 /* SectionHeaderView.swift in Sources */,
 				3E9F6AE2212EFE84005E76DA /* ViewController.swift in Sources */,
 				3EBC8594212F0CC3002540A8 /* Contributions.swift in Sources */,
 				3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */,
 				3EBC858A212EFF4C002540A8 /* APIService.swift in Sources */,
+				3EFBF11D213AE2CE002B3142 /* SectionFooterView.swift in Sources */,
+				3EFBF11F213AE60F002B3142 /* ReusableIdentifier.swift in Sources */,
 				3EFBF117213AA222002B3142 /* RefreshMode.swift in Sources */,
 				3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */,
 				3E9F6AE0212EFE84005E76DA /* AppDelegate.swift in Sources */,
