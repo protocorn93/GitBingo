@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum GitergyError: Error {
+enum GitBingoError: Error {
     case pageNotFound
     case unexpected
     

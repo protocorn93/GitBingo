@@ -15,7 +15,7 @@ struct APIService {
     static let shared = APIService()
     private init() {}
     
-    func fetchContributionDots(of id: String, completion: @escaping (Contribution?, GitergyError?) -> ()) {
+    func fetchContributionDots(of id: String, completion: @escaping (Contribution?, GitBingoError?) -> ()) {
         let url = "https://github.com/users/\(id)/contributions"
         
         DispatchQueue.global().async {
@@ -38,10 +38,10 @@ struct APIService {
                             completion(Contribution(dots: dots), nil)
                         }
                     }
-                } catch let err as GitergyError {
+                } catch let err as GitBingoError {
                     completion(nil, err)
                 } catch {
-                    completion(nil, GitergyError.unexpected)
+                    completion(nil, GitBingoError.unexpected)
                 }
             }
         }
@@ -52,7 +52,7 @@ struct APIService {
         guard let doc = try? HTML(html: html, encoding: .utf8) else { return nil}
         
         if doc.body?.content == "Not Found" {
-            throw GitergyError.pageNotFound
+            throw GitBingoError.pageNotFound
         }
 //        guard let contributionsInLastYearElement = doc.at_css("body > div > div > h2") else { return nil }
 //        guard let contributionsInLastYear = contributionsInLastYearElement.content else { return nil }

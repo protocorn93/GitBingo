@@ -11,7 +11,7 @@ import UIKit
 protocol GithubDotsRequestProtocol: class {
     func showProgressStatus()
     func showSuccessProgressStatus(with id: String)
-    func showFailProgressStatus(with error: GitergyError)
+    func showFailProgressStatus(with error: GitBingoError)
     func updateDots()
 }
 

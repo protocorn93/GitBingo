@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E41C2FC213A319100371B4F /* GitergyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41C2FB213A319100371B4F /* GitergyError.swift */; };
+		3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41C2FB213A319100371B4F /* GitBingoError.swift */; };
 		3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A3D721396725002983D8 /* MainViewPresenter.swift */; };
 		3E9F6AE0212EFE84005E76DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F6ADF212EFE84005E76DA /* AppDelegate.swift */; };
 		3E9F6AE2212EFE84005E76DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE1212EFE84005E76DA /* ViewController.swift */; };
@@ -24,9 +24,9 @@
 
 /* Begin PBXFileReference section */
 		0696AA6B21C5C29DA663ABB4 /* Pods_Gitergy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gitergy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E41C2FB213A319100371B4F /* GitergyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitergyError.swift; sourceTree = "<group>"; };
+		3E41C2FB213A319100371B4F /* GitBingoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoError.swift; sourceTree = "<group>"; };
 		3E98A3D721396725002983D8 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
-		3E9F6ADC212EFE84005E76DA /* Gitergy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gitergy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E9F6ADC212EFE84005E76DA /* GitBingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitBingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E9F6ADF212EFE84005E76DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E9F6AE1212EFE84005E76DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3E9F6AE4212EFE84005E76DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		3E41C2FA213A318300371B4F /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				3E41C2FB213A319100371B4F /* GitergyError.swift */,
+				3E41C2FB213A319100371B4F /* GitBingoError.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -82,7 +82,7 @@
 		3E9F6AD3212EFE84005E76DA = {
 			isa = PBXGroup;
 			children = (
-				3E9F6ADE212EFE84005E76DA /* Gitergy */,
+				3E9F6ADE212EFE84005E76DA /* GitBingo */,
 				3E9F6ADD212EFE84005E76DA /* Products */,
 				016CFC676868C2531B20DB62 /* Pods */,
 				D061583B06AA1B9017AB70E9 /* Frameworks */,
@@ -92,12 +92,12 @@
 		3E9F6ADD212EFE84005E76DA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3E9F6ADC212EFE84005E76DA /* Gitergy.app */,
+				3E9F6ADC212EFE84005E76DA /* GitBingo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3E9F6ADE212EFE84005E76DA /* Gitergy */ = {
+		3E9F6ADE212EFE84005E76DA /* GitBingo */ = {
 			isa = PBXGroup;
 			children = (
 				3E41C2FA213A318300371B4F /* Helper */,
@@ -112,7 +112,7 @@
 				3E9F6AE8212EFE85005E76DA /* LaunchScreen.storyboard */,
 				3E9F6AEB212EFE85005E76DA /* Info.plist */,
 			);
-			path = Gitergy;
+			path = GitBingo;
 			sourceTree = "<group>";
 		};
 		3EBC8588212EFF3F002540A8 /* APIService */ = {
@@ -152,9 +152,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3E9F6ADB212EFE84005E76DA /* Gitergy */ = {
+		3E9F6ADB212EFE84005E76DA /* GitBingo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3E9F6AEE212EFE85005E76DA /* Build configuration list for PBXNativeTarget "Gitergy" */;
+			buildConfigurationList = 3E9F6AEE212EFE85005E76DA /* Build configuration list for PBXNativeTarget "GitBingo" */;
 			buildPhases = (
 				60D8DFB52D5346D53A003356 /* [CP] Check Pods Manifest.lock */,
 				3E9F6AD8212EFE84005E76DA /* Sources */,
@@ -166,9 +166,9 @@
 			);
 			dependencies = (
 			);
-			name = Gitergy;
+			name = GitBingo;
 			productName = Gitergy;
-			productReference = 3E9F6ADC212EFE84005E76DA /* Gitergy.app */;
+			productReference = 3E9F6ADC212EFE84005E76DA /* GitBingo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3E9F6AD7212EFE84005E76DA /* Build configuration list for PBXProject "Gitergy" */;
+			buildConfigurationList = 3E9F6AD7212EFE84005E76DA /* Build configuration list for PBXProject "GitBingo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -199,7 +199,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3E9F6ADB212EFE84005E76DA /* Gitergy */,
+				3E9F6ADB212EFE84005E76DA /* GitBingo */,
 			);
 		};
 /* End PBXProject section */
@@ -269,7 +269,7 @@
 				3EBC8594212F0CC3002540A8 /* Contributions.swift in Sources */,
 				3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */,
 				3EBC858A212EFF4C002540A8 /* APIService.swift in Sources */,
-				3E41C2FC213A319100371B4F /* GitergyError.swift in Sources */,
+				3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */,
 				3E9F6AE0212EFE84005E76DA /* AppDelegate.swift in Sources */,
 				3EBC8592212F09D1002540A8 /* ContributionGrade.swift in Sources */,
 				3EBC8590212F094D002540A8 /* Dot.swift in Sources */,
@@ -420,12 +420,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 452DHHAC9T;
-				INFOPLIST_FILE = Gitergy/Info.plist;
+				INFOPLIST_FILE = GitBingo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dk.Gitergy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dk.GitBingo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -439,12 +439,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 452DHHAC9T;
-				INFOPLIST_FILE = Gitergy/Info.plist;
+				INFOPLIST_FILE = GitBingo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dk.Gitergy;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dk.GitBingo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -454,7 +454,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3E9F6AD7212EFE84005E76DA /* Build configuration list for PBXProject "Gitergy" */ = {
+		3E9F6AD7212EFE84005E76DA /* Build configuration list for PBXProject "GitBingo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E9F6AEC212EFE85005E76DA /* Debug */,
@@ -463,7 +463,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3E9F6AEE212EFE85005E76DA /* Build configuration list for PBXNativeTarget "Gitergy" */ = {
+		3E9F6AEE212EFE85005E76DA /* Build configuration list for PBXNativeTarget "GitBingo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E9F6AEF212EFE85005E76DA /* Debug */,

@@ -42,8 +42,10 @@ class ViewController: UIViewController {
     
     fileprivate func setupPresenter() {
         presenter.attachView(self)
-        guard let id = UserDefaults.standard.value(forKey: "id") as? String else { return }
-        githubInputAlertButton.setTitle(id, for: .normal)
+        guard let id = UserDefaults.standard.value(forKey: "id") as? String else {
+            githubInputAlertButton.setTitle("Hello, Who are you?", for: .normal)
+            return
+        }
         presenter.requestDots(of: id)
     }
     
@@ -115,7 +117,7 @@ extension ViewController: GithubDotsRequestProtocol {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         SVProgressHUD.showSuccess(withStatus: "success")
         
-        githubInputAlertButton.setTitle(id, for: .normal)
+        githubInputAlertButton.setTitle("Welcome, \(id)", for: .normal)
         UserDefaults.standard.set(id, forKey: "id")
         
         self.id = id
@@ -127,7 +129,7 @@ extension ViewController: GithubDotsRequestProtocol {
         self.collectionView.reloadData()
     }
     
-    func showFailProgressStatus(with error: GitergyError) {
+    func showFailProgressStatus(with error: GitBingoError) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         SVProgressHUD.showError(withStatus: error.description)
     }
