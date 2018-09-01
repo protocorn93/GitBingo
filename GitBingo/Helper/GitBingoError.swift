@@ -16,11 +16,11 @@ enum GitBingoError: Error {
     var description: String {
         switch self {
         case .pageNotFound:
-            return "존재하지 않는 아이디입니다."
+            return "Invaild ID"
         case .unexpected:
-            return "예상치 못한 오류가 발생하였습니다."
+            return "Unexpected Error"
         case .idIsEmpty:
-            return "아이디를 입력해주세요."
+            return "Please Input Your Github ID"
         }
     }
 }
