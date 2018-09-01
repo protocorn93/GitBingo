@@ -11,6 +11,7 @@ import SVProgressHUD
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var githubInputAlertButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     private var presenter: MainViewPresenter = MainViewPresenter()
     var contribution: Contribution?
@@ -28,7 +29,35 @@ class ViewController: UIViewController {
     
     fileprivate func setupPresenter(){
         presenter.attachView(self)
-        presenter.requestDots()
+        guard let id = UserDefaults.standard.value(forKey: "id") as? String else { return }
+        githubInputAlertButton.setTitle(id, for: .normal)
+        presenter.requestDots(of: id)
+    }
+    
+    @IBAction func handleRefresh(_ sender: Any) {
+        guard let id = UserDefaults.standard.value(forKey: "id") as? String else { return }
+        presenter.requestDots(of: id)
+    }
+    
+    @IBAction func handleShowGithubInputAlert(_ sender: Any) {
+        generateInputAlert()
+    }
+    
+    fileprivate func generateInputAlert() {
+        let alert = UIAlertController(title: "Github ID", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Input your Github ID"
+        }
+        
+        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
+            guard let id = alert.textFields?[0].text else { return }
+            self.presenter.requestDots(of: id)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        present(alert, animated: true, completion: nil)
     }
 }
 
