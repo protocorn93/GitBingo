@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var githubInputAlertButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    private var refreshControl = UIRefreshControl()
     private var presenter: MainViewPresenter = MainViewPresenter()
     private var id: String?
     var contribution: Contribution?
@@ -21,27 +22,29 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         setupPresenter()
+        setupRefreshControl()
     }
     
-    fileprivate func setupCollectionView(){
+    fileprivate func setupRefreshControl() {
+        if #available(iOS 10.0, *) {
+            collectionView.refreshControl = refreshControl
+        } else {
+            collectionView.addSubview(refreshControl)
+        }
+        
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    }
+    
+    fileprivate func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
     
-    fileprivate func setupPresenter(){
+    fileprivate func setupPresenter() {
         presenter.attachView(self)
         guard let id = UserDefaults.standard.value(forKey: "id") as? String else { return }
         githubInputAlertButton.setTitle(id, for: .normal)
         presenter.requestDots(of: id)
-    }
-    
-    @IBAction func handleRefresh(_ sender: Any) {
-        guard let id = UserDefaults.standard.value(forKey: "id") as? String else { return }
-        presenter.requestDots(of: id)
-    }
-    
-    @IBAction func handleShowGithubInputAlert(_ sender: Any) {
-        generateInputAlert()
     }
     
     fileprivate func generateInputAlert() {
@@ -57,8 +60,23 @@ class ViewController: UIViewController {
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
+        
         present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func refresh() {
+        guard let id = self.id else { return }
+        refreshControl.beginRefreshing()
+        presenter.requestDots(of: id)
+    }
+    
+    @IBAction func handleRefresh(_ sender: Any) {
+        guard let id = UserDefaults.standard.value(forKey: "id") as? String else { return }
+        presenter.requestDots(of: id)
+    }
+    
+    @IBAction func handleShowGithubInputAlert(_ sender: Any) {
+        generateInputAlert()
     }
 }
 
@@ -101,6 +119,8 @@ extension ViewController: GithubDotsRequestProtocol {
         UserDefaults.standard.set(id, forKey: "id")
         
         self.id = id
+        
+        refreshControl.endRefreshing()
     }
     
     func updateDots() {
