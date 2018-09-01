@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var githubInputAlertButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     private var presenter: MainViewPresenter = MainViewPresenter()
+    private var id: String?
     var contribution: Contribution?
     
     override func viewDidLoad() {
@@ -88,14 +89,18 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 
 extension ViewController: GithubDotsRequestProtocol {
     func showProgressStatus() {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         SVProgressHUD.show()
     }
     
     func showSuccessProgressStatus(with id: String) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         SVProgressHUD.showSuccess(withStatus: "success")
         
         githubInputAlertButton.setTitle(id, for: .normal)
         UserDefaults.standard.set(id, forKey: "id")
+        
+        self.id = id
     }
     
     func updateDots() {
@@ -103,6 +108,7 @@ extension ViewController: GithubDotsRequestProtocol {
     }
     
     func showFailProgressStatus(with error: GitergyError) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         SVProgressHUD.showError(withStatus: error.description)
     }
 }
