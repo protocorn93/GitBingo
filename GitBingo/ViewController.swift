@@ -13,10 +13,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var githubInputAlertButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    
     private var refreshControl = UIRefreshControl()
     private var presenter: MainViewPresenter = MainViewPresenter()
-    private var id: String?
-    var contribution: Contribution?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +41,7 @@ class ViewController: UIViewController {
     
     fileprivate func setupPresenter() {
         presenter.attachView(self)
-        guard let id = UserDefaults.standard.value(forKey: "id") as? String else {
-            githubInputAlertButton.setTitle("Hello, Who are you?", for: .normal)
-            return
-        }
-        presenter.requestDots(of: id)
+        presenter.requestDots()
     }
     
     fileprivate func generateInputAlert() {
@@ -58,7 +53,7 @@ class ViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
             guard let id = alert.textFields?[0].text else { return }
-            self.presenter.requestDots(of: id)
+            self.presenter.requestDots(from: id)
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -67,14 +62,16 @@ class ViewController: UIViewController {
     }
     
     @objc func refresh() {
-        guard let id = self.id else { return }
         refreshControl.beginRefreshing()
-        presenter.requestDots(of: id)
+        do {
+            try presenter.refresh()
+        } catch {
+            refreshControl.endRefreshing()
+        }
     }
     
     @IBAction func handleRefresh(_ sender: Any) {
-        guard let id = UserDefaults.standard.value(forKey: "id") as? String else { return }
-        presenter.requestDots(of: id)
+        presenter.requestDots()
     }
     
     @IBAction func handleShowGithubInputAlert(_ sender: Any) {
@@ -108,20 +105,19 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension ViewController: GithubDotsRequestProtocol {
+    
+    func setUpGithubInputAlertButton(_ title: String) {
+        githubInputAlertButton.setTitle(title, for: .normal)
+    }
+    
     func showProgressStatus() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         SVProgressHUD.show()
     }
     
-    func showSuccessProgressStatus(with id: String) {
+    func showSuccessProgressStatus() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        SVProgressHUD.showSuccess(withStatus: "success")
-        
-        githubInputAlertButton.setTitle("Welcome, \(id)", for: .normal)
-        UserDefaults.standard.set(id, forKey: "id")
-        
-        self.id = id
-        
+        SVProgressHUD.showSuccess(withStatus: "Success")
         refreshControl.endRefreshing()
     }
     
