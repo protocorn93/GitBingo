@@ -69,7 +69,7 @@ class MainViewPresenter {
         }
     }
     
-    func color(of indexPath: IndexPath) -> UIColor? {
-        return contribution?.colors[indexPath.item]
+    func color(at item: Int) -> UIColor? {
+        return contribution?.colors[item]
     }
 }
