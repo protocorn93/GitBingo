@@ -9,11 +9,10 @@
 import UIKit
 
 protocol GithubDotsRequestProtocol: class {
-    func showProgressStatus()
+    func showProgressStatus(mode: RefreshMode?)
     func showSuccessProgressStatus()
     func showFailProgressStatus(with error: GitBingoError)
     func setUpGithubInputAlertButton(_ title: String)
-    func updateDots()
 }
 
 class MainViewPresenter {
@@ -32,8 +31,16 @@ class MainViewPresenter {
         self.vc = nil
     }
     
-    func requestDots(from id: String) {
-        vc?.showProgressStatus()
+    func refresh(mode: RefreshMode) {
+        guard let id = UserDefaults.standard.value(forKey: "id") as? String else { return }
+        
+        switch mode {
+        case .pullToRefresh:
+            vc?.showProgressStatus(mode: .pullToRefresh)
+        case .tapToRefresh:
+            vc?.showProgressStatus(mode: .tapToRefresh)
+        }
+        
         fetchDots(from: id)
     }
     
@@ -42,13 +49,8 @@ class MainViewPresenter {
             self.vc?.setUpGithubInputAlertButton("Hello, Who are you?")
             return
         }
-        requestDots(from: id)
-    }
-    
-    func refresh() throws {
-        guard let id = UserDefaults.standard.value(forKey: "id") as? String else {
-            throw GitBingoError.idIsEmpty
-        }
+        
+        vc?.showProgressStatus(mode: nil)
         fetchDots(from: id)
     }
     
@@ -56,15 +58,14 @@ class MainViewPresenter {
         APIService.shared.fetchContributionDots(of: id) { (contributions, err) in
             if let err = err {
                 self.vc?.showFailProgressStatus(with: err)
+                UserDefaults.standard.removeObject(forKey: "id")
                 return
             }
             
             // Success case
             self.contribution = contributions
-            self.vc?.updateDots()
             self.vc?.showSuccessProgressStatus()
             self.vc?.setUpGithubInputAlertButton("Welcome, \(id)")
-            UserDefaults.standard.set(id, forKey: "id")
         }
     }
     

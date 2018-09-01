@@ -53,7 +53,8 @@ class ViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
             guard let id = alert.textFields?[0].text else { return }
-            self.presenter.requestDots(from: id)
+            UserDefaults.standard.set(id, forKey: "id")
+            self.presenter.requestDots()
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -62,16 +63,11 @@ class ViewController: UIViewController {
     }
     
     @objc func refresh() {
-        refreshControl.beginRefreshing()
-        do {
-            try presenter.refresh()
-        } catch {
-            refreshControl.endRefreshing()
-        }
+        presenter.refresh(mode: .pullToRefresh)
     }
     
     @IBAction func handleRefresh(_ sender: Any) {
-        presenter.requestDots()
+        presenter.refresh(mode: .tapToRefresh)
     }
     
     @IBAction func handleShowGithubInputAlert(_ sender: Any) {
@@ -110,19 +106,31 @@ extension ViewController: GithubDotsRequestProtocol {
         githubInputAlertButton.setTitle(title, for: .normal)
     }
     
-    func showProgressStatus() {
+    func showProgressStatus(mode: RefreshMode?) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        if let mode = mode {
+            switch mode {
+            case .pullToRefresh:
+                refreshControl.beginRefreshing()
+            case .tapToRefresh:
+                SVProgressHUD.show()
+            }
+            
+            return
+        }
         SVProgressHUD.show()
     }
     
     func showSuccessProgressStatus() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         SVProgressHUD.showSuccess(withStatus: "Success")
-        refreshControl.endRefreshing()
-    }
-    
-    func updateDots() {
-        self.collectionView.reloadData()
+        
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
+        
+        collectionView.isHidden = false
+        collectionView.reloadData()
     }
     
     func showFailProgressStatus(with error: GitBingoError) {
