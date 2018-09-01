@@ -10,7 +10,8 @@ import UIKit
 
 protocol GithubDotsRequestProtocol: class {
     func showProgressStatus()
-    func dismissProgressStatus()
+    func showSuccessProgressStatus(with id: String)
+    func showFailProgressStatus(with error: GitergyError)
     func updateDots()
 }
 
@@ -30,12 +31,17 @@ class MainViewPresenter {
         self.vc = nil
     }
     
-    func requestDots() {
+    func requestDots(of id: String) {
         vc?.showProgressStatus()
-        APIService.shared.fetchContributionDots { (contributions) in
+        APIService.shared.fetchContributionDots(of: id) { (contributions, err) in
+            if let err = err {
+                self.vc?.showFailProgressStatus(with: err)
+                return
+            }
+            
             self.contribution = contributions
             self.vc?.updateDots()
-            self.vc?.dismissProgressStatus()
+            self.vc?.showSuccessProgressStatus(with: id)
         }
     }
     

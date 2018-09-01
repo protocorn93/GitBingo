@@ -91,12 +91,19 @@ extension ViewController: GithubDotsRequestProtocol {
         SVProgressHUD.show()
     }
     
-    func dismissProgressStatus() {
+    func showSuccessProgressStatus(with id: String) {
         SVProgressHUD.showSuccess(withStatus: "success")
+        
+        githubInputAlertButton.setTitle(id, for: .normal)
+        UserDefaults.standard.set(id, forKey: "id")
     }
     
     func updateDots() {
         self.collectionView.reloadData()
+    }
+    
+    func showFailProgressStatus(with error: GitergyError) {
+        SVProgressHUD.showError(withStatus: error.description)
     }
 }
 
