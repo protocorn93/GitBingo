@@ -205,6 +205,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="557566951.04415405">
                                     <!--2018-09-02 07:42:31 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="valueDidChanged:" destination="AiD-7c-8wW" eventType="valueChanged" id="N7p-l4-flH"/>
+                                </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4i-9w-K6h">
                                 <rect key="frame" x="166" y="396.66666666666669" width="82" height="39"/>
