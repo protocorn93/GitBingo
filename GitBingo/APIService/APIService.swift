@@ -54,11 +54,7 @@ struct APIService {
         if doc.body?.content == "Not Found" {
             throw GitBingoError.pageNotFound
         }
-//        guard let contributionsInLastYearElement = doc.at_css("body > div > div > h2") else { return nil }
-//        guard let contributionsInLastYear = contributionsInLastYearElement.content else { return nil }
         
-//        print(contributionsInLastYear)
-        
-        return doc.css(".day")
+        return doc.css("g > .day")
     }
 }
