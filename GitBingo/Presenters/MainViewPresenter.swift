@@ -65,7 +65,7 @@ class MainViewPresenter {
             // Success case
             self.contribution = contributions
             self.vc?.showSuccessProgressStatus()
-            self.vc?.setUpGithubInputAlertButton("Welcome, \(id)")
+            self.vc?.setUpGithubInputAlertButton("Welcome! \(id)👋")
         }
     }
     

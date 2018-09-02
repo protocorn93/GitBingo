@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E007BCE213BD0780007DD5C /* RegisterAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E007BCD213BD0780007DD5C /* RegisterAlertViewController.swift */; };
 		3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41C2FB213A319100371B4F /* GitBingoError.swift */; };
 		3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A3D721396725002983D8 /* MainViewPresenter.swift */; };
 		3E9F6AE0212EFE84005E76DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F6ADF212EFE84005E76DA /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		0696AA6B21C5C29DA663ABB4 /* Pods_Gitergy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gitergy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E007BCD213BD0780007DD5C /* RegisterAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAlertViewController.swift; sourceTree = "<group>"; };
 		3E41C2FB213A319100371B4F /* GitBingoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoError.swift; sourceTree = "<group>"; };
 		3E98A3D721396725002983D8 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		3E9F6ADC212EFE84005E76DA /* GitBingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitBingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +73,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3E007BCC213BD0560007DD5C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3E9F6AE1212EFE84005E76DA /* ViewController.swift */,
+				3E007BCD213BD0780007DD5C /* RegisterAlertViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		3E41C2FA213A318300371B4F /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +120,7 @@
 		3E9F6ADE212EFE84005E76DA /* GitBingo */ = {
 			isa = PBXGroup;
 			children = (
+				3E007BCC213BD0560007DD5C /* ViewControllers */,
 				3EFBF118213AE2A1002B3142 /* View */,
 				3E41C2FA213A318300371B4F /* Helper */,
 				3E98A3D621396716002983D8 /* Presenters */,
@@ -116,7 +128,6 @@
 				3EBC858B212F08FE002540A8 /* Extensions */,
 				3EBC8588212EFF3F002540A8 /* APIService */,
 				3E9F6ADF212EFE84005E76DA /* AppDelegate.swift */,
-				3E9F6AE1212EFE84005E76DA /* ViewController.swift */,
 				3E9F6AE3212EFE84005E76DA /* Main.storyboard */,
 				3E9F6AE6212EFE85005E76DA /* Assets.xcassets */,
 				3E9F6AE8212EFE85005E76DA /* LaunchScreen.storyboard */,
@@ -295,6 +306,7 @@
 				3EFBF117213AA222002B3142 /* RefreshMode.swift in Sources */,
 				3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */,
 				3E9F6AE0212EFE84005E76DA /* AppDelegate.swift in Sources */,
+				3E007BCE213BD0780007DD5C /* RegisterAlertViewController.swift in Sources */,
 				3EBC8592212F09D1002540A8 /* ContributionGrade.swift in Sources */,
 				3EBC8590212F094D002540A8 /* Dot.swift in Sources */,
 				3EBC858D212F0912002540A8 /* UIColorExtensions.swift in Sources */,
