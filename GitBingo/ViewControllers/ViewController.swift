@@ -25,6 +25,19 @@ class ViewController: UIViewController {
         setupRefreshControl()
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        let shouldAllow = presenter.shouldAllowSegue
+        
+        if !shouldAllow {
+            let alert = UIAlertController(title: "🙅‍♂️", message: "Please Register Your\nGithub ID First", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            alert.setupCustomFont()
+            present(alert, animated: true, completion: nil)
+        }
+        
+        return shouldAllow
+    }
+    
     fileprivate func setupRefreshControl() {
         if #available(iOS 10.0, *) {
             collectionView.refreshControl = refreshControl
@@ -54,11 +67,11 @@ class ViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
             guard let id = alert.textFields?[0].text else { return }
-            UserDefaults.standard.set(id, forKey: "id")
-            self.presenter.requestDots()
+            self.presenter.requestDots(from: id)
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.setupCustomFont()
         
         present(alert, animated: true, completion: nil)
     }
@@ -89,7 +102,6 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return section == 0 ? 7 : presenter.dotsCount - 7
-//        return presenter.dotsCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

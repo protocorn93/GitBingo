@@ -164,7 +164,7 @@
                             <constraint firstItem="hHl-gY-rBW" firstAttribute="top" secondItem="xjp-6I-juT" secondAttribute="bottom" id="iF9-lN-vl7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xjp-6I-juT" secondAttribute="trailing" id="slq-Ov-wLD"/>
                             <constraint firstItem="xjp-6I-juT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uS4-bj-Qov"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hHl-gY-rBW" secondAttribute="bottom" id="yu8-sm-r1p"/>
+                            <constraint firstAttribute="bottom" secondItem="hHl-gY-rBW" secondAttribute="bottom" id="yu8-sm-r1p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -179,7 +179,7 @@
                         <barButtonItem key="rightBarButtonItem" image="icons8-time" id="okN-wA-mpS">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="AiD-7c-8wW" kind="show" id="QIm-Xz-Crf"/>
+                                <segue destination="AiD-7c-8wW" kind="show" identifier="RegisterAlarmSegue" id="QIm-Xz-Crf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

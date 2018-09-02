@@ -23,6 +23,11 @@ class MainViewPresenter {
         return contribution?.count ?? 0
     }
     
+    var shouldAllowSegue: Bool {
+        guard let _ = UserDefaults.standard.value(forKey: "id") as? String else { return false }
+        return true
+    }
+    
     func attachView(_ vc: GithubDotsRequestProtocol) {
         self.vc = vc
     }
@@ -44,6 +49,11 @@ class MainViewPresenter {
         fetchDots(from: id)
     }
     
+    func requestDots(from id: String) {
+        vc?.showProgressStatus(mode: nil)
+        fetchDots(from: id)
+    }
+    
     func requestDots() {
         guard let id = UserDefaults.standard.value(forKey: "id") as? String else {
             self.vc?.setUpGithubInputAlertButton("Hello, Who are you?")
@@ -58,7 +68,6 @@ class MainViewPresenter {
         APIService.shared.fetchContributionDots(of: id) { (contributions, err) in
             if let err = err {
                 self.vc?.showFailProgressStatus(with: err)
-                UserDefaults.standard.removeObject(forKey: "id")
                 return
             }
             
@@ -66,6 +75,7 @@ class MainViewPresenter {
             self.contribution = contributions
             self.vc?.showSuccessProgressStatus()
             self.vc?.setUpGithubInputAlertButton("Welcome! \(id)👋")
+            UserDefaults.standard.set(id, forKey: "id")
         }
     }
     
