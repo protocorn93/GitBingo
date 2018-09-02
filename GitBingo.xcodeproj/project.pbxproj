@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E007BCE213BD0780007DD5C /* RegisterAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E007BCD213BD0780007DD5C /* RegisterAlertViewController.swift */; };
+		3E007BD0213BD4740007DD5C /* CustomFontString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E007BCF213BD4740007DD5C /* CustomFontString.swift */; };
 		3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41C2FB213A319100371B4F /* GitBingoError.swift */; };
 		3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A3D721396725002983D8 /* MainViewPresenter.swift */; };
 		3E9F6AE0212EFE84005E76DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F6ADF212EFE84005E76DA /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		0696AA6B21C5C29DA663ABB4 /* Pods_Gitergy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gitergy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E007BCD213BD0780007DD5C /* RegisterAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAlertViewController.swift; sourceTree = "<group>"; };
+		3E007BCF213BD4740007DD5C /* CustomFontString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontString.swift; sourceTree = "<group>"; };
 		3E41C2FB213A319100371B4F /* GitBingoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoError.swift; sourceTree = "<group>"; };
 		3E98A3D721396725002983D8 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		3E9F6ADC212EFE84005E76DA /* GitBingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitBingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +151,7 @@
 			children = (
 				3EBC858C212F0912002540A8 /* UIColorExtensions.swift */,
 				3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */,
+				3E007BCF213BD4740007DD5C /* CustomFontString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				3E9F6AE2212EFE84005E76DA /* ViewController.swift in Sources */,
 				3EBC8594212F0CC3002540A8 /* Contributions.swift in Sources */,
 				3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */,
+				3E007BD0213BD4740007DD5C /* CustomFontString.swift in Sources */,
 				3EBC858A212EFF4C002540A8 /* APIService.swift in Sources */,
 				3EFBF11D213AE2CE002B3142 /* SectionFooterView.swift in Sources */,
 				3EFBF11F213AE60F002B3142 /* ReusableIdentifier.swift in Sources */,
