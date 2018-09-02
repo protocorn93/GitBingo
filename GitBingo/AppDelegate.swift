@@ -24,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
-        application.applicationIconBadgeNumber = 0
-        
         return true
     }
 

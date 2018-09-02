@@ -25,13 +25,24 @@ class RegisterAlertViewController: UIViewController {
         return dateFormatter
     }()
     
+    private let center = UNUserNotificationCenter.current()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
     @IBAction func handleRegister(_ sender: UIButton) {
-        
+        var alert: UIAlertController?
+        center.getNotificationSettings { (settings) in
+            if settings.authorizationStatus == .authorized {
+                alert = self.generateAlert(title: "Register", message: "Do you really want notification at\n\(self.hour ?? 0) : \(self.minute ?? 0) daily?", hasOK: true, hasCancel: true)
+                self.present(alert!, animated: true, completion: nil)
+            }else {
+                alert = self.generateAlert(title: "Not Authorized", message: "Please check Notifications Configuration in Settings", hasOK: true, hasCancel: false)
+                self.present(alert!, animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func valueDidChanged(_ sender: UIDatePicker) {
@@ -68,5 +79,24 @@ class RegisterAlertViewController: UIViewController {
                 print("Error \(String(describing: error))")
             }
         }
+    }
+    
+    fileprivate func generateAlert(title: String?, message: String?, hasOK: Bool, hasCancel: Bool) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        if hasCancel {
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (_) in
+                self.generateNotification()
+                self.navigationController?.popViewController(animated: true)
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+        }else {
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (_) in
+                self.navigationController?.popViewController(animated: true)
+            }))
+        }
+        
+        return alert
     }
 }

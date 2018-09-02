@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.applicationIconBadgeNumber = 0
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         setupCollectionView()
         setupPresenter()
