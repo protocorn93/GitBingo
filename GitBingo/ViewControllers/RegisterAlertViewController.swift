@@ -9,8 +9,7 @@
 import UIKit
 
 class RegisterAlertViewController: UIViewController {
-
-    private var presenter: RegisterViewPresenter = RegisterViewPresenter()
+    //MARK: Outlets
     @IBOutlet weak var scheduledNotificationIndicator: UILabel!
     @IBOutlet weak var timePicker: UIDatePicker! {
         didSet{
@@ -18,12 +17,21 @@ class RegisterAlertViewController: UIViewController {
         }
     }
     
+    //MARK: Properties
+    private var presenter: RegisterViewPresenter = RegisterViewPresenter()
+    
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.attachView(self)
         presenter.updateScheduledNotificationDescription()
     }
     
+    deinit {
+        presenter.detatchView()
+    }
+    
+    //MARK: Actions
     @IBAction func handleRegister(_ sender: UIButton) {
         presenter.showAlert()
     }
@@ -31,12 +39,9 @@ class RegisterAlertViewController: UIViewController {
     @IBAction func valueDidChanged(_ sender: UIDatePicker) {
         presenter.setupTime(with: sender.date)
     }
-    
-    deinit {
-        presenter.detatchView()
-    }
 }
 
+//MARK:- RegisterNotificationProtocol
 extension RegisterAlertViewController: RegisterNotificationProtocol {
     
     func showRegisterAlert(_ hasScheduledNotification: Bool, with time: String) {

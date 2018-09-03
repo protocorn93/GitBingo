@@ -9,15 +9,14 @@
 import UIKit
 
 class Dot {
+    //MARK: Properties
     private var date: String?
     private var rawColor: String?
-    
     var grade: ContributionGrade? {
         guard let color = rawColor else { return .notYet }
         
         return ContributionGrade(rawValue: color)
     }
-    
     var dateForOrder: Date? {
         guard let date = date else { return nil }
         let formatter = DateFormatter()
@@ -28,6 +27,7 @@ class Dot {
         return nil 
     }
     
+    //MARK: Life Cycle
     init(){}
     
     init(date: String, color: String) {

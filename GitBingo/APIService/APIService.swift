@@ -12,9 +12,11 @@ import Kanna
 import SVProgressHUD
 
 struct APIService {
+    //MARK: Properties
     static let shared = APIService()
     private init() {}
     
+    //MARK: Methods
     func fetchContributionDots(of id: String, completion: @escaping (Contribution?, GitBingoError?) -> ()) {
         let url = "https://github.com/users/\(id)/contributions"
         

@@ -17,6 +17,7 @@ protocol RegisterNotificationProtocol {
 }
 
 class RegisterViewPresenter {
+    //MARK: Properties
     private var vc: RegisterNotificationProtocol?
     private let center = UNUserNotificationCenter.current()
     private var time: String
@@ -31,10 +32,12 @@ class RegisterViewPresenter {
         return dateFormatter
     }()
     
+    //MARK: Life Cycle
     init() {
         self.time = dateFormatter.string(from: Date())
     }
     
+    //MARK: Methods
     func attachView(_ vc: RegisterNotificationProtocol?) {
         self.vc = vc
     }
@@ -92,7 +95,7 @@ class RegisterViewPresenter {
         }
     }
     
-    fileprivate func pasreTime(from time: String) -> (hour: Int, minute: Int)? {
+    private func pasreTime(from time: String) -> (hour: Int, minute: Int)? {
         let times = self.time.split(separator: ":").map {String($0)}
         guard let hour = Int(times[0]) else { return nil }
         guard let minute = Int(times[1]) else { return nil }

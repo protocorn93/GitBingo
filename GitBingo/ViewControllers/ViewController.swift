@@ -10,13 +10,15 @@ import UIKit
 import SVProgressHUD
 
 class ViewController: UIViewController {
-
+    //MARK: Outlets
     @IBOutlet weak var githubInputAlertButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    //MARK: Properties
     private var refreshControl = UIRefreshControl()
     private var presenter: MainViewPresenter = MainViewPresenter()
     
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
@@ -25,6 +27,7 @@ class ViewController: UIViewController {
         setupRefreshControl()
     }
     
+    //MARK: Setups
     fileprivate func setupRefreshControl() {
         if #available(iOS 10.0, *) {
             collectionView.refreshControl = refreshControl
@@ -38,6 +41,7 @@ class ViewController: UIViewController {
     fileprivate func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.allowsSelection = false
     }
     
     fileprivate func setupPresenter() {
@@ -45,6 +49,7 @@ class ViewController: UIViewController {
         presenter.requestDots()
     }
     
+    //MARK: Actions
     @objc func refresh() {
         presenter.refresh(mode: .pullToRefresh)
     }
@@ -100,6 +105,7 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
+//MARK:- UICollectionViewDelegateFlowLayout
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let widht = self.view.frame.width / 7
@@ -107,6 +113,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+//MARK:- GithubDotsRequestProtocol
 extension ViewController: GithubDotsRequestProtocol {
     
     func setUpGithubInputAlertButton(_ title: String) {

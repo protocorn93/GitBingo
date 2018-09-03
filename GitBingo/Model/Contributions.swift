@@ -9,18 +9,18 @@
 import UIKit
 
 class Contribution {
+    //MARK: Properties
     var dots: [Dot]
-    
     var count: Int {
         return dots.count
     }
-    
     var colors: [UIColor?] {
         let colors: [UIColor?] = dots.map {$0.grade?.color}
         
         return colors
     }
     
+    //MARK: Life Cycle
     init(dots:[Dot]) {
         var dots = dots
         

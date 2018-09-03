@@ -16,13 +16,17 @@ protocol GithubDotsRequestProtocol: class {
 }
 
 class MainViewPresenter {
+    //MARK: Properties
     private var vc: GithubDotsRequestProtocol?
     private var contribution: Contribution?
-    
     var dotsCount: Int {
         return contribution?.count ?? 0
     }
     
+    //MARK: Life Cycle
+    init() {}
+    
+    //MARK: Methods
     func attachView(_ vc: GithubDotsRequestProtocol) {
         self.vc = vc
     }
@@ -59,6 +63,10 @@ class MainViewPresenter {
         fetchDots(from: id)
     }
     
+    func color(at item: Int) -> UIColor? {
+        return contribution?.colors[item]
+    }
+    
     private func fetchDots(from id: String) {
         APIService.shared.fetchContributionDots(of: id) { (contributions, err) in
             if let err = err {
@@ -72,9 +80,5 @@ class MainViewPresenter {
             self.vc?.setUpGithubInputAlertButton("Welcome! \(id)👋")
             UserDefaults.standard.set(id, forKey: KeyIdentifier.id.value)
         }
-    }
-    
-    func color(at item: Int) -> UIColor? {
-        return contribution?.colors[item]
     }
 }
