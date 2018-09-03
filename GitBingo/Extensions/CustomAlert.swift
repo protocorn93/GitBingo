@@ -43,10 +43,10 @@ extension UIAlertController {
         vc.present(alert, animated: true, completion: nil)
     }
     
-    static func showAlertForRegister(on vc: UIViewController, title: String, message: String, registerCompletion: ((UIAlertAction)->())?) {
+    static func showAlert(on vc: UIViewController, title: String, message: String, with completion: ((UIAlertAction)->())?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: registerCompletion))
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: completion))
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         vc.present(alert, animated: true, completion: nil)
     }
