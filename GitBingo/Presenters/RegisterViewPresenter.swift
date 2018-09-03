@@ -22,10 +22,6 @@ class RegisterViewPresenter {
     private var vc: RegisterNotificationProtocol?
     private let center = UNUserNotificationCenter.current()
     private var time: String
-//    private var hasScheduledNotification: Bool = {
-//        guard let _ = UserDefaults.standard.value(forKey: KeyIdentifier.notification.value) else { return false }
-//        return true
-//    }()
     
     private var hasScheduledNotification: Bool {
         guard let _ = UserDefaults.standard.value(forKey: KeyIdentifier.notification.value) else { return false }
