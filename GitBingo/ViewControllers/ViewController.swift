@@ -74,7 +74,7 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dotcell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionViewCell.reusableIdentifier, for: indexPath)
         let index = indexPath.section == 0 ? indexPath.item : indexPath.item + 7
         cell.backgroundColor = presenter.color(at: index)
         return cell
