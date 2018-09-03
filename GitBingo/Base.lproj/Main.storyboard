@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HZv-On-dtR">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,12 +10,12 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GitBingo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hHl-gY-rBW">
-                                <rect key="frame" x="0.0" y="79" width="375" height="645"/>
+                                <rect key="frame" x="0.0" y="79" width="600" height="457"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Isk-Of-5ej">
                                     <size key="itemSize" width="50" height="50"/>
@@ -38,11 +34,11 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeaderView" id="dwJ-o0-VrH" customClass="SectionHeaderView" customModule="GitBingo" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12F-Vo-7eD">
-                                            <rect key="frame" x="147.66666666666666" y="14.666666666666664" width="80" height="21"/>
+                                            <rect key="frame" x="120" y="14.5" width="80" height="21"/>
                                             <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="13"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -58,11 +54,11 @@
                                     </connections>
                                 </collectionReusableView>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionFooterView" id="OHZ-r4-jDX" customClass="SectionFooterView" customModule="GitBingo" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="100" width="375" height="50"/>
+                                    <rect key="frame" x="0.0" y="100" width="600" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icon by snowjang24, Name by nailerHeum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBi-pb-7Jp">
-                                            <rect key="frame" x="86.666666666666686" y="19" width="202" height="12"/>
+                                            <rect key="frame" x="59" y="19" width="202" height="12"/>
                                             <fontDescription key="fontDescription" type="italicSystem" pointSize="10"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -75,55 +71,55 @@
                                 </collectionReusableView>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xjp-6I-juT">
-                                <rect key="frame" x="0.0" y="39" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="39" width="600" height="40"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0mk-Y9-onZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OB4-Xt-Yj2">
-                                                <rect key="frame" x="0.0" y="0.0" width="53.666666666666664" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="85.5" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZKa-8k-56b">
-                                                <rect key="frame" x="53.666666666666657" y="0.0" width="53.333333333333343" height="40"/>
+                                                <rect key="frame" x="85.5" y="0.0" width="86" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZ0-2B-M5Q">
-                                                <rect key="frame" x="107.00000000000001" y="0.0" width="53.666666666666671" height="40"/>
+                                                <rect key="frame" x="171.5" y="0.0" width="85.5" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qb-eq-IDL">
-                                                <rect key="frame" x="160.66666666666666" y="0.0" width="53.666666666666657" height="40"/>
+                                                <rect key="frame" x="257" y="0.0" width="86" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xue-xY-IlE">
-                                                <rect key="frame" x="214.33333333333334" y="0.0" width="53.666666666666657" height="40"/>
+                                                <rect key="frame" x="343" y="0.0" width="85.5" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fri" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laz-VC-ErS">
-                                                <rect key="frame" x="268" y="0.0" width="53.333333333333314" height="40"/>
+                                                <rect key="frame" x="428.5" y="0.0" width="86" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYE-SQ-weY">
-                                                <rect key="frame" x="321.33333333333331" y="0.0" width="53.666666666666686" height="40"/>
+                                                <rect key="frame" x="514.5" y="0.0" width="85.5" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="17"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -142,7 +138,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLy-MI-SXj">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="39"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="39"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="17"/>
                                 <state key="normal">
@@ -196,12 +192,12 @@
         <scene sceneID="0Gu-8S-6VQ">
             <objects>
                 <viewController title="Alarm" id="AiD-7c-8wW" customClass="RegisterAlertViewController" customModule="GitBingo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KMl-5U-zws">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="KMl-5U-zws">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="eyI-WS-WB7">
-                                <rect key="frame" x="0.0" y="181.66666666666669" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="160" width="600" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="557566951.04415405">
                                     <!--2018-09-02 07:42:31 +0000-->
                                 </date>
@@ -210,13 +206,13 @@
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please notify me at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdd-GK-Ujz">
-                                <rect key="frame" x="68" y="143.66666666666666" width="239" height="28"/>
+                                <rect key="frame" x="180.5" y="122" width="239" height="28"/>
                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4i-9w-K6h">
-                                <rect key="frame" x="146.66666666666666" y="407.66666666666669" width="82" height="39"/>
+                                <rect key="frame" x="259" y="386" width="82" height="39"/>
                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="17"/>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -225,13 +221,21 @@
                                     <action selector="handleRegister:" destination="AiD-7c-8wW" eventType="touchUpInside" id="BbX-6c-pGS"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Scheduled Notifications so far" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y61-KB-SjH">
+                                <rect key="frame" x="163.5" y="30" width="273" height="20"/>
+                                <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="eyI-WS-WB7" firstAttribute="centerY" secondItem="KMl-5U-zws" secondAttribute="centerY" multiplier="0.8" id="1RA-FN-EGq"/>
+                            <constraint firstItem="eyI-WS-WB7" firstAttribute="centerY" secondItem="KMl-5U-zws" secondAttribute="centerY" id="1RA-FN-EGq"/>
                             <constraint firstItem="m4i-9w-K6h" firstAttribute="centerX" secondItem="KMl-5U-zws" secondAttribute="centerX" id="49g-cO-vxc"/>
                             <constraint firstItem="eyI-WS-WB7" firstAttribute="top" secondItem="cdd-GK-Ujz" secondAttribute="bottom" constant="10" id="LIO-JF-zWI"/>
                             <constraint firstItem="eyI-WS-WB7" firstAttribute="trailing" secondItem="8VQ-su-eDa" secondAttribute="trailing" id="Plb-IP-PH1"/>
+                            <constraint firstItem="y61-KB-SjH" firstAttribute="top" secondItem="8VQ-su-eDa" secondAttribute="top" constant="30" id="Tta-M4-DoT"/>
+                            <constraint firstItem="y61-KB-SjH" firstAttribute="centerX" secondItem="KMl-5U-zws" secondAttribute="centerX" id="elw-pg-pU8"/>
                             <constraint firstItem="eyI-WS-WB7" firstAttribute="leading" secondItem="8VQ-su-eDa" secondAttribute="leading" id="fGj-6u-VUu"/>
                             <constraint firstItem="cdd-GK-Ujz" firstAttribute="centerX" secondItem="KMl-5U-zws" secondAttribute="centerX" id="pKC-vr-1Gz"/>
                             <constraint firstItem="m4i-9w-K6h" firstAttribute="top" secondItem="eyI-WS-WB7" secondAttribute="bottom" constant="10" id="zYU-hj-1BT"/>
@@ -239,6 +243,7 @@
                         <viewLayoutGuide key="safeArea" id="8VQ-su-eDa"/>
                     </view>
                     <connections>
+                        <outlet property="scheduledNotificationIndicator" destination="y61-KB-SjH" id="c9k-tF-Jsh"/>
                         <outlet property="timePicker" destination="eyI-WS-WB7" id="Ueg-cH-65a"/>
                     </connections>
                 </viewController>
@@ -252,7 +257,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HZv-On-dtR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="jvA-Af-tMr">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">

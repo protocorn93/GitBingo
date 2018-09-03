@@ -11,6 +11,7 @@ import UIKit
 class RegisterAlertViewController: UIViewController {
 
     private var presenter: RegisterViewPresenter = RegisterViewPresenter()
+    @IBOutlet weak var scheduledNotificationIndicator: UILabel!
     @IBOutlet weak var timePicker: UIDatePicker! {
         didSet{
             timePicker.date = Date()
@@ -20,6 +21,7 @@ class RegisterAlertViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.attachView(self)
+        presenter.updateScheduledNotificationDescription()
     }
     
     @IBAction func handleRegister(_ sender: UIButton) {
@@ -57,6 +59,10 @@ extension RegisterAlertViewController: RegisterNotificationProtocol {
     
     func showRegisterFailedAlert() {
         UIAlertController.showAlert(on: self, title: "Error", message: GitBingoError.failToRegisterNotification.description)
+    }
+    
+    func updateDescriptionLabel(with text: String) {
+        self.scheduledNotificationIndicator.text = text
     }
 }
 

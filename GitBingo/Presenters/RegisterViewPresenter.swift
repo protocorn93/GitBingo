@@ -13,6 +13,7 @@ protocol RegisterNotificationProtocol {
     func showRegisterAlert(_ hasScheduledNotification: Bool, with time: String)
     func showUnAuthorizedAlert()
     func showRegisterFailedAlert()
+    func updateDescriptionLabel(with text: String)
 }
 
 class RegisterViewPresenter {
@@ -54,6 +55,15 @@ class RegisterViewPresenter {
                 self.vc?.showUnAuthorizedAlert()
             }
         }
+    }
+    
+    func updateScheduledNotificationDescription() {
+        if let time = UserDefaults.standard.value(forKey: KeyIdentifier.notification.value) as? String {
+            vc?.updateDescriptionLabel(with: "Scheduled at \(time)")
+            return
+        }
+        
+        vc?.updateDescriptionLabel(with: "No Scheduled Notification so far")
     }
     
     func generateNotification() {
