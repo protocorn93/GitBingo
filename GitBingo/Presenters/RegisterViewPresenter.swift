@@ -12,6 +12,7 @@ import UserNotifications
 protocol RegisterNotificationProtocol {
     func showRegisterAlert(_ hasScheduledNotification: Bool, with time: String)
     func showUnAuthorizedAlert()
+    func showRegisterFailedAlert()
 }
 
 class RegisterViewPresenter {
@@ -74,7 +75,7 @@ class RegisterViewPresenter {
         
         UNUserNotificationCenter.current().add(request) { (error) in
             if ((error) != nil){
-                print("Error \(String(describing: error))")
+                self.vc?.showRegisterFailedAlert()
             }
             
             UserDefaults.standard.setValue(self.time, forKey: KeyIdentifier.notification.value)

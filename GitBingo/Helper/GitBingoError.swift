@@ -12,6 +12,7 @@ enum GitBingoError: Error {
     case pageNotFound
     case unexpected
     case idIsEmpty
+    case failToRegisterNotification
     
     var description: String {
         switch self {
@@ -21,6 +22,8 @@ enum GitBingoError: Error {
             return "Unexpected Error"
         case .idIsEmpty:
             return "Please Input Your Github ID"
+        case .failToRegisterNotification:
+            return "Registering Notification Failed\nPlease try later"
         }
     }
 }

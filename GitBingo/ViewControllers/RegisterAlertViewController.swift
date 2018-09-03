@@ -54,5 +54,9 @@ extension RegisterAlertViewController: RegisterNotificationProtocol {
     func showUnAuthorizedAlert() {
         UIAlertController.showCheckNotificationSettingsAlert(on: self)
     }
+    
+    func showRegisterFailedAlert() {
+        UIAlertController.showRegisterNotificaitonFailedAlert(on: self)
+    }
 }
 

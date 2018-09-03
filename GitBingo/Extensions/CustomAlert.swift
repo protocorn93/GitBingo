@@ -43,6 +43,13 @@ extension UIAlertController {
         vc.present(alert, animated: true, completion: nil)
     }
     
+    static func showRegisterNotificaitonFailedAlert(on vc: UIViewController) {
+        let alert = UIAlertController(title: "Error", message: GitBingoError.failToRegisterNotification.description, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        vc.present(alert, animated: true, completion: nil)
+    }
+    
     static func showRegisterNotificationAlert(on vc: UIViewController, at time: String, registerCompletion: ((UIAlertAction)->())?) {
         let alert = UIAlertController(title: "Register", message: "Do you want to get Notification at\n\(time) daily?", preferredStyle: .alert)
         
