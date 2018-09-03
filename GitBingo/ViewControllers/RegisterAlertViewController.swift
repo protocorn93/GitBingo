@@ -60,14 +60,14 @@ extension RegisterAlertViewController: RegisterNotificationProtocol {
             }
         }
         
-        UIAlertController.showAlert(on: self, title: "Register", message: "Do you want to get Notification at\n\(time) daily?") { (_) in
+        UIAlertController.showAlert(on: self, title: "Register", message: "Do you want to GET Notification at\n\(time) daily?") { (_) in
             self.presenter.generateNotification()
             self.dismiss(animated: true, completion: nil)
         }
     }
     
     func showUnAuthorizedAlert() {
-        UIAlertController.showAlert(on: self, title: "Not Authorized", message: "Please check Notifications Configuration in Settings")
+        UIAlertController.showAlert(on: self, title: "Not Authorized", message: "CHECK Notifications Configuration in Settings")
     }
     
     func showRegisterFailedAlert() {
@@ -79,7 +79,7 @@ extension RegisterAlertViewController: RegisterNotificationProtocol {
     }
     
     func showRemoveNotificationAlert(completion: @escaping (UIAlertAction) -> ()) {
-        UIAlertController.showAlert(on: self, title: "Remove", message: "Do you really want to remove Scheduled Notification?", with: completion)
+        UIAlertController.showAlert(on: self, title: "Remove", message: "Do you really want to REMOVE Scheduled Notification?", with: completion)
     }
 }
 
