@@ -23,27 +23,32 @@ struct APIService {
         DispatchQueue.global().async {
             Alamofire.request(url).responseString { (response) in
                 
-                do {
-                    let dayElements = try self.parseHTML(from: response)
-                    
-                    var dots:[Dot] = []
-                    
-                    if let dayElements = dayElements {
-                        dayElements.forEach { (day) in
-                            guard let date = day["data-date"] else { return }
-                            guard let color = day["fill"] else { return }
-                            let dot = Dot(date: date, color: color)
-                            dots.append(dot)
-                        }
+                switch response.result {
+                case .success:
+                    do {
+                        let dayElements = try self.parseHTML(from: response)
                         
-                        DispatchQueue.main.async {
-                            completion(Contribution(dots: dots), nil)
+                        var dots:[Dot] = []
+                        
+                        if let dayElements = dayElements {
+                            dayElements.forEach { (day) in
+                                guard let date = day["data-date"] else { return }
+                                guard let color = day["fill"] else { return }
+                                let dot = Dot(date: date, color: color)
+                                dots.append(dot)
+                            }
+                            
+                            DispatchQueue.main.async {
+                                completion(Contribution(dots: dots), nil)
+                            }
                         }
+                    } catch let err as GitBingoError {
+                        completion(nil, err)
+                    } catch {
+                        completion(nil, GitBingoError.unexpected)
                     }
-                } catch let err as GitBingoError {
-                    completion(nil, err)
-                } catch {
-                    completion(nil, GitBingoError.unexpected)
+                case .failure:
+                    completion(nil, GitBingoError.networkError)
                 }
             }
         }

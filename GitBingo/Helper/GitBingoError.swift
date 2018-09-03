@@ -11,6 +11,7 @@ import Foundation
 enum GitBingoError: Error {
     case pageNotFound
     case unexpected
+    case networkError
     case idIsEmpty
     case failToRegisterNotification
     
@@ -20,6 +21,8 @@ enum GitBingoError: Error {
             return "Invaild ID"
         case .unexpected:
             return "Unexpected Error"
+        case .networkError:
+            return "Check your Devices's Network Status"
         case .idIsEmpty:
             return "Please Input Your Github ID"
         case .failToRegisterNotification:
