@@ -22,7 +22,7 @@ enum GitBingoError: Error {
         case .unexpected:
             return "Unexpected Error"
         case .networkError:
-            return "Check your Devices's Network Status"
+            return "Network Error"
         case .idIsEmpty:
             return "Please Input Your Github ID"
         case .failToRegisterNotification:
