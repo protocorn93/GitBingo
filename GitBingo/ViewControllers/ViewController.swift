@@ -25,19 +25,6 @@ class ViewController: UIViewController {
         setupRefreshControl()
     }
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        let shouldAllow = presenter.shouldAllowSegue
-        
-        if !shouldAllow {
-            let alert = UIAlertController(title: "🙅‍♂️", message: "Please Register Your\nGithub ID First", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            alert.setupCustomFont()
-            present(alert, animated: true, completion: nil)
-        }
-        
-        return shouldAllow
-    }
-    
     fileprivate func setupRefreshControl() {
         if #available(iOS 10.0, *) {
             collectionView.refreshControl = refreshControl

@@ -23,11 +23,6 @@ class MainViewPresenter {
         return contribution?.count ?? 0
     }
     
-    var shouldAllowSegue: Bool {
-        guard let _ = UserDefaults.standard.value(forKey: "id") as? String else { return false }
-        return true
-    }
-    
     func attachView(_ vc: GithubDotsRequestProtocol) {
         self.vc = vc
     }
