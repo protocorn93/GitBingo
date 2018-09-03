@@ -35,7 +35,7 @@ class RegisterAlertViewController: UIViewController {
     @IBAction func handleRegister(_ sender: UIButton) {
         center.getNotificationSettings { (settings) in
             if settings.authorizationStatus == .authorized {
-                if let _ = UserDefaults.standard.value(forKey: "notification") as? String {
+                if let _ = UserDefaults.standard.value(forKey: KeyIdentifier.notification.value) as? String {
                     UIAlertController.showAskUpdateScheduledNotificationAlert(on: self, at: self.time, registerCompletion: { (_) in
                         self.generateNotification()
                         self.navigationController?.popViewController(animated: true)
@@ -90,7 +90,7 @@ class RegisterAlertViewController: UIViewController {
                 print("Error \(String(describing: error))")
             }
             
-            UserDefaults.standard.setValue(self.time, forKey: "notification")
+            UserDefaults.standard.setValue(self.time, forKey: KeyIdentifier.notification.value)
         }
     }
 }

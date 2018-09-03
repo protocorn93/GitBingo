@@ -32,7 +32,7 @@ class MainViewPresenter {
     }
     
     func refresh(mode: RefreshMode) {
-        guard let id = UserDefaults.standard.value(forKey: "id") as? String else { return }
+        guard let id = UserDefaults.standard.value(forKey: KeyIdentifier.id.value) as? String else { return }
         
         switch mode {
         case .pullToRefresh:
@@ -50,7 +50,7 @@ class MainViewPresenter {
     }
     
     func requestDots() {
-        guard let id = UserDefaults.standard.value(forKey: "id") as? String else {
+        guard let id = UserDefaults.standard.value(forKey: KeyIdentifier.id.value) as? String else {
             self.vc?.setUpGithubInputAlertButton("Hello, Who are you?")
             return
         }
@@ -70,7 +70,7 @@ class MainViewPresenter {
             self.contribution = contributions
             self.vc?.showSuccessProgressStatus()
             self.vc?.setUpGithubInputAlertButton("Welcome! \(id)👋")
-            UserDefaults.standard.set(id, forKey: "id")
+            UserDefaults.standard.set(id, forKey: KeyIdentifier.id.value)
         }
     }
     

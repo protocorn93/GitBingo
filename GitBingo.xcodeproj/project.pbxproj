@@ -12,6 +12,7 @@
 		3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41C2FB213A319100371B4F /* GitBingoError.swift */; };
 		3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A3D721396725002983D8 /* MainViewPresenter.swift */; };
 		3E9D2ADE213D1AFD0009DAD8 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */; };
+		3E9D2AE0213D1B8F0009DAD8 /* KeyIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */; };
 		3E9F6AE0212EFE84005E76DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F6ADF212EFE84005E76DA /* AppDelegate.swift */; };
 		3E9F6AE2212EFE84005E76DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE1212EFE84005E76DA /* ViewController.swift */; };
 		3E9F6AE5212EFE84005E76DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE3212EFE84005E76DA /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		3E41C2FB213A319100371B4F /* GitBingoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoError.swift; sourceTree = "<group>"; };
 		3E98A3D721396725002983D8 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyIdentifier.swift; sourceTree = "<group>"; };
 		3E9F6ADC212EFE84005E76DA /* GitBingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitBingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E9F6ADF212EFE84005E76DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E9F6AE1212EFE84005E76DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				3E41C2FB213A319100371B4F /* GitBingoError.swift */,
 				3EFBF116213AA222002B3142 /* RefreshMode.swift */,
+				3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				3E007BD0213BD4740007DD5C /* CustomFontString.swift in Sources */,
 				3EBC858A212EFF4C002540A8 /* APIService.swift in Sources */,
 				3EFBF11D213AE2CE002B3142 /* SectionFooterView.swift in Sources */,
+				3E9D2AE0213D1B8F0009DAD8 /* KeyIdentifier.swift in Sources */,
 				3EFBF11F213AE60F002B3142 /* ReusableIdentifier.swift in Sources */,
 				3EFBF117213AA222002B3142 /* RefreshMode.swift in Sources */,
 				3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */,
