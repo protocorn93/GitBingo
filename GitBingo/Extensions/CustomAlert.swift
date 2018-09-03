@@ -36,31 +36,16 @@ extension UIAlertController {
         vc.present(alert, animated: true, completion: nil)
     }
     
-    static func showCheckNotificationSettingsAlert(on vc: UIViewController) {
-        let alert = UIAlertController(title: "Not Authorized", message: "Please check Notifications Configuration in Settings", preferredStyle: .alert)
+    static func showAlert(on vc: UIViewController, title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         vc.present(alert, animated: true, completion: nil)
     }
     
-    static func showRegisterNotificaitonFailedAlert(on vc: UIViewController) {
-        let alert = UIAlertController(title: "Error", message: GitBingoError.failToRegisterNotification.description, preferredStyle: .alert)
+    static func showAlertForRegister(on vc: UIViewController, title: String, message: String, registerCompletion: ((UIAlertAction)->())?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        vc.present(alert, animated: true, completion: nil)
-    }
-    
-    static func showRegisterNotificationAlert(on vc: UIViewController, at time: String, registerCompletion: ((UIAlertAction)->())?) {
-        let alert = UIAlertController(title: "Register", message: "Do you want to get Notification at\n\(time) daily?", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: registerCompletion))
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-        vc.present(alert, animated: true, completion: nil)
-    }
-    
-    static func showAskUpdateScheduledNotificationAlert(on vc: UIViewController, at time: String, registerCompletion: ((UIAlertAction)->())?) {
-        
-        let alert = UIAlertController(title: "🤓", message: "Scheduled Notification Existed.\nDo you want to UPDATE it to \(time)?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: registerCompletion))
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         vc.present(alert, animated: true, completion: nil)

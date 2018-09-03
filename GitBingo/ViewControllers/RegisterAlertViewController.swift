@@ -39,24 +39,24 @@ extension RegisterAlertViewController: RegisterNotificationProtocol {
     
     func showRegisterAlert(_ hasScheduledNotification: Bool, with time: String) {
         if hasScheduledNotification {
-            UIAlertController.showAskUpdateScheduledNotificationAlert(on: self, at: time, registerCompletion: { (_) in
+            UIAlertController.showAlertForRegister(on: self, title: "🤓", message: "Scheduled Notification Existed.\nDo you want to UPDATE it to \(time)?") { (_) in
                 self.presenter.generateNotification()
                 self.navigationController?.popViewController(animated: true)
-            })
+            }
         }
         
-        UIAlertController.showRegisterNotificationAlert(on: self, at: time, registerCompletion: { (_) in
+        UIAlertController.showAlertForRegister(on: self, title: "Register", message: "Do you want to get Notification at\n\(time) daily?") { (_) in
             self.presenter.generateNotification()
             self.navigationController?.popViewController(animated: true)
-        })
+        }
     }
     
     func showUnAuthorizedAlert() {
-        UIAlertController.showCheckNotificationSettingsAlert(on: self)
+        UIAlertController.showAlert(on: self, title: "Not Authorized", message: "Please check Notifications Configuration in Settings")
     }
     
     func showRegisterFailedAlert() {
-        UIAlertController.showRegisterNotificaitonFailedAlert(on: self)
+        UIAlertController.showAlert(on: self, title: "Error", message: GitBingoError.failToRegisterNotification.description)
     }
 }
 
