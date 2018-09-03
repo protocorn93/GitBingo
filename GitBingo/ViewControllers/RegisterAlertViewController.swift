@@ -13,19 +13,19 @@ class RegisterAlertViewController: UIViewController {
 
     @IBOutlet weak var timePicker: UIDatePicker! {
         didSet{
-            parseTime(from: timePicker)
+            timePicker.date = Date()
+            formattingTime(from: timePicker)
         }
     }
     
-    private var hour: Int!
-    private var minute: Int!
+    private var time: String = ""
+    private let center = UNUserNotificationCenter.current()
     private var formatter: DateFormatter = {
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = .current
         dateFormatter.dateFormat = "HH:mm"
         return dateFormatter
     }()
-    
-    private let center = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class RegisterAlertViewController: UIViewController {
         var alert: UIAlertController?
         center.getNotificationSettings { (settings) in
             if settings.authorizationStatus == .authorized {
-                alert = self.generateAlert(title: "Register", message: "Do you really want notification at\n\(self.hour ?? 0) : \(self.minute ?? 0) daily?", hasOK: true, hasCancel: true)
+                alert = self.generateAlert(title: "Register", message: "Do you really want get notification at\n\(self.time) daily?", hasOK: true, hasCancel: true)
                 self.present(alert!, animated: true, completion: nil)
             }else {
                 alert = self.generateAlert(title: "Not Authorized", message: "Please check Notifications Configuration in Settings", hasOK: true, hasCancel: false)
@@ -46,19 +46,23 @@ class RegisterAlertViewController: UIViewController {
     }
     
     @IBAction func valueDidChanged(_ sender: UIDatePicker) {
-        parseTime(from: sender)
+        formattingTime(from: sender)
     }
     
-    fileprivate func parseTime(from datePicker: UIDatePicker) {
-        let times = formatter.string(from: datePicker.date).split(separator: ":").map {String($0)}
-        guard let hour = Int(times[0]) else { return }
-        guard let minute = Int(times[1]) else { return }
-        
-        self.hour = hour
-        self.minute = minute
+    fileprivate func formattingTime(from datePicker: UIDatePicker) {
+        let time = formatter.string(from: datePicker.date)
+        self.time = time
     }
+    
+    fileprivate func pasreTime(from time: String) -> (hour: Int, minute: Int)? {
+        let times = self.time.split(separator: ":").map {String($0)}
+        guard let hour = Int(times[0]) else { return nil }
+        guard let minute = Int(times[1]) else { return nil }
+        return (hour, minute)
+     }
     
     fileprivate func generateNotification() {
+        guard let times = pasreTime(from: time) else { return }
         let content = UNMutableNotificationContent()
         content.title = "Wait!"
         content.body = "Did You Commit?🤔"
@@ -68,8 +72,8 @@ class RegisterAlertViewController: UIViewController {
         let userCalendar = Calendar.current
         var components = userCalendar.dateComponents([.hour, .minute], from: Date())
         
-        components.hour = hour
-        components.minute = minute
+        components.hour = times.hour
+        components.minute = times.minute
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         let request = UNNotificationRequest(identifier: "GitBingo", content: content, trigger: trigger)
