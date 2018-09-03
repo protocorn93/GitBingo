@@ -1,5 +1,7 @@
 ## GitBingo (깃빙고)
 
+> App Icon by [snowJang24](https://github.com/snowjang24), App Name by [nailerHeum](https://github.com/nailerHeum)
+
 **1일 1커밋을 실천하려는 개발자들을 위한 어플리케이션**
 
 #### 기능
