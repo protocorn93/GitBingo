@@ -45,24 +45,6 @@ class ViewController: UIViewController {
         presenter.requestDots()
     }
     
-    fileprivate func generateInputAlert() {
-        let alert = UIAlertController(title: "Github ID", message: nil, preferredStyle: .alert)
-        
-        alert.addTextField { (textField) in
-            textField.placeholder = "Input your Github ID"
-        }
-        
-        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
-            guard let id = alert.textFields?[0].text else { return }
-            self.presenter.requestDots(from: id)
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.setupCustomFont()
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
     @objc func refresh() {
         presenter.refresh(mode: .pullToRefresh)
     }
@@ -72,7 +54,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func handleShowGithubInputAlert(_ sender: Any) {
-        generateInputAlert()
+        UIAlertController.showGithubIDInputAlert(on: self, with: presenter)
     }
 }
 

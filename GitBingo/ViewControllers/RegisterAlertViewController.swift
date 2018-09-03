@@ -33,14 +33,21 @@ class RegisterAlertViewController: UIViewController {
     }
     
     @IBAction func handleRegister(_ sender: UIButton) {
-        var alert: UIAlertController?
         center.getNotificationSettings { (settings) in
             if settings.authorizationStatus == .authorized {
-                alert = self.generateAlert(title: "Register", message: "Do you really want get notification at\n\(self.time) daily?", hasOK: true, hasCancel: true)
-                self.present(alert!, animated: true, completion: nil)
+                if let _ = UserDefaults.standard.value(forKey: "notification") as? String {
+                    UIAlertController.showAskUpdateScheduledNotificationAlert(on: self, at: self.time, registerCompletion: { (_) in
+                        self.generateNotification()
+                        self.navigationController?.popViewController(animated: true)
+                    })
+                }
+                
+                UIAlertController.showRegisterNotificationAlert(on: self, at: self.time, registerCompletion: { (_) in
+                    self.generateNotification()
+                    self.navigationController?.popViewController(animated: true)
+                })
             }else {
-                alert = self.generateAlert(title: "Not Authorized", message: "Please check Notifications Configuration in Settings", hasOK: true, hasCancel: false)
-                self.present(alert!, animated: true, completion: nil)
+                UIAlertController.showCheckNotificationSettingsAlert(on: self)
             }
         }
     }
@@ -82,25 +89,8 @@ class RegisterAlertViewController: UIViewController {
             if ((error) != nil){
                 print("Error \(String(describing: error))")
             }
-        }
-    }
-    
-    fileprivate func generateAlert(title: String?, message: String?, hasOK: Bool, hasCancel: Bool) -> UIAlertController {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        if hasCancel {
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (_) in
-                self.generateNotification()
-                self.navigationController?.popViewController(animated: true)
-            }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             
-        }else {
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (_) in
-                self.navigationController?.popViewController(animated: true)
-            }))
+            UserDefaults.standard.setValue(self.time, forKey: "notification")
         }
-        
-        return alert
     }
 }

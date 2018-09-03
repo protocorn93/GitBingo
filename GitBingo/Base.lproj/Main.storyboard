@@ -201,7 +201,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="eyI-WS-WB7">
-                                <rect key="frame" x="0.0" y="254" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="181.66666666666669" width="375" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="557566951.04415405">
                                     <!--2018-09-02 07:42:31 +0000-->
                                 </date>
@@ -210,19 +210,13 @@
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please notify me at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdd-GK-Ujz">
-                                <rect key="frame" x="68" y="216" width="239" height="28"/>
+                                <rect key="frame" x="68" y="143.66666666666666" width="239" height="28"/>
                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now at : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4r-5o-5nf">
-                                <rect key="frame" x="124" y="169" width="127" height="27"/>
-                                <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4i-9w-K6h">
-                                <rect key="frame" x="146.66666666666666" y="480" width="82" height="39"/>
+                                <rect key="frame" x="146.66666666666666" y="407.66666666666669" width="82" height="39"/>
                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="17"/>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -234,11 +228,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="eyI-WS-WB7" firstAttribute="centerY" secondItem="KMl-5U-zws" secondAttribute="centerY" id="1RA-FN-EGq"/>
+                            <constraint firstItem="eyI-WS-WB7" firstAttribute="centerY" secondItem="KMl-5U-zws" secondAttribute="centerY" multiplier="0.8" id="1RA-FN-EGq"/>
                             <constraint firstItem="m4i-9w-K6h" firstAttribute="centerX" secondItem="KMl-5U-zws" secondAttribute="centerX" id="49g-cO-vxc"/>
-                            <constraint firstItem="cdd-GK-Ujz" firstAttribute="top" secondItem="v4r-5o-5nf" secondAttribute="bottom" constant="20" id="Hdu-wM-mdG"/>
                             <constraint firstItem="eyI-WS-WB7" firstAttribute="top" secondItem="cdd-GK-Ujz" secondAttribute="bottom" constant="10" id="LIO-JF-zWI"/>
-                            <constraint firstItem="v4r-5o-5nf" firstAttribute="centerX" secondItem="KMl-5U-zws" secondAttribute="centerX" id="MtA-JL-rf5"/>
                             <constraint firstItem="eyI-WS-WB7" firstAttribute="trailing" secondItem="8VQ-su-eDa" secondAttribute="trailing" id="Plb-IP-PH1"/>
                             <constraint firstItem="eyI-WS-WB7" firstAttribute="leading" secondItem="8VQ-su-eDa" secondAttribute="leading" id="fGj-6u-VUu"/>
                             <constraint firstItem="cdd-GK-Ujz" firstAttribute="centerX" secondItem="KMl-5U-zws" secondAttribute="centerX" id="pKC-vr-1Gz"/>

@@ -16,15 +16,3 @@ extension String {
         return customString
     }
 }
-
-extension UIAlertController {
-    func setupCustomFont() {
-        if let title = self.title {
-            self.setValue(title.customFont, forKey: "attributedTitle")
-        }
-        
-        if let message = self.message {
-            self.setValue(message.customFont, forKey: "attributedMessage")
-        }
-    }
-}
