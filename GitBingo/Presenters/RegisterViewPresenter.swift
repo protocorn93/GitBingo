@@ -6,7 +6,7 @@
 //  Copyright © 2018 이동건. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import UserNotifications
 
 protocol RegisterNotificationProtocol {
@@ -14,6 +14,7 @@ protocol RegisterNotificationProtocol {
     func showUnAuthorizedAlert()
     func showRegisterFailedAlert()
     func updateDescriptionLabel(with text: String)
+    func showRemoveNotificationAlert(completion: @escaping (UIAlertAction)->())
 }
 
 class RegisterViewPresenter {
@@ -21,10 +22,16 @@ class RegisterViewPresenter {
     private var vc: RegisterNotificationProtocol?
     private let center = UNUserNotificationCenter.current()
     private var time: String
-    private var hasScheduledNotification: Bool = {
+//    private var hasScheduledNotification: Bool = {
+//        guard let _ = UserDefaults.standard.value(forKey: KeyIdentifier.notification.value) else { return false }
+//        return true
+//    }()
+    
+    private var hasScheduledNotification: Bool {
         guard let _ = UserDefaults.standard.value(forKey: KeyIdentifier.notification.value) else { return false }
         return true
-    }()
+    }
+    
     private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = .current
@@ -86,12 +93,21 @@ class RegisterViewPresenter {
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         let request = UNNotificationRequest(identifier: "GitBingo", content: content, trigger: trigger)
         
-        UNUserNotificationCenter.current().add(request) { (error) in
+        center.add(request) { (error) in
             if ((error) != nil){
                 self.vc?.showRegisterFailedAlert()
             }
             
             UserDefaults.standard.setValue(self.time, forKey: KeyIdentifier.notification.value)
+        }
+    }
+    
+    func removeNotification() {
+        if hasScheduledNotification {
+            vc?.showRemoveNotificationAlert(completion: { (_) in
+                UserDefaults.standard.removeObject(forKey: KeyIdentifier.notification.value)
+                self.updateScheduledNotificationDescription()
+            })
         }
     }
     

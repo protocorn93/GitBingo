@@ -39,6 +39,14 @@ class RegisterAlertViewController: UIViewController {
     @IBAction func valueDidChanged(_ sender: UIDatePicker) {
         presenter.setupTime(with: sender.date)
     }
+    
+    @IBAction func handleRemoveNotification(_ sender: UIBarButtonItem) {
+        presenter.removeNotification()
+    }
+    
+    @IBAction func handleDone(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 //MARK:- RegisterNotificationProtocol
@@ -46,15 +54,15 @@ extension RegisterAlertViewController: RegisterNotificationProtocol {
     
     func showRegisterAlert(_ hasScheduledNotification: Bool, with time: String) {
         if hasScheduledNotification {
-            UIAlertController.showAlertForRegister(on: self, title: "🤓", message: "Scheduled Notification Existed.\nDo you want to UPDATE it to \(time)?") { (_) in
+            UIAlertController.showAlert(on: self, title: "🤓", message: "Scheduled Notification Existed.\nDo you want to UPDATE it to \(time)?") { (_) in
                 self.presenter.generateNotification()
-                self.navigationController?.popViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
             }
         }
         
-        UIAlertController.showAlertForRegister(on: self, title: "Register", message: "Do you want to get Notification at\n\(time) daily?") { (_) in
+        UIAlertController.showAlert(on: self, title: "Register", message: "Do you want to get Notification at\n\(time) daily?") { (_) in
             self.presenter.generateNotification()
-            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -68,6 +76,10 @@ extension RegisterAlertViewController: RegisterNotificationProtocol {
     
     func updateDescriptionLabel(with text: String) {
         self.scheduledNotificationIndicator.text = text
+    }
+    
+    func showRemoveNotificationAlert(completion: @escaping (UIAlertAction) -> ()) {
+        UIAlertController.showAlert(on: self, title: "Remove", message: "Do you really want to remove Scheduled Notification?", with: completion)
     }
 }
 
