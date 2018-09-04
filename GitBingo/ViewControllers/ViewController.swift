@@ -21,21 +21,15 @@ class ViewController: UIViewController {
     //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+        setupNaviagtionBar()
         setupCollectionView()
         setupPresenter()
         setupRefreshControl()
     }
     
     //MARK: Setups
-    fileprivate func setupRefreshControl() {
-        if #available(iOS 10.0, *) {
-            collectionView.refreshControl = refreshControl
-        } else {
-            collectionView.addSubview(refreshControl)
-        }
-        
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    fileprivate func setupNaviagtionBar() {
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
     
     fileprivate func setupCollectionView() {
@@ -47,6 +41,16 @@ class ViewController: UIViewController {
     fileprivate func setupPresenter() {
         presenter.attachView(self)
         presenter.requestDots()
+    }
+    
+    fileprivate func setupRefreshControl() {
+        if #available(iOS 10.0, *) {
+            collectionView.refreshControl = refreshControl
+        } else {
+            collectionView.addSubview(refreshControl)
+        }
+        
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
     //MARK: Actions

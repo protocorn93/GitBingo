@@ -63,7 +63,7 @@ class RegisterViewPresenter {
         }
     }
     
-    func updateScheduledNotificationDescription() {
+    func updateScheduledNotificationIndicator() {
         if let time = UserDefaults.standard.value(forKey: KeyIdentifier.notification.value) as? String {
             vc?.updateDescriptionLabel(with: "Scheduled at \(time)")
             return
@@ -101,8 +101,9 @@ class RegisterViewPresenter {
     func removeNotification() {
         if hasScheduledNotification {
             vc?.showRemoveNotificationAlert(completion: { (_) in
+                self.center.removeAllDeliveredNotifications()
                 UserDefaults.standard.removeObject(forKey: KeyIdentifier.notification.value)
-                self.updateScheduledNotificationDescription()
+                self.updateScheduledNotificationIndicator()
             })
         }
     }

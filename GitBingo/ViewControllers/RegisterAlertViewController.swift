@@ -24,7 +24,7 @@ class RegisterAlertViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.attachView(self)
-        presenter.updateScheduledNotificationDescription()
+        presenter.updateScheduledNotificationIndicator()
     }
     
     deinit {
