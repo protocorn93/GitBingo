@@ -45,10 +45,10 @@ struct APIService {
                     } catch let err as GitBingoError {
                         completion(nil, err)
                     } catch {
-                        completion(nil, GitBingoError.unexpected)
+                        completion(nil, GitBingoError.networkError)
                     }
                 case .failure:
-                    completion(nil, GitBingoError.networkError)
+                    completion(nil, GitBingoError.pageNotFound)
                 }
             }
         }
