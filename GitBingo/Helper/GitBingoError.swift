@@ -18,15 +18,15 @@ enum GitBingoError: Error {
     var description: String {
         switch self {
         case .pageNotFound:
-            return "Invaild ID"
+            return "Invaild ID".localized
         case .unexpected:
-            return "Unexpected Error"
+            return "Unexpected Error".localized
         case .networkError:
-            return "Network Error"
+            return "Network Error".localized
         case .idIsEmpty:
-            return "Please Input Your Github ID"
+            return "Please Input Your Github ID".localized
         case .failToRegisterNotification:
-            return "Registering Notification Failed\nPlease try later"
+            return "Registering Notification Failed\nPlease try later".localized
         }
     }
 }
