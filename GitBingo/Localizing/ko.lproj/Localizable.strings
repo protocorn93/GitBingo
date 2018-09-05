@@ -9,9 +9,6 @@
 // AppDelegate.swift
 "Set Alarm" = "알람 설정";
 
-// ViewController.swift
-"Success" = "성공";
-
 // RegisterAlertViewController.swift
 "Scheduled Notification Existed.\nDo you want to UPDATE it to %@?" = "이미 등록된 알람이 존재합니다.\n%@로 새로운 알람을 등록하시겠습니까?";
 "Register" = "등록";
