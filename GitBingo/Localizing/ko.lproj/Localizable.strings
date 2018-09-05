@@ -1,0 +1,44 @@
+/* 
+  Localizable.strings
+  GitBingo
+
+  Created by 이동건 on 05/09/2018.
+  Copyright © 2018 이동건. All rights reserved.
+*/
+
+// AppDelegate.swift
+"Set Alarm" = "알람 설정";
+
+// ViewController.swift
+"Success" = "성공";
+
+// RegisterAlertViewController.swift
+"Scheduled Notification Existed.\nDo you want to UPDATE it to %@?" = "이미 등록된 알람이 존재합니다.\n%@로 새로운 알람을 등록하시겠습니까?";
+"Register" = "등록";
+"Do you want to GET Notification at\n%@ daily?" = "매일 %@에 알람을 받으시겠습니까?";
+"Not Authorized" = "권한 없음";
+"CHECK Notifications Configuration in Settings" = "시스템 설정에서 앱의 알람 설정을 확인하세요.";
+"Error" = "에러";
+"Remove" = "삭제";
+"Do you really want to REMOVE Scheduled Notification?" = "예약된 알람을 삭제하시겠습니까?";
+
+// GitBingoError.swift
+"Invaild ID" = "존재하지 않는 아이디입니다.";
+"Unexpected Error" = "예상치 못한 에러가 발생했습니다.";
+"Network Error" = "네트워크 에러";
+"Please Input Your Github ID" = "Github 아이디를 입력해주세요.";
+"Registering Notification Failed\nPlease try later" = "알람 등록에 실패했습니다.\n잠시 후 시도해주세요.";
+
+// RegisterViewPresenter.swift
+"No Scheduled Notification so far" = "등록된 알람이 없습니다.";
+"Scheduled at %@" = "%@에 예약된 알람이 있습니다.";
+"Wait!" = "잠깐!";
+"Did You Commit?🤔" = "커밋은 하셨나요?🤔";
+
+// CustomAlert.swift
+"Input your Github ID" = "Github 아이디를 입력하세요.";
+"Done" = "완료";
+"Cancel" = "취소";
+"Ok" = "확인";
+"Yes" = "예";
+"No" = "아니오";

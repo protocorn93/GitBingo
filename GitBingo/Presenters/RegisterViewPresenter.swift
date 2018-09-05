@@ -65,18 +65,18 @@ class RegisterViewPresenter {
     
     func updateScheduledNotificationIndicator() {
         if let time = UserDefaults.standard.value(forKey: KeyIdentifier.notification.value) as? String {
-            vc?.updateDescriptionLabel(with: "Scheduled at \(time)")
+            vc?.updateDescriptionLabel(with: "Scheduled at %@".localized(with: time))
             return
         }
         
-        vc?.updateDescriptionLabel(with: "No Scheduled Notification so far")
+        vc?.updateDescriptionLabel(with: "No Scheduled Notification so far".localized)
     }
     
     func generateNotification() {
         guard let times = pasreTime(from: time) else { return }
         let content = UNMutableNotificationContent()
-        content.title = "Wait!"
-        content.body = "Did You Commit?🤔"
+        content.title = "Wait!".localized
+        content.body = "Did You Commit?🤔".localized
         content.sound = UNNotificationSound.default()
         content.badge = 1
         

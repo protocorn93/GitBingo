@@ -54,24 +54,24 @@ extension RegisterAlertViewController: RegisterNotificationProtocol {
     
     func showRegisterAlert(_ hasScheduledNotification: Bool, with time: String) {
         if hasScheduledNotification {
-            UIAlertController.showAlert(on: self, title: "🤓", message: "Scheduled Notification Existed.\nDo you want to UPDATE it to \(time)?") { (_) in
+            UIAlertController.showAlert(on: self, title: "🤓", message: "Scheduled Notification Existed.\nDo you want to UPDATE it to %@?".localized(with: time)) { (_) in
                 self.presenter.generateNotification()
                 self.dismiss(animated: true, completion: nil)
             }
         }
         
-        UIAlertController.showAlert(on: self, title: "Register", message: "Do you want to GET Notification at\n\(time) daily?") { (_) in
+        UIAlertController.showAlert(on: self, title: "Register".localized, message: "Do you want to GET Notification at\n%@ daily?".localized(with: time)) { (_) in
             self.presenter.generateNotification()
             self.dismiss(animated: true, completion: nil)
         }
     }
     
     func showUnAuthorizedAlert() {
-        UIAlertController.showAlert(on: self, title: "Not Authorized", message: "CHECK Notifications Configuration in Settings")
+        UIAlertController.showAlert(on: self, title: "Not Authorized".localized, message: "CHECK Notifications Configuration in Settings".localized)
     }
     
     func showRegisterFailedAlert() {
-        UIAlertController.showAlert(on: self, title: "Error", message: GitBingoError.failToRegisterNotification.description)
+        UIAlertController.showAlert(on: self, title: "Error".localized, message: GitBingoError.failToRegisterNotification.description)
     }
     
     func updateDescriptionLabel(with text: String) {
@@ -79,7 +79,7 @@ extension RegisterAlertViewController: RegisterNotificationProtocol {
     }
     
     func showRemoveNotificationAlert(completion: @escaping (UIAlertAction) -> ()) {
-        UIAlertController.showAlert(on: self, title: "Remove", message: "Do you really want to REMOVE Scheduled Notification?", with: completion)
+        UIAlertController.showAlert(on: self, title: "Remove".localized, message: "Do you really want to REMOVE Scheduled Notification?".localized, with: completion)
     }
 }
 

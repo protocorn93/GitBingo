@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func addShortcuts(to application: UIApplication) {
-        let alarmShortcut = UIMutableApplicationShortcutItem(type: "SetAlarm", localizedTitle: "Set Alarm", localizedSubtitle: nil, icon: UIApplicationShortcutIcon(type: .alarm), userInfo: nil)
+        let alarmShortcut = UIMutableApplicationShortcutItem(type: "SetAlarm", localizedTitle: "Set Alarm".localized, localizedSubtitle: nil, icon: UIApplicationShortcutIcon(type: .alarm), userInfo: nil)
         
         application.shortcutItems = [alarmShortcut]
     }
