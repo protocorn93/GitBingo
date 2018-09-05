@@ -11,7 +11,7 @@
 
 #### 사용한 기술
 
-- `Swift4`, `Xcode9`, `UserNotifications`, `Error Handling`
+- `Swift4`, `Xcode9`, `UserNotifications`, `Error Handling`, `Localizing`
 
 #### 사용한 아키텍쳐
 
