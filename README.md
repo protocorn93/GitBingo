@@ -20,7 +20,7 @@
 
 #### 사용한 라이브러리
 
-- [`Kanna`](https://github.com/tid-kijyun/Kanna) - https://github.com/users/ehdrjsdlzzzz/contributions로부터 HTML을 파싱해오기 위해 사용
+- [`Kanna`](https://github.com/tid-kijyun/Kanna) - https://github.com/users/ehdrjsdlzzzz/contributions 로부터 HTML을 파싱해오기 위해 사용
 - [`Alamofire`](https://github.com/Alamofire/Alamofire) - 통신을 위해 사용
 - [`SVProgressHUD`](https://github.com/SVProgressHUD/SVProgressHUD) - Indicator와 함께 코멘트를 사용하기 위해 사용
 
