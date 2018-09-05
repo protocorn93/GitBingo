@@ -35,10 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let initViewController  = storyBoard.instantiateViewController(withIdentifier: "MainNavigationController")
             let registerAlertViewController = storyBoard.instantiateViewController(withIdentifier: RegisterAlertViewController.reusableIdentifier)
             
-            self.window?.rootViewController = initViewController
-            self.window?.makeKeyAndVisible()
-            
-            initViewController.present(registerAlertViewController, animated: true, completion: nil)
+            if self.window?.rootViewController == nil {
+                self.window?.rootViewController = initViewController
+                self.window?.makeKeyAndVisible()
+            }else {
+                self.window?.rootViewController?.present(registerAlertViewController, animated: true, completion: nil)
+            }
         }
     }
     
