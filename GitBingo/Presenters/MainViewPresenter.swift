@@ -48,7 +48,14 @@ class MainViewPresenter {
         fetchDots(from: id)
     }
     
-    func requestDots(from id: String) {
+    func showError(with error: GitBingoError) {
+        vc?.showFailProgressStatus(with: error)
+    }
+    
+    func requestDots(from id: String) throws {
+        if id.count == 0 {
+            throw GitBingoError.idIsEmpty
+        }
         vc?.showProgressStatus(mode: nil)
         fetchDots(from: id)
     }

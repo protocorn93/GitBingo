@@ -28,7 +28,13 @@ extension UIAlertController {
         
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
             guard let id = alert.textFields?[0].text else { return }
-            presenter.requestDots(from: id)
+            do {
+                try presenter.requestDots(from: id)
+            }catch let err as GitBingoError {
+                presenter.showError(with: err)
+            }catch {
+                presenter.showError(with: .unexpected)
+            }
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
