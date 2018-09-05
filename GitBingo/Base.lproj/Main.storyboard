@@ -13,7 +13,7 @@
         <!--GitBingo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GitBingo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="GitBingo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12F-Vo-7eD">
-                                            <rect key="frame" x="147.66666666666666" y="14.666666666666664" width="80" height="21"/>
+                                            <rect key="frame" x="167" y="14.666666666666664" width="80" height="21"/>
                                             <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="13"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -62,7 +62,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks to JSnow and nailerHeum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBi-pb-7Jp">
-                                            <rect key="frame" x="83" y="16.666666666666668" width="209" height="17.000000000000004"/>
+                                            <rect key="frame" x="102.66666666666669" y="16.666666666666668" width="209" height="17.000000000000004"/>
                                             <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="10"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -195,7 +195,7 @@
         <!--Alarm-->
         <scene sceneID="0Gu-8S-6VQ">
             <objects>
-                <viewController title="Alarm" id="AiD-7c-8wW" customClass="RegisterAlertViewController" customModule="GitBingo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterAlertViewController" title="Alarm" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AiD-7c-8wW" customClass="RegisterAlertViewController" customModule="GitBingo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KMl-5U-zws">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -284,7 +284,7 @@
         <!--Navigation Controller-->
         <scene sceneID="9ex-b5-YyB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HZv-On-dtR" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HZv-On-dtR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="jvA-Af-tMr">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>

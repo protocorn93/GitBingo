@@ -24,7 +24,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
+        addShortcuts(to: application)
+        
         return true
+    }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        if shortcutItem.type == "SetAlarm" {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let initViewController  = storyBoard.instantiateViewController(withIdentifier: "MainNavigationController")
+            let registerAlertViewController = storyBoard.instantiateViewController(withIdentifier: RegisterAlertViewController.reusableIdentifier)
+            
+            self.window?.rootViewController = initViewController
+            self.window?.makeKeyAndVisible()
+            
+            initViewController.present(registerAlertViewController, animated: true, completion: nil)
+        }
+    }
+    
+    private func addShortcuts(to application: UIApplication) {
+        let alarmShortcut = UIMutableApplicationShortcutItem(type: "SetAlarm", localizedTitle: "Set Alarm", localizedSubtitle: nil, icon: UIApplicationShortcutIcon(type: .alarm), userInfo: nil)
+        
+        application.shortcutItems = [alarmShortcut]
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
