@@ -137,6 +137,7 @@ extension ViewController: GithubDotsRequestProtocol {
     func showSuccessProgressStatus() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         SVProgressHUD.showSuccess(withStatus: "Success")
+        SVProgressHUD.dismiss(withDelay: 0.6)
         
         if refreshControl.isRefreshing {
             refreshControl.endRefreshing()
