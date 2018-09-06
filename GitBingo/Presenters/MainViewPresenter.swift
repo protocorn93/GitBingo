@@ -75,17 +75,23 @@ class MainViewPresenter {
     }
     
     private func fetchDots(from id: String) {
-        APIService.shared.fetchContributionDots(of: id) { (contributions, err) in
-            if let err = err {
-                self.vc?.showFailProgressStatus(with: err)
-                return
+        DispatchQueue.global().async {
+            APIService.shared.fetchContributionDots(of: id) { (contributions, err) in
+                if let err = err {
+                    DispatchQueue.main.async {
+                        self.vc?.showFailProgressStatus(with: err)
+                    }
+                    return
+                }
+                
+                // Success case
+                DispatchQueue.main.async {
+                    self.contribution = contributions
+                    self.vc?.showSuccessProgressStatus()
+                    self.vc?.setUpGithubInputAlertButton("Welcome! \(id)👋")
+                }
+                UserDefaults.standard.set(id, forKey: KeyIdentifier.id.value)
             }
-            
-            // Success case
-            self.contribution = contributions
-            self.vc?.showSuccessProgressStatus()
-            self.vc?.setUpGithubInputAlertButton("Welcome! \(id)👋")
-            UserDefaults.standard.set(id, forKey: KeyIdentifier.id.value)
         }
     }
 }
