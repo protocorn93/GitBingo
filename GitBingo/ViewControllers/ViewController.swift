@@ -137,7 +137,7 @@ extension ViewController: GithubDotsRequestProtocol {
     func showSuccessProgressStatus() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         SVProgressHUD.showSuccess(withStatus: "Success")
-        SVProgressHUD.dismiss(withDelay: 0.6)
+        SVProgressHUD.dismiss(withDelay: 1)
         
         if refreshControl.isRefreshing {
             refreshControl.endRefreshing()
@@ -150,7 +150,7 @@ extension ViewController: GithubDotsRequestProtocol {
     func showFailProgressStatus(with error: GitBingoError) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         SVProgressHUD.showError(withStatus: error.description)
-        
+        SVProgressHUD.dismiss(withDelay: 1)
         if refreshControl.isRefreshing {
             refreshControl.endRefreshing()
         }
