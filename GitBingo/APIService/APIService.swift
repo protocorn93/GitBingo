@@ -7,56 +7,55 @@
 //
 
 import Foundation
-import Alamofire
 import Kanna
 import SVProgressHUD
 
 struct APIService {
     //MARK: Properties
     static let shared = APIService()
+    private let session = URLSession(configuration: .default)
     private init() {}
     
     //MARK: Methods
     func fetchContributionDots(of id: String, completion: @escaping (Contribution?, GitBingoError?) -> ()) {
-        let url = "https://github.com/users/\(id)/contributions"
-        
-        DispatchQueue.global().async {
-            Alamofire.request(url).responseString { (response) in
+        guard let url = URL(string: "https://github.com/users/\(id)/contributions") else {
+            completion(nil, GitBingoError.pageNotFound)
+            return
+        }
+        let task = self.session.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                completion(nil, GitBingoError.pageNotFound)
+                return
+            }
+            
+            guard let data = data, let rawHtml = String(data: data, encoding: .utf8) else { return }
+            
+            do {
+                let dayElements = try self.parseHTML(from: rawHtml)
                 
-                switch response.result {
-                case .success:
-                    do {
-                        let dayElements = try self.parseHTML(from: response)
-                        
-                        var dots:[Dot] = []
-                        
-                        if let dayElements = dayElements {
-                            dayElements.forEach { (day) in
-                                guard let date = day["data-date"] else { return }
-                                guard let color = day["fill"] else { return }
-                                let dot = Dot(date: date, color: color)
-                                dots.append(dot)
-                            }
-                            
-                            DispatchQueue.main.async {
-                                completion(Contribution(dots: dots), nil)
-                            }
-                        }
-                    } catch let err as GitBingoError {
-                        completion(nil, err)
-                    } catch {
-                        completion(nil, GitBingoError.networkError)
+                var dots: [Dot] = []
+                
+                if let dayElements = dayElements {
+                    dayElements.forEach { (day) in
+                        guard let date = day["data-date"] else { return }
+                        guard let color = day["fill"] else { return }
+                        let dot = Dot(date: date, color: color)
+                        dots.append(dot)
                     }
-                case .failure:
-                    completion(nil, GitBingoError.pageNotFound)
+                    completion(Contribution(dots: dots), nil)
                 }
+            } catch let err as GitBingoError {
+                completion(nil, err)
+            } catch {
+                completion(nil, GitBingoError.networkError)
             }
         }
+        
+        task.resume()
     }
     
-    fileprivate func parseHTML(from response: DataResponse<String>) throws -> XPathObject? {
-        guard let html = response.result.value else { return nil }
-        guard let doc = try? HTML(html: html, encoding: .utf8) else { return nil}
+    fileprivate func parseHTML(from rawHTML: String) throws -> XPathObject? {
+        guard let doc = try? HTML(html: rawHTML, encoding: .utf8) else { return nil}
         
         if doc.body?.content == "Not Found" {
             throw GitBingoError.pageNotFound
@@ -64,4 +63,5 @@ struct APIService {
         
         return doc.css("g > .day")
     }
+    
 }
