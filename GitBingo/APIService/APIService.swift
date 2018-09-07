@@ -24,7 +24,7 @@ struct APIService {
         }
         let task = self.session.dataTask(with: url) { (data, response, error) in
             if error != nil {
-                completion(nil, GitBingoError.pageNotFound)
+                completion(nil, GitBingoError.networkError)
                 return
             }
             
