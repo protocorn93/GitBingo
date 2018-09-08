@@ -1,4 +1,4 @@
-## GitBingo (깃빙고)
+## [GitBingo (깃빙고)](https://itunes.apple.com/kr/app/gitbingo/id1435428800?l=en&mt=8)
 
 > App Icon by [snowJang24](https://github.com/snowjang24), App Name by [nailerHeum](https://github.com/nailerHeum)
 
