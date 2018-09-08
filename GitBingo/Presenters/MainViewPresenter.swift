@@ -17,7 +17,7 @@ protocol GithubDotsRequestProtocol: class {
 
 class MainViewPresenter {
     //MARK: Properties
-    private var vc: GithubDotsRequestProtocol?
+    private weak var vc: GithubDotsRequestProtocol?
     private var contribution: Contribution?
     var dotsCount: Int {
         return contribution?.count ?? 0

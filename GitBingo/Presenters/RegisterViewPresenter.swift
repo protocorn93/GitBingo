@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-protocol RegisterNotificationProtocol {
+protocol RegisterNotificationProtocol: class {
     func showRegisterAlert(_ hasScheduledNotification: Bool, with time: String)
     func showUnAuthorizedAlert()
     func showRegisterFailedAlert()
@@ -19,7 +19,7 @@ protocol RegisterNotificationProtocol {
 
 class RegisterViewPresenter {
     //MARK: Properties
-    private var vc: RegisterNotificationProtocol?
+    private weak var vc: RegisterNotificationProtocol?
     private let center = UNUserNotificationCenter.current()
     private var time: String
     
