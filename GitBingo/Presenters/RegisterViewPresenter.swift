@@ -10,11 +10,8 @@ import UIKit
 import UserNotifications
 
 protocol RegisterNotificationProtocol: class {
-    func showRegisterAlert(_ hasScheduledNotification: Bool, with time: String)
-    func showUnAuthorizedAlert()
-    func showRegisterFailedAlert()
+    func showWarningAlert(alert: GitBingoAlert)
     func updateDescriptionLabel(with text: String)
-    func showRemoveNotificationAlert(completion: @escaping (UIAlertAction)->())
 }
 
 class RegisterViewPresenter {
@@ -22,6 +19,7 @@ class RegisterViewPresenter {
     private weak var vc: RegisterNotificationProtocol?
     private let center = UNUserNotificationCenter.current()
     private var time: String
+    private var removeNotificationCompletion: ((UIAlertAction)->())?
     
     private var hasScheduledNotification: Bool {
         guard let _ = UserDefaults.standard.value(forKey: KeyIdentifier.notification.value) else { return false }
@@ -56,9 +54,10 @@ class RegisterViewPresenter {
     func showAlert() {
         center.getNotificationSettings { (settings) in
             if settings.authorizationStatus == .authorized {
-                self.vc?.showRegisterAlert(self.hasScheduledNotification, with: self.time)
+                let register = GitBingoAlert.register(self.hasScheduledNotification, self.time)
+                self.vc?.showWarningAlert(alert: register)
             }else {
-                self.vc?.showUnAuthorizedAlert()
+                self.vc?.showWarningAlert(alert: .unauthorized)
             }
         }
     }
@@ -91,7 +90,7 @@ class RegisterViewPresenter {
         
         center.add(request) { (error) in
             if ((error) != nil){
-                self.vc?.showRegisterFailedAlert()
+                self.vc?.showWarningAlert(alert: .registerFailed)
             }
             
             UserDefaults.standard.setValue(self.time, forKey: KeyIdentifier.notification.value)
@@ -100,11 +99,13 @@ class RegisterViewPresenter {
     
     func removeNotification() {
         if hasScheduledNotification {
-            vc?.showRemoveNotificationAlert(completion: { (_) in
-                self.center.removeAllDeliveredNotifications()
+            let remove = GitBingoAlert.removeNotification { (_) in
+                self.center.removeAllPendingNotificationRequests()
                 UserDefaults.standard.removeObject(forKey: KeyIdentifier.notification.value)
                 self.updateScheduledNotificationIndicator()
-            })
+            }
+            
+            self.vc?.showWarningAlert(alert: remove)
         }
     }
     
