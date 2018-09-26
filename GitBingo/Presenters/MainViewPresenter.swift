@@ -91,6 +91,7 @@ class MainViewPresenter {
                     self.vc?.setUpGithubInputAlertButton("Welcome! \(id)👋")
                 }
                 UserDefaults.standard.set(id, forKey: KeyIdentifier.id.value)
+                UserDefaults.standard.set(try? PropertyListEncoder().encode(contributions), forKey: KeyIdentifier.contributions.value)
             }
         }
     }
