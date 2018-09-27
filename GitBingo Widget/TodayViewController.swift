@@ -27,14 +27,29 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     private func load() {
-        if let groupUserDefaults = UserDefaults(suiteName: "group.Gitbingo"), let data = groupUserDefaults.object(forKey: KeyIdentifier.contributions.value) as? Data {
-            guard let contributions = try? PropertyListDecoder().decode(Contribution.self, from: data) else {
-                print("No contributions")
-                return
-            }
+        if let id = GroupUserDefaults.shared.load(of: .id) as? String {
+            githubRegisterButton.setTitle(id, for: .normal)
+        }else {
+            initiateUI()
+            return
+        }
+        
+        if let contributions = GroupUserDefaults.shared.load(of: .contributions) as? Contribution {
             self.contributions = contributions
             self.widgetCollectionView.reloadData()
         }
+        
+        if let reserverdNotificaitonTime = GroupUserDefaults.shared.load(of: .notification) as? String {
+            self.notificationTimeLabel.text = reserverdNotificaitonTime
+        }else {
+            self.notificationTimeLabel.text = "Register"
+        }
+    }
+    
+    private func initiateUI() {
+        todayCommitLabel.text = "-"
+        weekTotalLabel.text = "-"
+        notificationTimeLabel.text = "-"
     }
         
     @IBAction func handleRegisterID(_ sender: UIButton) {

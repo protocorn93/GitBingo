@@ -36,7 +36,7 @@ class MainViewPresenter {
     }
     
     func refresh(mode: RefreshMode) {
-        guard let id = UserDefaults.standard.value(forKey: KeyIdentifier.id.value) as? String else { return }
+        guard let id = GroupUserDefaults.shared.load(of: .id) as? String else { return }
         
         switch mode {
         case .pullToRefresh:
@@ -61,7 +61,7 @@ class MainViewPresenter {
     }
     
     func requestDots() {
-        guard let id = UserDefaults.standard.value(forKey: KeyIdentifier.id.value) as? String else {
+        guard let id = GroupUserDefaults.shared.load(of: .id) as? String else {
             self.vc?.setUpGithubInputAlertButton("Hello, Who are you?")
             return
         }
@@ -90,9 +90,9 @@ class MainViewPresenter {
                     self.vc?.showSuccessProgressStatus()
                     self.vc?.setUpGithubInputAlertButton("Welcome! \(id)👋")
                 }
-                UserDefaults.standard.set(id, forKey: KeyIdentifier.id.value)
-                if let contributions = contributions, let groupUserDefaults = UserDefaults(suiteName: "group.Gitbingo"){
-                    groupUserDefaults.set(try? PropertyListEncoder().encode(contributions), forKey: KeyIdentifier.contributions.value)
+                GroupUserDefaults.shared.save(id, of: .id)
+                if let contributions = contributions {
+                    GroupUserDefaults.shared.save(contributions, of: .contributions)
                 }
             }
         }
