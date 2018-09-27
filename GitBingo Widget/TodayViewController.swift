@@ -13,6 +13,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
     @IBOutlet weak var todayCommitLabel: UILabel!
     @IBOutlet weak var weekTotalLabel: UILabel!
+    @IBOutlet weak var notificationTimeLabel: UILabel!
     @IBOutlet weak var widgetCollectionView: UICollectionView!
     
     private var contributions: Contribution?
