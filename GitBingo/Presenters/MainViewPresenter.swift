@@ -18,9 +18,9 @@ protocol GithubDotsRequestProtocol: class {
 class MainViewPresenter {
     //MARK: Properties
     private weak var vc: GithubDotsRequestProtocol?
-    private var contribution: Contribution?
+    private var contributions: Contribution?
     var dotsCount: Int {
-        return contribution?.count ?? 0
+        return contributions?.count ?? 0
     }
     
     //MARK: Life Cycle
@@ -71,7 +71,7 @@ class MainViewPresenter {
     }
     
     func color(at item: Int) -> UIColor? {
-        return contribution?.colors[item]
+        return contributions?.colors[item]
     }
     
     private func fetchDots(from id: String) {
@@ -86,7 +86,7 @@ class MainViewPresenter {
                 
                 // Success case
                 DispatchQueue.main.async {
-                    self.contribution = contributions
+                    self.contributions = contributions
                     self.vc?.showSuccessProgressStatus()
                     self.vc?.setUpGithubInputAlertButton("Welcome! \(id)👋")
                 }
