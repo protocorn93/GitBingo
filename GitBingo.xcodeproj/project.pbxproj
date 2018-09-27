@@ -14,6 +14,18 @@
 		3E9D2ADE213D1AFD0009DAD8 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */; };
 		3E9D2AE0213D1B8F0009DAD8 /* KeyIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */; };
 		3E9D2AE2213D1D100009DAD8 /* RegisterViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2AE1213D1D100009DAD8 /* RegisterViewPresenter.swift */; };
+		3E9ECCE6215C0BB00089755E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9ECCE5215C0BB00089755E /* NotificationCenter.framework */; };
+		3E9ECCE9215C0BB00089755E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9ECCE8215C0BB00089755E /* TodayViewController.swift */; };
+		3E9ECCEC215C0BB00089755E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9ECCEA215C0BB00089755E /* MainInterface.storyboard */; };
+		3E9ECCF0215C0BB00089755E /* GitBingo Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3E9ECCE4215C0BAF0089755E /* GitBingo Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3E9ECCFA215C10AF0089755E /* GitBingoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41C2FB213A319100371B4F /* GitBingoError.swift */; };
+		3E9ECCFB215C10CB0089755E /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD214B21401EE000049859 /* LocalizedString.swift */; };
+		3E9ECCFC215C10D20089755E /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC858F212F094D002540A8 /* Dot.swift */; };
+		3E9ECCFD215C10D50089755E /* ContributionGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8591212F09D1002540A8 /* ContributionGrade.swift */; };
+		3E9ECCFE215C10D70089755E /* Contributions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8593212F0CC3002540A8 /* Contributions.swift */; };
+		3E9ECCFF215C10DA0089755E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8589212EFF4C002540A8 /* APIService.swift */; };
+		3E9ECD00215C10EA0089755E /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC858C212F0912002540A8 /* UIColorExtensions.swift */; };
+		3E9ECD03215C1C660089755E /* KeyIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */; };
 		3E9F6AE0212EFE84005E76DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F6ADF212EFE84005E76DA /* AppDelegate.swift */; };
 		3E9F6AE2212EFE84005E76DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE1212EFE84005E76DA /* ViewController.swift */; };
 		3E9F6AE5212EFE84005E76DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE3212EFE84005E76DA /* Main.storyboard */; };
@@ -32,10 +44,36 @@
 		3EFBF11D213AE2CE002B3142 /* SectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11C213AE2CE002B3142 /* SectionFooterView.swift */; };
 		3EFBF11F213AE60F002B3142 /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */; };
 		D0A00E275CBBA4D03F87A6AC /* Pods_GitBingo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E8CC45C06872C44992DEE5 /* Pods_GitBingo.framework */; };
+		EF8696A60B2318777674E23B /* Pods_GitBingo_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6CBE3AD583DBCE1DF782DF /* Pods_GitBingo_Widget.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3E9ECCEE215C0BB00089755E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E9F6AD4212EFE84005E76DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E9ECCE3215C0BAF0089755E;
+			remoteInfo = "GitBingo Widget";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3E9ECCF4215C0BB00089755E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3E9ECCF0215C0BB00089755E /* GitBingo Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		06B0D3F9794FDFB0E4B689D8 /* Pods-GitBingo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBingo.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitBingo/Pods-GitBingo.release.xcconfig"; sourceTree = "<group>"; };
+		0B3A2418F4C9FCD8A5C151C3 /* Pods-GitBingo Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBingo Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitBingo Widget/Pods-GitBingo Widget.debug.xcconfig"; sourceTree = "<group>"; };
 		3E007BCD213BD0780007DD5C /* RegisterAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAlertViewController.swift; sourceTree = "<group>"; };
 		3E007BCF213BD4740007DD5C /* CustomFontString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontString.swift; sourceTree = "<group>"; };
 		3E0E50F82140C34800CDC145 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -44,6 +82,13 @@
 		3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyIdentifier.swift; sourceTree = "<group>"; };
 		3E9D2AE1213D1D100009DAD8 /* RegisterViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewPresenter.swift; sourceTree = "<group>"; };
+		3E9ECCE4215C0BAF0089755E /* GitBingo Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "GitBingo Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E9ECCE5215C0BB00089755E /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		3E9ECCE8215C0BB00089755E /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		3E9ECCEB215C0BB00089755E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		3E9ECCED215C0BB00089755E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E9ECD01215C1B450089755E /* GitBingo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GitBingo.entitlements; sourceTree = "<group>"; };
+		3E9ECD02215C1B5B0089755E /* GitBingo Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GitBingo Widget.entitlements"; sourceTree = "<group>"; };
 		3E9F6ADC212EFE84005E76DA /* GitBingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitBingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E9F6ADF212EFE84005E76DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E9F6AE1212EFE84005E76DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,11 +111,22 @@
 		3EFBF11A213AE2BE002B3142 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		3EFBF11C213AE2CE002B3142 /* SectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFooterView.swift; sourceTree = "<group>"; };
 		3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
+		4F6CBE3AD583DBCE1DF782DF /* Pods_GitBingo_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitBingo_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		614835ACA74051AEE57BE1E6 /* Pods-GitBingo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBingo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitBingo/Pods-GitBingo.debug.xcconfig"; sourceTree = "<group>"; };
 		66E8CC45C06872C44992DEE5 /* Pods_GitBingo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitBingo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E62AED9D0A440C7BAFBA1C4 /* Pods-GitBingo Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBingo Widget.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitBingo Widget/Pods-GitBingo Widget.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3E9ECCE1215C0BAF0089755E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E9ECCE6215C0BB00089755E /* NotificationCenter.framework in Frameworks */,
+				EF8696A60B2318777674E23B /* Pods_GitBingo_Widget.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3E9F6AD9212EFE84005E76DA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -111,10 +167,22 @@
 			path = Presenters;
 			sourceTree = "<group>";
 		};
+		3E9ECCE7215C0BB00089755E /* GitBingo Widget */ = {
+			isa = PBXGroup;
+			children = (
+				3E9ECD02215C1B5B0089755E /* GitBingo Widget.entitlements */,
+				3E9ECCE8215C0BB00089755E /* TodayViewController.swift */,
+				3E9ECCEA215C0BB00089755E /* MainInterface.storyboard */,
+				3E9ECCED215C0BB00089755E /* Info.plist */,
+			);
+			path = "GitBingo Widget";
+			sourceTree = "<group>";
+		};
 		3E9F6AD3212EFE84005E76DA = {
 			isa = PBXGroup;
 			children = (
 				3E9F6ADE212EFE84005E76DA /* GitBingo */,
+				3E9ECCE7215C0BB00089755E /* GitBingo Widget */,
 				3E9F6ADD212EFE84005E76DA /* Products */,
 				575079EBB40B2821944E3002 /* Pods */,
 				8E0845C7CB97F204213F45CD /* Frameworks */,
@@ -125,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				3E9F6ADC212EFE84005E76DA /* GitBingo.app */,
+				3E9ECCE4215C0BAF0089755E /* GitBingo Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,6 +201,7 @@
 		3E9F6ADE212EFE84005E76DA /* GitBingo */ = {
 			isa = PBXGroup;
 			children = (
+				3E9ECD01215C1B450089755E /* GitBingo.entitlements */,
 				3EAD214221401E2900049859 /* Localizing */,
 				3E007BCC213BD0560007DD5C /* ViewControllers */,
 				3EFBF118213AE2A1002B3142 /* View */,
@@ -201,6 +271,8 @@
 			children = (
 				614835ACA74051AEE57BE1E6 /* Pods-GitBingo.debug.xcconfig */,
 				06B0D3F9794FDFB0E4B689D8 /* Pods-GitBingo.release.xcconfig */,
+				0B3A2418F4C9FCD8A5C151C3 /* Pods-GitBingo Widget.debug.xcconfig */,
+				9E62AED9D0A440C7BAFBA1C4 /* Pods-GitBingo Widget.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -209,6 +281,8 @@
 			isa = PBXGroup;
 			children = (
 				66E8CC45C06872C44992DEE5 /* Pods_GitBingo.framework */,
+				3E9ECCE5215C0BB00089755E /* NotificationCenter.framework */,
+				4F6CBE3AD583DBCE1DF782DF /* Pods_GitBingo_Widget.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -216,6 +290,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3E9ECCE3215C0BAF0089755E /* GitBingo Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E9ECCF3215C0BB00089755E /* Build configuration list for PBXNativeTarget "GitBingo Widget" */;
+			buildPhases = (
+				365572A6307C80B9F498E813 /* [CP] Check Pods Manifest.lock */,
+				3E9ECCE0215C0BAF0089755E /* Sources */,
+				3E9ECCE1215C0BAF0089755E /* Frameworks */,
+				3E9ECCE2215C0BAF0089755E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GitBingo Widget";
+			productName = "GitBingo Widget";
+			productReference = 3E9ECCE4215C0BAF0089755E /* GitBingo Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		3E9F6ADB212EFE84005E76DA /* GitBingo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E9F6AEE212EFE85005E76DA /* Build configuration list for PBXNativeTarget "GitBingo" */;
@@ -225,10 +317,12 @@
 				3E9F6AD9212EFE84005E76DA /* Frameworks */,
 				3E9F6ADA212EFE84005E76DA /* Resources */,
 				C3F69FC11C669E4DE3C10D07 /* [CP] Embed Pods Frameworks */,
+				3E9ECCF4215C0BB00089755E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3E9ECCEF215C0BB00089755E /* PBXTargetDependency */,
 			);
 			name = GitBingo;
 			productName = Gitergy;
@@ -241,12 +335,26 @@
 		3E9F6AD4212EFE84005E76DA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "이동건";
 				TargetAttributes = {
+					3E9ECCE3215C0BAF0089755E = {
+						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					3E9F6ADB212EFE84005E76DA = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -265,11 +373,20 @@
 			projectRoot = "";
 			targets = (
 				3E9F6ADB212EFE84005E76DA /* GitBingo */,
+				3E9ECCE3215C0BAF0089755E /* GitBingo Widget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3E9ECCE2215C0BAF0089755E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E9ECCEC215C0BB00089755E /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3E9F6ADA212EFE84005E76DA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,6 +401,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		365572A6307C80B9F498E813 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GitBingo Widget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5ED799F23571E94D6E8E29E6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -325,6 +460,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3E9ECCE0215C0BAF0089755E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E9ECCE9215C0BB00089755E /* TodayViewController.swift in Sources */,
+				3E9ECCFF215C10DA0089755E /* APIService.swift in Sources */,
+				3E9ECCFA215C10AF0089755E /* GitBingoError.swift in Sources */,
+				3E9ECCFB215C10CB0089755E /* LocalizedString.swift in Sources */,
+				3E9ECD03215C1C660089755E /* KeyIdentifier.swift in Sources */,
+				3E9ECCFE215C10D70089755E /* Contributions.swift in Sources */,
+				3E9ECCFC215C10D20089755E /* Dot.swift in Sources */,
+				3E9ECCFD215C10D50089755E /* ContributionGrade.swift in Sources */,
+				3E9ECD00215C10EA0089755E /* UIColorExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3E9F6AD8212EFE84005E76DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -354,7 +505,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3E9ECCEF215C0BB00089755E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E9ECCE3215C0BAF0089755E /* GitBingo Widget */;
+			targetProxy = 3E9ECCEE215C0BB00089755E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		3E9ECCEA215C0BB00089755E /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3E9ECCEB215C0BB00089755E /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		3E9F6AE3212EFE84005E76DA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -386,6 +553,55 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3E9ECCF1215C0BB00089755E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B3A2418F4C9FCD8A5C151C3 /* Pods-GitBingo Widget.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "GitBingo Widget/GitBingo Widget.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 452DHHAC9T;
+				INFOPLIST_FILE = "GitBingo Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dk.GitBingo.GitBingo-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3E9ECCF2215C0BB00089755E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E62AED9D0A440C7BAFBA1C4 /* Pods-GitBingo Widget.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "GitBingo Widget/GitBingo Widget.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 452DHHAC9T;
+				INFOPLIST_FILE = "GitBingo Widget/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dk.GitBingo.GitBingo-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		3E9F6AEC212EFE85005E76DA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -507,6 +723,7 @@
 			baseConfigurationReference = 614835ACA74051AEE57BE1E6 /* Pods-GitBingo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GitBingo/GitBingo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 452DHHAC9T;
@@ -519,7 +736,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dk.GitBingo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -529,6 +746,7 @@
 			baseConfigurationReference = 06B0D3F9794FDFB0E4B689D8 /* Pods-GitBingo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GitBingo/GitBingo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 452DHHAC9T;
@@ -541,7 +759,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dk.GitBingo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -549,6 +767,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3E9ECCF3215C0BB00089755E /* Build configuration list for PBXNativeTarget "GitBingo Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E9ECCF1215C0BB00089755E /* Debug */,
+				3E9ECCF2215C0BB00089755E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3E9F6AD7212EFE84005E76DA /* Build configuration list for PBXProject "GitBingo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Contribution {
+class Contribution: Codable {
     //MARK: Properties
     var dots: [Dot]
     var count: Int {

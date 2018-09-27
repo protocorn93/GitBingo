@@ -76,7 +76,7 @@ class RegisterViewPresenter {
         let content = UNMutableNotificationContent()
         content.title = "Wait!".localized
         content.body = "Did You Commit?🤔".localized
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
         content.badge = 1
         
         let userCalendar = Calendar.current

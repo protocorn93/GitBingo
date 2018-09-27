@@ -8,7 +8,6 @@
 
 import Foundation
 import Kanna
-import SVProgressHUD
 
 struct APIService {
     //MARK: Properties

@@ -11,6 +11,7 @@ import Foundation
 enum KeyIdentifier {
     case id
     case notification
+    case contributions
     
     var value: String {
         switch self {
@@ -18,6 +19,8 @@ enum KeyIdentifier {
             return "id"
         case .notification:
             return "notification"
+        case .contributions:
+            return "contributions"
         }
     }
 }

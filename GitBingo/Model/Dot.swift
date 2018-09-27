@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Dot {
+class Dot: Codable {
     //MARK: Properties
     private var date: String?
     private var rawColor: String?
