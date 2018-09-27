@@ -11,11 +11,16 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
+    // To Be Hidden
+    @IBOutlet weak var daysStackView: UIStackView!
+    @IBOutlet weak var labelStackView: UIStackView!
+    @IBOutlet weak var widgetCollectionView: UICollectionView!
+    
+    
     @IBOutlet weak var githubRegisterButton: UIButton!
     @IBOutlet weak var todayCommitLabel: UILabel!
     @IBOutlet weak var weekTotalLabel: UILabel!
     @IBOutlet weak var notificationTimeLabel: UILabel!
-    @IBOutlet weak var widgetCollectionView: UICollectionView!
     
     private var contributions: Contribution?
     
@@ -28,9 +33,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     private func load() {
         if let id = GroupUserDefaults.shared.load(of: .id) as? String {
-            githubRegisterButton.setTitle(id, for: .normal)
+            githubRegisterButton.setTitle("Welcome! \(id)👋", for: .normal)
+            initiateUI(isAuthenticated: true)
         }else {
-            initiateUI()
+            initiateUI(isAuthenticated: false)
             return
         }
         
@@ -46,10 +52,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
-    private func initiateUI() {
-        todayCommitLabel.text = "-"
-        weekTotalLabel.text = "-"
-        notificationTimeLabel.text = "-"
+    private func initiateUI(isAuthenticated: Bool) {
+        githubRegisterButton.isHidden = isAuthenticated
+        daysStackView.isHidden = !isAuthenticated
+        labelStackView.isHidden = !isAuthenticated
+        widgetCollectionView.isHidden = !isAuthenticated
     }
         
     @IBAction func handleRegisterID(_ sender: UIButton) {
