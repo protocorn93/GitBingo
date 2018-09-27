@@ -10,7 +10,8 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-        
+    
+    @IBOutlet weak var githubRegisterButton: UIButton!
     @IBOutlet weak var todayCommitLabel: UILabel!
     @IBOutlet weak var weekTotalLabel: UILabel!
     @IBOutlet weak var notificationTimeLabel: UILabel!
