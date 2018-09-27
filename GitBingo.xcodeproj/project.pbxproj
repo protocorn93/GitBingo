@@ -26,6 +26,8 @@
 		3E9ECCFF215C10DA0089755E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8589212EFF4C002540A8 /* APIService.swift */; };
 		3E9ECD00215C10EA0089755E /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC858C212F0912002540A8 /* UIColorExtensions.swift */; };
 		3E9ECD03215C1C660089755E /* KeyIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */; };
+		3E9ECD05215D7E530089755E /* GroupUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9ECD04215D7E530089755E /* GroupUserDefaults.swift */; };
+		3E9ECD06215D80AC0089755E /* GroupUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9ECD04215D7E530089755E /* GroupUserDefaults.swift */; };
 		3E9F6AE0212EFE84005E76DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F6ADF212EFE84005E76DA /* AppDelegate.swift */; };
 		3E9F6AE2212EFE84005E76DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE1212EFE84005E76DA /* ViewController.swift */; };
 		3E9F6AE5212EFE84005E76DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE3212EFE84005E76DA /* Main.storyboard */; };
@@ -89,6 +91,7 @@
 		3E9ECCED215C0BB00089755E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E9ECD01215C1B450089755E /* GitBingo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GitBingo.entitlements; sourceTree = "<group>"; };
 		3E9ECD02215C1B5B0089755E /* GitBingo Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GitBingo Widget.entitlements"; sourceTree = "<group>"; };
+		3E9ECD04215D7E530089755E /* GroupUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUserDefaults.swift; sourceTree = "<group>"; };
 		3E9F6ADC212EFE84005E76DA /* GitBingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitBingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E9F6ADF212EFE84005E76DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E9F6AE1212EFE84005E76DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				3EBC8589212EFF4C002540A8 /* APIService.swift */,
+				3E9ECD04215D7E530089755E /* GroupUserDefaults.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -468,6 +472,7 @@
 				3E9ECCFF215C10DA0089755E /* APIService.swift in Sources */,
 				3E9ECCFA215C10AF0089755E /* GitBingoError.swift in Sources */,
 				3E9ECCFB215C10CB0089755E /* LocalizedString.swift in Sources */,
+				3E9ECD06215D80AC0089755E /* GroupUserDefaults.swift in Sources */,
 				3E9ECD03215C1C660089755E /* KeyIdentifier.swift in Sources */,
 				3E9ECCFE215C10D70089755E /* Contributions.swift in Sources */,
 				3E9ECCFC215C10D20089755E /* Dot.swift in Sources */,
@@ -484,6 +489,7 @@
 				3EFBF11B213AE2BE002B3142 /* SectionHeaderView.swift in Sources */,
 				3E9F6AE2212EFE84005E76DA /* ViewController.swift in Sources */,
 				3EBC8594212F0CC3002540A8 /* Contributions.swift in Sources */,
+				3E9ECD05215D7E530089755E /* GroupUserDefaults.swift in Sources */,
 				3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */,
 				3E007BD0213BD4740007DD5C /* CustomFontString.swift in Sources */,
 				3EBC858A212EFF4C002540A8 /* APIService.swift in Sources */,

@@ -22,7 +22,7 @@ class RegisterViewPresenter {
     private var removeNotificationCompletion: ((UIAlertAction)->())?
     
     private var hasScheduledNotification: Bool {
-        guard let _ = UserDefaults.standard.value(forKey: KeyIdentifier.notification.value) else { return false }
+        guard let _ = GroupUserDefaults.shared.load(of: .notification) else { return false }
         return true
     }
     
@@ -63,7 +63,7 @@ class RegisterViewPresenter {
     }
     
     func updateScheduledNotificationIndicator() {
-        if let time = UserDefaults.standard.value(forKey: KeyIdentifier.notification.value) as? String {
+        if let time = GroupUserDefaults.shared.load(of: .notification) as? String {
             vc?.updateDescriptionLabel(with: "Scheduled at %@".localized(with: time))
             return
         }
@@ -92,8 +92,7 @@ class RegisterViewPresenter {
             if ((error) != nil){
                 self.vc?.showWarningAlert(alert: .registerFailed)
             }
-            
-            UserDefaults.standard.setValue(self.time, forKey: KeyIdentifier.notification.value)
+            GroupUserDefaults.shared.save(self.time, of: .notification)
         }
     }
     
@@ -101,7 +100,7 @@ class RegisterViewPresenter {
         if hasScheduledNotification {
             let remove = GitBingoAlert.removeNotification { (_) in
                 self.center.removeAllPendingNotificationRequests()
-                UserDefaults.standard.removeObject(forKey: KeyIdentifier.notification.value)
+                GroupUserDefaults.shared.remove(of: .notification)
                 self.updateScheduledNotificationIndicator()
             }
             
