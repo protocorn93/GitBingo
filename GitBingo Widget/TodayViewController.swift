@@ -36,6 +36,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
         
+    @IBAction func handleRegisterID(_ sender: UIButton) {
+        guard let url = URL(string: "GitBingoHost://") else { return }
+        extensionContext?.open(url, completionHandler: nil)
+    }
+    
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
         
