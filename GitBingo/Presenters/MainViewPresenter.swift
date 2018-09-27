@@ -91,7 +91,9 @@ class MainViewPresenter {
                     self.vc?.setUpGithubInputAlertButton("Welcome! \(id)👋")
                 }
                 UserDefaults.standard.set(id, forKey: KeyIdentifier.id.value)
-                UserDefaults.standard.set(try? PropertyListEncoder().encode(contributions), forKey: KeyIdentifier.contributions.value)
+                if let contributions = contributions, let groupUserDefaults = UserDefaults(suiteName: "group.Gitbingo"){
+                    groupUserDefaults.set(try? PropertyListEncoder().encode(contributions), forKey: KeyIdentifier.contributions.value)
+                }
             }
         }
     }
