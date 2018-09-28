@@ -19,6 +19,17 @@ class Contribution: Codable {
         
         return colors
     }
+    var total: Int {
+        var total: Int = 0
+        dots.forEach {
+            total += $0.count ?? 0
+        }
+        return total
+    }
+    var today: Int {
+        let today = dots.filter {$0.isToday == true}
+        return today.count
+    }
     
     //MARK: Life Cycle
     init(dots:[Dot]) {

@@ -42,6 +42,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         if let contributions = GroupUserDefaults.shared.load(of: .contributions) as? Contribution {
             self.contributions = contributions
+            todayCommitLabel.text = "\(contributions.today)"
+            weekTotalLabel.text = "\(contributions.total)"
             self.widgetCollectionView.reloadData()
         }
         
@@ -54,7 +56,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     private func initiateUI(isAuthenticated: Bool) {
         githubRegisterButton.isHidden = isAuthenticated
-        daysStackView.isHidden = !isAuthenticated
         labelStackView.isHidden = !isAuthenticated
         widgetCollectionView.isHidden = !isAuthenticated
     }
