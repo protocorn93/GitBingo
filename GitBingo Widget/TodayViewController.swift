@@ -12,7 +12,6 @@ import NotificationCenter
 class TodayViewController: UIViewController, NCWidgetProviding {
     
     // To Be Hidden
-    @IBOutlet weak var daysStackView: UIStackView!
     @IBOutlet weak var labelStackView: UIStackView!
     @IBOutlet weak var widgetCollectionView: UICollectionView!
     
