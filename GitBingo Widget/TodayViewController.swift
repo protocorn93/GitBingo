@@ -19,7 +19,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var githubRegisterButton: UIButton!
     @IBOutlet weak var todayCommitLabel: UILabel!
     @IBOutlet weak var weekTotalLabel: UILabel!
-    @IBOutlet weak var notificationTimeLabel: UILabel!
+    @IBOutlet weak var notificationTimeLabel: UILabel! {
+        didSet {
+            notificationTimeLabel.isUserInteractionEnabled = true
+            notificationTimeLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRegisterNotificaiton)))
+        }
+    }
     
     private var contributions: Contribution?
     
@@ -49,7 +54,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if let reserverdNotificaitonTime = GroupUserDefaults.shared.load(of: .notification) as? String {
             self.notificationTimeLabel.text = reserverdNotificaitonTime
         }else {
-            self.notificationTimeLabel.text = "Register"
+            self.notificationTimeLabel.text = "➕"
         }
     }
     
@@ -58,9 +63,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         labelStackView.isHidden = !isAuthenticated
         widgetCollectionView.isHidden = !isAuthenticated
     }
+    
+    @objc func handleRegisterNotificaiton(_ gesture: UITapGestureRecognizer) {
+        handleUserInteraction(type: .notificaiton)
+    }
         
     @IBAction func handleRegisterID(_ sender: UIButton) {
-        guard let url = URL(string: "GitBingoHost://") else { return }
+        handleUserInteraction(type: .authentication)
+    }
+    
+    private func handleUserInteraction(type: AppURL) {
+        guard let url = URL(string: "GitBingoHost://\(type.path)") else { return }
         extensionContext?.open(url, completionHandler: nil)
     }
     
