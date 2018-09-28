@@ -54,7 +54,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         if let reserverdNotificaitonTime = GroupUserDefaults.shared.load(of: .notification) as? String {
             self.notificationTimeLabel.text = reserverdNotificaitonTime
         }else {
-            self.notificationTimeLabel.text = "Register"
+            self.notificationTimeLabel.text = "➕"
         }
     }
     
