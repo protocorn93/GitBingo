@@ -91,7 +91,7 @@
                                 </cells>
                             </collectionView>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TGH-Uw-UI3">
-                                <rect key="frame" x="0.0" y="10" width="320" height="43.5"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="43.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="S3i-jW-0H4">
                                         <rect key="frame" x="0.0" y="0.0" width="106.5" height="43.5"/>
@@ -130,7 +130,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="8f1-Vc-ZmR">
                                         <rect key="frame" x="213.5" y="0.0" width="106.5" height="43.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification at" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvE-km-Vtg">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvE-km-Vtg">
                                                 <rect key="frame" x="0.0" y="0.0" width="106.5" height="16.5"/>
                                                 <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="10"/>
                                                 <nil key="textColor"/>
@@ -163,7 +163,7 @@
                             <constraint firstItem="gax-mf-LeP" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="K51-mB-P2v"/>
                             <constraint firstItem="2oU-Io-qQD" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="L0z-79-Yoj"/>
                             <constraint firstItem="zgD-UN-9XX" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="QSi-YN-ZZ2"/>
-                            <constraint firstItem="TGH-Uw-UI3" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="10" id="asa-xU-Wgl"/>
+                            <constraint firstItem="TGH-Uw-UI3" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="20" id="asa-xU-Wgl"/>
                             <constraint firstItem="2oU-Io-qQD" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" constant="-10" id="dQY-aX-n6L"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="TGH-Uw-UI3" secondAttribute="trailing" id="dir-35-x4b"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="zgD-UN-9XX" secondAttribute="bottom" id="iD9-R6-7I5"/>
