@@ -10,6 +10,8 @@ import UIKit
 
 class Dot: Codable {
     //MARK: Properties
+    private (set) var count: Int?
+    var isToday: Bool = false
     private var date: String?
     private var rawColor: String?
     var grade: ContributionGrade? {
@@ -30,8 +32,9 @@ class Dot: Codable {
     //MARK: Life Cycle
     init(){}
     
-    init(date: String, color: String) {
+    init(date: String, color: String, count: Int) {
         self.date = date
         self.rawColor = color
+        self.count = count
     }
 }

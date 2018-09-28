@@ -38,9 +38,11 @@ struct APIService {
                     dayElements.forEach { (day) in
                         guard let date = day["data-date"] else { return }
                         guard let color = day["fill"] else { return }
-                        let dot = Dot(date: date, color: color)
+                        guard let dataCount = day["data-count"], let count = Int(dataCount) else { return }
+                        let dot = Dot(date: date, color: color, count: count)
                         dots.append(dot)
                     }
+                    dots.last?.isToday = true
                     completion(Contribution(dots: dots), nil)
                 }
             } catch let err as GitBingoError {
