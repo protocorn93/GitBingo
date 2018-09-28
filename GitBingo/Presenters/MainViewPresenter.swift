@@ -92,7 +92,8 @@ class MainViewPresenter {
                 }
                 GroupUserDefaults.shared.save(id, of: .id)
                 if let contributions = contributions {
-                    GroupUserDefaults.shared.save(contributions, of: .contributions)
+                    let thisWeekContributions = Contribution(dots: contributions.dots.prefix(7).map {$0})
+                    GroupUserDefaults.shared.save(thisWeekContributions, of: .contributions)
                 }
             }
         }
