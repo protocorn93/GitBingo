@@ -45,13 +45,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             return
         }
         
-        if let contributions = GroupUserDefaults.shared.load(of: .contributions) as? Contribution {
-            self.contributions = contributions
-            todayCommitLabel.text = "\(contributions.today)"
-            weekTotalLabel.text = "\(contributions.total)"
-            self.widgetCollectionView.reloadData()
-        }
-        
         if let reserverdNotificaitonTime = GroupUserDefaults.shared.load(of: .notification) as? String {
             self.notificationTimeLabel.text = reserverdNotificaitonTime
         }else {
