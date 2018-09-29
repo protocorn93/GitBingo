@@ -37,8 +37,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     private func load() {
         if let id = GroupUserDefaults.shared.load(of: .id) as? String {
-            githubRegisterButton.setTitle("Welcome! \(id)👋", for: .normal)
-            initiateUI(isAuthenticated: true)
+            fetchContributions(of: id) {
+                self.initiateUI(isAuthenticated: true)
+            }
         }else {
             initiateUI(isAuthenticated: false)
             return
@@ -62,6 +63,21 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         githubRegisterButton.isHidden = isAuthenticated
         labelStackView.isHidden = !isAuthenticated
         widgetCollectionView.isHidden = !isAuthenticated
+        
+        todayCommitLabel.text = "\(contributions?.today ?? 0)"
+        weekTotalLabel.text = "\(contributions?.total ?? 0)"
+        widgetCollectionView.reloadData()
+    }
+    
+    private func fetchContributions(of id: String, completion: @escaping ()->() ) {
+        APIService.shared.fetchContributionDots(of: id) { (contributions, err) in
+            DispatchQueue.main.async {
+                guard let dots = contributions?.dots else { return }
+                let thisWeekContributions = Contribution(dots: dots.prefix(7).map{$0})
+                self.contributions = thisWeekContributions
+                completion()
+            }
+        }
     }
     
     @objc func handleRegisterNotificaiton(_ gesture: UITapGestureRecognizer) {
