@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let center = UNUserNotificationCenter.current()
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
@@ -29,18 +29,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if url.absoluteString.contains(AppURL.notificaiton.path) {
+            showRegisterViewController()
+        }
+        return true
+    }
+    
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         if shortcutItem.type == "SetAlarm" {
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let initViewController  = storyBoard.instantiateViewController(withIdentifier: "MainNavigationController")
-            let registerAlertViewController = storyBoard.instantiateViewController(withIdentifier: RegisterAlertViewController.reusableIdentifier)
-            
-            if self.window?.rootViewController == nil {
-                self.window?.rootViewController = initViewController
-                self.window?.makeKeyAndVisible()
-            }else {
-                self.window?.rootViewController?.present(registerAlertViewController, animated: true, completion: nil)
-            }
+            showRegisterViewController()
+        }
+    }
+    
+    private func showRegisterViewController() {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let initViewController  = storyBoard.instantiateViewController(withIdentifier: "MainNavigationController")
+        let registerAlertViewController = storyBoard.instantiateViewController(withIdentifier: RegisterAlertViewController.reusableIdentifier)
+        if self.window?.rootViewController == nil {
+            self.window?.rootViewController = initViewController
+            self.window?.makeKeyAndVisible()
+        }else {
+            self.window?.rootViewController?.present(registerAlertViewController, animated: true, completion: nil)
         }
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Contribution {
+class Contribution: Codable {
     //MARK: Properties
     var dots: [Dot]
     var count: Int {
@@ -18,6 +18,17 @@ class Contribution {
         let colors: [UIColor?] = dots.map {$0.grade?.color}
         
         return colors
+    }
+    var total: Int {
+        var total: Int = 0
+        dots.forEach {
+            total += $0.count ?? 0
+        }
+        return total
+    }
+    var today: Int {
+        let today = dots.filter {$0.isToday == true}
+        return today.count
     }
     
     //MARK: Life Cycle

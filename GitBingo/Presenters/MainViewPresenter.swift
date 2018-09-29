@@ -18,9 +18,9 @@ protocol GithubDotsRequestProtocol: class {
 class MainViewPresenter {
     //MARK: Properties
     private weak var vc: GithubDotsRequestProtocol?
-    private var contribution: Contribution?
+    private var contributions: Contribution?
     var dotsCount: Int {
-        return contribution?.count ?? 0
+        return contributions?.count ?? 0
     }
     
     //MARK: Life Cycle
@@ -36,7 +36,7 @@ class MainViewPresenter {
     }
     
     func refresh(mode: RefreshMode) {
-        guard let id = UserDefaults.standard.value(forKey: KeyIdentifier.id.value) as? String else { return }
+        guard let id = GroupUserDefaults.shared.load(of: .id) as? String else { return }
         
         switch mode {
         case .pullToRefresh:
@@ -61,7 +61,7 @@ class MainViewPresenter {
     }
     
     func requestDots() {
-        guard let id = UserDefaults.standard.value(forKey: KeyIdentifier.id.value) as? String else {
+        guard let id = GroupUserDefaults.shared.load(of: .id) as? String else {
             self.vc?.setUpGithubInputAlertButton("Hello, Who are you?")
             return
         }
@@ -71,7 +71,7 @@ class MainViewPresenter {
     }
     
     func color(at item: Int) -> UIColor? {
-        return contribution?.colors[item]
+        return contributions?.colors[item]
     }
     
     private func fetchDots(from id: String) {
@@ -86,11 +86,11 @@ class MainViewPresenter {
                 
                 // Success case
                 DispatchQueue.main.async {
-                    self.contribution = contributions
+                    self.contributions = contributions
                     self.vc?.showSuccessProgressStatus()
                     self.vc?.setUpGithubInputAlertButton("Welcome! \(id)👋")
                 }
-                UserDefaults.standard.set(id, forKey: KeyIdentifier.id.value)
+                GroupUserDefaults.shared.save(id, of: .id)
             }
         }
     }
