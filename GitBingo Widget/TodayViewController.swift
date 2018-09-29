@@ -37,12 +37,18 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     private func load() {
         if let id = GroupUserDefaults.shared.load(of: .id) as? String {
-            fetchContributions(of: id) {
-                self.initiateUI(isAuthenticated: true)
-            }
+            githubRegisterButton.setTitle("Welcome! \(id)👋", for: .normal)
+            initiateUI(isAuthenticated: true)
         }else {
             initiateUI(isAuthenticated: false)
             return
+        }
+        
+        if let contributions = GroupUserDefaults.shared.load(of: .contributions) as? Contribution {
+            self.contributions = contributions
+            todayCommitLabel.text = "\(contributions.today)"
+            weekTotalLabel.text = "\(contributions.total)"
+            self.widgetCollectionView.reloadData()
         }
         
         if let reserverdNotificaitonTime = GroupUserDefaults.shared.load(of: .notification) as? String {
@@ -52,25 +58,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
-    private func fetchContributions(of id: String, completion: @escaping ()->() ) {
-        APIService.shared.fetchContributionDots(of: id) { (contributions, err) in
-            DispatchQueue.main.async {
-                guard let dots = contributions?.dots else { return }
-                let thisWeekContributions = Contribution(dots: dots.prefix(7).map{$0})
-                self.contributions = thisWeekContributions
-                completion()
-            }
-        }
-    }
-    
     private func initiateUI(isAuthenticated: Bool) {
         githubRegisterButton.isHidden = isAuthenticated
         labelStackView.isHidden = !isAuthenticated
         widgetCollectionView.isHidden = !isAuthenticated
-        
-        todayCommitLabel.text = "\(contributions?.today ?? 0)"
-        weekTotalLabel.text = "\(contributions?.total ?? 0)"
-        widgetCollectionView.reloadData()
     }
     
     @objc func handleRegisterNotificaiton(_ gesture: UITapGestureRecognizer) {
@@ -87,6 +78,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        // Perform any setup necessary in order to update the view.
+        
+        // If an error is encountered, use NCUpdateResult.Failed
+        // If there's no update required, use NCUpdateResult.NoData
+        // If there's an update, use NCUpdateResult.NewData
+        self.widgetCollectionView.reloadData()
+        
         completionHandler(NCUpdateResult.newData)
     }
 }
