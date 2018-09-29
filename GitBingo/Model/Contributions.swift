@@ -26,9 +26,9 @@ class Contribution: Codable {
         }
         return total
     }
-    var today: Int {
+    var today: Int? {
         let today = dots.filter {$0.isToday == true}
-        return today.count
+        return today.first?.count
     }
     
     //MARK: Life Cycle
