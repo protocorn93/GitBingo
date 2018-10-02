@@ -167,7 +167,7 @@
                                     <action selector="handleRegisterID:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="B2l-jg-GRt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndt-4N-q0j">
+                            <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndt-4N-q0j">
                                 <rect key="frame" x="8" y="8" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="16" id="OtX-j9-qJH"/>
@@ -179,6 +179,9 @@
                                     <action selector="reload:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="Ofa-ou-BJa"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="DpR-g2-BcW">
+                                <rect key="frame" x="141.5" y="36.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="zgD-UN-9XX" secondAttribute="trailing" id="20f-4c-9XP"/>
@@ -191,6 +194,8 @@
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="1zH-jQ-L0Q" secondAttribute="trailing" id="Knh-JC-XEO"/>
                             <constraint firstItem="2oU-Io-qQD" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="L0z-79-Yoj"/>
                             <constraint firstItem="zgD-UN-9XX" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="QSi-YN-ZZ2"/>
+                            <constraint firstItem="DpR-g2-BcW" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="XaO-2a-0LA"/>
+                            <constraint firstItem="DpR-g2-BcW" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="XeC-Fg-uBc"/>
                             <constraint firstItem="2oU-Io-qQD" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" constant="-10" id="dQY-aX-n6L"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="zgD-UN-9XX" secondAttribute="bottom" id="iD9-R6-7I5"/>
                             <constraint firstItem="ndt-4N-q0j" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="8" id="jCx-1d-3iH"/>
@@ -202,9 +207,11 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="110"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="DpR-g2-BcW" id="676-I5-hbr"/>
                         <outlet property="githubRegisterButton" destination="2oU-Io-qQD" id="yiS-DI-mrv"/>
                         <outlet property="labelStackView" destination="TGH-Uw-UI3" id="vRH-Tk-gsI"/>
                         <outlet property="notificationTimeLabel" destination="gBG-lO-kj0" id="IRg-gr-IBi"/>
+                        <outlet property="reloadButton" destination="ndt-4N-q0j" id="ZYy-bW-Be2"/>
                         <outlet property="todayCommitLabel" destination="GUl-cw-IYT" id="3jY-Yb-awc"/>
                         <outlet property="weekTotalLabel" destination="Ik4-qu-RBD" id="zs9-Xz-HaA"/>
                         <outlet property="widgetCollectionView" destination="zgD-UN-9XX" id="oa1-1X-sB6"/>

@@ -15,7 +15,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var labelStackView: UIStackView!
     @IBOutlet weak var widgetCollectionView: UICollectionView!
     
-    
+    @IBOutlet weak var reloadButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var githubRegisterButton: UIButton!
     @IBOutlet weak var todayCommitLabel: UILabel!
     @IBOutlet weak var weekTotalLabel: UILabel!
@@ -36,28 +37,27 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     @IBAction func reload(_ sender: UIButton) {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         if let id = GroupUserDefaults.shared.load(of: .id) as? String {
             fetchContributions(of: id) {
                 self.initiateUI(isAuthenticated: true)
-                self.widgetCollectionView.reloadData()
+                self.activityIndicator.stopAnimating()
+                if let contributions = self.contributions {
+                    GroupUserDefaults.shared.save(contributions, of: .contributions)
+                }
             }
         }
     }
     
     private func load() {
-        if let _ = GroupUserDefaults.shared.load(of: .id) as? String {
+        if let _ = GroupUserDefaults.shared.load(of: .id) as? String,
+            let contributions = GroupUserDefaults.shared.load(of: .contributions) as? Contribution {
+            self.contributions = contributions
             initiateUI(isAuthenticated: true)
         }else {
             initiateUI(isAuthenticated: false)
             return
-        }
-        
-        if let contributions = GroupUserDefaults.shared.load(of: .contributions) as? Contribution {
-            self.contributions = contributions
-            
-            todayCommitLabel.text = "\(contributions.today ?? 0)"
-            weekTotalLabel.text = "\(contributions.total)"
-            widgetCollectionView.reloadData()
         }
         
         if let reserverdNotificaitonTime = GroupUserDefaults.shared.load(of: .notification) as? String {
@@ -71,9 +71,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         githubRegisterButton.isHidden = isAuthenticated
         labelStackView.isHidden = !isAuthenticated
         widgetCollectionView.isHidden = !isAuthenticated
+        reloadButton.isHidden = !isAuthenticated
         
         todayCommitLabel.text = "\(contributions?.today ?? 0)"
         weekTotalLabel.text = "\(contributions?.total ?? 0)"
+        widgetCollectionView.reloadData()
     }
     
     private func fetchContributions(of id: String, completion: @escaping ()->() ) {
