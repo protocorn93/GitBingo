@@ -37,33 +37,32 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     @IBAction func reload(_ sender: UIButton) {
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-        if let id = GroupUserDefaults.shared.load(of: .id) as? String {
-            fetchContributions(of: id) {
-                self.initiateUI(isAuthenticated: true)
-                self.activityIndicator.stopAnimating()
-                if let contributions = self.contributions {
-                    GroupUserDefaults.shared.save(contributions, of: .contributions)
-                }
-            }
-        }
+        guard let id = GroupUserDefaults.shared.load(of: .id) as? String else { return }
+        fetch(of: id)
     }
     
     private func load() {
-        if let _ = GroupUserDefaults.shared.load(of: .id) as? String,
-            let contributions = GroupUserDefaults.shared.load(of: .contributions) as? Contribution {
-            self.contributions = contributions
-            initiateUI(isAuthenticated: true)
-        }else {
+        guard let id = GroupUserDefaults.shared.load(of: .id) as? String else {
             initiateUI(isAuthenticated: false)
             return
         }
+        fetch(of: id)
         
-        if let reserverdNotificaitonTime = GroupUserDefaults.shared.load(of: .notification) as? String {
-            self.notificationTimeLabel.text = reserverdNotificaitonTime
-        }else {
+        guard let reserverdNotificaitonTime = GroupUserDefaults.shared.load(of: .notification) as? String else {
             self.notificationTimeLabel.text = "➕"
+            return
+        }
+        
+        self.notificationTimeLabel.text = reserverdNotificaitonTime
+    }
+    
+    private func fetch(of id: String) {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        fetchContributions(of: id) {
+            self.initiateUI(isAuthenticated: true)
+            self.activityIndicator.stopAnimating()
+            self.widgetCollectionView.reloadData()
         }
     }
     
@@ -75,7 +74,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         todayCommitLabel.text = "\(contributions?.today ?? 0)"
         weekTotalLabel.text = "\(contributions?.total ?? 0)"
-        widgetCollectionView.reloadData()
     }
     
     private func fetchContributions(of id: String, completion: @escaping ()->() ) {
