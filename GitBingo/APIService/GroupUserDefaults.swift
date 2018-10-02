@@ -13,12 +13,26 @@ class GroupUserDefaults {
     private var groupUserDefaults = UserDefaults(suiteName: "group.Gitbingo")!
     private init() {}
     
-    func save(_ data: String, of type: KeyIdentifier) {
-        groupUserDefaults.set(data, forKey: type.value)
+    func save<T: Codable>(_ data: T, of type: KeyIdentifier) {
+        switch type {
+        case .contributions:
+            guard let encoded = try? PropertyListEncoder().encode(data) else { return }
+            groupUserDefaults.set(encoded, forKey: type.value)
+        default:
+            groupUserDefaults.set(data, forKey: type.value)
+        }
     }
     
     func load(of type: KeyIdentifier) -> Any? {
-        return groupUserDefaults.value(forKey: type.value)
+        switch type {
+        case .contributions:
+            if let data = groupUserDefaults.object(forKey: type.value) as? Data {
+                return try? PropertyListDecoder().decode(Contribution.self, from: data)
+            }
+        default:
+            return groupUserDefaults.value(forKey: type.value)
+        }
+        return nil
     }
     
     func remove(of type: KeyIdentifier) {

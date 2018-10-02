@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -21,19 +21,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TGH-Uw-UI3">
-                                        <rect key="frame" x="0.0" y="18.5" width="320" height="43.5"/>
+                                        <rect key="frame" x="32" y="18.5" width="256" height="43.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="S3i-jW-0H4">
-                                                <rect key="frame" x="0.0" y="0.0" width="106.5" height="43.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="85.5" height="43.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgu-9G-zLB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="16.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="85.5" height="16.5"/>
                                                         <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="10"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUl-cw-IYT">
-                                                        <rect key="frame" x="0.0" y="21.5" width="106.5" height="22"/>
+                                                        <rect key="frame" x="0.0" y="21.5" width="85.5" height="22"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -41,16 +41,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Z0X-4c-U2U">
-                                                <rect key="frame" x="106.5" y="0.0" width="107" height="43.5"/>
+                                                <rect key="frame" x="85.5" y="0.0" width="85" height="43.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uie-Lr-aui">
-                                                        <rect key="frame" x="0.0" y="0.0" width="107" height="16.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="85" height="16.5"/>
                                                         <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="10"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ik4-qu-RBD">
-                                                        <rect key="frame" x="0.0" y="21.5" width="107" height="22"/>
+                                                        <rect key="frame" x="0.0" y="21.5" width="85" height="22"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -58,16 +58,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8f1-Vc-ZmR">
-                                                <rect key="frame" x="213.5" y="0.0" width="106.5" height="43.5"/>
+                                                <rect key="frame" x="170.5" y="0.0" width="85.5" height="43.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvE-km-Vtg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="16.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="85.5" height="16.5"/>
                                                         <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="10"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBG-lO-kj0">
-                                                        <rect key="frame" x="0.0" y="21.5" width="106.5" height="22"/>
+                                                        <rect key="frame" x="0.0" y="21.5" width="85.5" height="22"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -80,7 +80,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="TGH-Uw-UI3" firstAttribute="centerX" secondItem="1zH-jQ-L0Q" secondAttribute="centerX" id="BjW-B2-aVD"/>
-                                    <constraint firstItem="TGH-Uw-UI3" firstAttribute="width" secondItem="1zH-jQ-L0Q" secondAttribute="width" id="aN0-ce-gl2"/>
+                                    <constraint firstItem="TGH-Uw-UI3" firstAttribute="width" secondItem="1zH-jQ-L0Q" secondAttribute="width" multiplier="0.8" id="aN0-ce-gl2"/>
                                     <constraint firstItem="TGH-Uw-UI3" firstAttribute="centerY" secondItem="1zH-jQ-L0Q" secondAttribute="centerY" id="glQ-G7-TfL"/>
                                 </constraints>
                             </view>
@@ -167,10 +167,23 @@
                                     <action selector="handleRegisterID:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="B2l-jg-GRt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndt-4N-q0j">
+                                <rect key="frame" x="8" y="8" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="OtX-j9-qJH"/>
+                                    <constraint firstAttribute="height" constant="16" id="a14-d1-Yec"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="sync"/>
+                                <connections>
+                                    <action selector="reload:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="Ofa-ou-BJa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="zgD-UN-9XX" secondAttribute="trailing" id="20f-4c-9XP"/>
                             <constraint firstItem="1zH-jQ-L0Q" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="39y-HI-Dra"/>
+                            <constraint firstItem="ndt-4N-q0j" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="8" id="4dJ-mt-RI1"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="gax-mf-LeP" secondAttribute="trailing" id="6z9-PP-4L3"/>
                             <constraint firstItem="gax-mf-LeP" firstAttribute="top" secondItem="1zH-jQ-L0Q" secondAttribute="bottom" id="A7L-9c-c4H"/>
                             <constraint firstItem="1zH-jQ-L0Q" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="Cyl-z7-xPn"/>
@@ -180,6 +193,7 @@
                             <constraint firstItem="zgD-UN-9XX" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="QSi-YN-ZZ2"/>
                             <constraint firstItem="2oU-Io-qQD" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" constant="-10" id="dQY-aX-n6L"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="zgD-UN-9XX" secondAttribute="bottom" id="iD9-R6-7I5"/>
+                            <constraint firstItem="ndt-4N-q0j" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="8" id="jCx-1d-3iH"/>
                             <constraint firstItem="zgD-UN-9XX" firstAttribute="top" secondItem="gax-mf-LeP" secondAttribute="bottom" constant="5" id="lg0-7z-Ul2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
@@ -198,7 +212,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.59999999999999" y="132.23388305847078"/>
+            <point key="canvasLocation" x="136.875" y="132.04225352112675"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="sync" width="25" height="25"/>
+    </resources>
 </document>

@@ -35,14 +35,29 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         load()
     }
     
-    private func load() {
+    @IBAction func reload(_ sender: UIButton) {
         if let id = GroupUserDefaults.shared.load(of: .id) as? String {
             fetchContributions(of: id) {
                 self.initiateUI(isAuthenticated: true)
+                self.widgetCollectionView.reloadData()
             }
+        }
+    }
+    
+    private func load() {
+        if let _ = GroupUserDefaults.shared.load(of: .id) as? String {
+            initiateUI(isAuthenticated: true)
         }else {
             initiateUI(isAuthenticated: false)
             return
+        }
+        
+        if let contributions = GroupUserDefaults.shared.load(of: .contributions) as? Contribution {
+            self.contributions = contributions
+            
+            todayCommitLabel.text = "\(contributions.today ?? 0)"
+            weekTotalLabel.text = "\(contributions.total)"
+            widgetCollectionView.reloadData()
         }
         
         if let reserverdNotificaitonTime = GroupUserDefaults.shared.load(of: .notification) as? String {
@@ -59,7 +74,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         todayCommitLabel.text = "\(contributions?.today ?? 0)"
         weekTotalLabel.text = "\(contributions?.total ?? 0)"
-        widgetCollectionView.reloadData()
     }
     
     private func fetchContributions(of id: String, completion: @escaping ()->() ) {
