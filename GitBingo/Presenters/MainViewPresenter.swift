@@ -91,10 +91,6 @@ class MainViewPresenter {
                     self.vc?.setUpGithubInputAlertButton("Welcome! \(id)👋")
                 }
                 GroupUserDefaults.shared.save(id, of: .id)
-                if let contributions = contributions {
-                    let weekContribution = Contribution(dots: contributions.dots.prefix(7).map {$0})
-                    GroupUserDefaults.shared.save(weekContribution, of: .contributions)
-                }
             }
         }
     }
