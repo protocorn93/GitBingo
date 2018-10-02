@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3E007BCE213BD0780007DD5C /* RegisterAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E007BCD213BD0780007DD5C /* RegisterAlertViewController.swift */; };
 		3E007BD0213BD4740007DD5C /* CustomFontString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E007BCF213BD4740007DD5C /* CustomFontString.swift */; };
+		3E025BCE2163952300F93D4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE6212EFE85005E76DA /* Assets.xcassets */; };
 		3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41C2FB213A319100371B4F /* GitBingoError.swift */; };
 		3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A3D721396725002983D8 /* MainViewPresenter.swift */; };
 		3E9D2ADE213D1AFD0009DAD8 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */; };
@@ -391,6 +392,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E025BCE2163952300F93D4E /* Assets.xcassets in Resources */,
 				3E9ECCEC215C0BB00089755E /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
