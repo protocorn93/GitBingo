@@ -44,8 +44,8 @@
 
 > 알람 수신을 스크린샷을 위해 위의 알람 설정 화면에서 설정한 시간과 차이가 존재합니다. 
 
-<img src="./images/NotificationAlert.png" style="zoom:25%">
+<img src="./images/NotificationAlert.png" width="450">
 
 **Version 2.0 - Widget** 
 
-<img src="./images/Widget.png" style="zoom:25%">
+<img src="./images/Widget.png" width="300">
