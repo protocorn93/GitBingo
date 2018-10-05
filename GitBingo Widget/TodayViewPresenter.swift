@@ -13,6 +13,7 @@ protocol GitBingoWidgetProtocol: class {
     func endLoad()
     func hide(isAuthenticated: Bool)
     func initUI(with contributions: Contribution, at time: String)
+    func open(_ url: URL)
 }
 
 class TodayViewPresenter {
@@ -45,6 +46,11 @@ class TodayViewPresenter {
         }
         
         fetch(of: id, at: "➕")
+    }
+    
+    func handleUserInteraction(type: AppURL) {
+        guard let url = URL(string: "GitBingoHost://\(type.path)") else { return }
+        vc?.open(url)
     }
     
     private func fetch(of id: String, at time: String) {

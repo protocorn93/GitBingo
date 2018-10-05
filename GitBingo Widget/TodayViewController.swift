@@ -50,16 +50,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     @objc func handleRegisterNotificaiton(_ gesture: UITapGestureRecognizer) {
-        handleUserInteraction(type: .notificaiton)
+        presenter.handleUserInteraction(type: .notificaiton)
     }
         
     @IBAction func handleRegisterID(_ sender: UIButton) {
-        handleUserInteraction(type: .authentication)
-    }
-    
-    private func handleUserInteraction(type: AppURL) {
-        guard let url = URL(string: "GitBingoHost://\(type.path)") else { return }
-        extensionContext?.open(url, completionHandler: nil)
+        presenter.handleUserInteraction(type: .authentication)
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -69,7 +64,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
 extension TodayViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "widgetcell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionViewCell.reusableIdentifier, for: indexPath)
         cell.backgroundColor = presenter.colors(at: indexPath)
         return cell
     }
@@ -117,5 +112,9 @@ extension TodayViewController: GitBingoWidgetProtocol {
         todayCommitLabel.text = "\(contributions.today)"
         weekTotalLabel.text = "\(contributions.total)"
         notificationTimeLabel.text = time
+    }
+    
+    func open(_ url: URL) {
+        extensionContext?.open(url, completionHandler: nil)
     }
 }
