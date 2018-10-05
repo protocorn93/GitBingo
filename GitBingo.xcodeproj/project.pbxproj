@@ -45,6 +45,7 @@
 		3EBC8592212F09D1002540A8 /* ContributionGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8591212F09D1002540A8 /* ContributionGrade.swift */; };
 		3EBC8594212F0CC3002540A8 /* Contributions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8593212F0CC3002540A8 /* Contributions.swift */; };
 		3ED9666F2156FB60008A8897 /* GitBingoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED9666E2156FB60008A8897 /* GitBingoAlert.swift */; };
+		3EF465E821674C6700E877D7 /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */; };
 		3EFBF117213AA222002B3142 /* RefreshMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF116213AA222002B3142 /* RefreshMode.swift */; };
 		3EFBF11B213AE2BE002B3142 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11A213AE2BE002B3142 /* SectionHeaderView.swift */; };
 		3EFBF11D213AE2CE002B3142 /* SectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11C213AE2CE002B3142 /* SectionFooterView.swift */; };
@@ -483,6 +484,7 @@
 				3E9ECCFB215C10CB0089755E /* LocalizedString.swift in Sources */,
 				3E9ECD06215D80AC0089755E /* GroupUserDefaults.swift in Sources */,
 				3E9ECD03215C1C660089755E /* KeyIdentifier.swift in Sources */,
+				3EF465E821674C6700E877D7 /* ReusableIdentifier.swift in Sources */,
 				3E9ECCFE215C10D70089755E /* Contributions.swift in Sources */,
 				3E9ECD09215DD2D20089755E /* AppURL.swift in Sources */,
 				3E9ECCFC215C10D20089755E /* Dot.swift in Sources */,
