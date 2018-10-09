@@ -11,8 +11,8 @@ import UIKit
 protocol GitBingoWidgetProtocol: class {
     func startLoad()
     func endLoad()
-    func hide(isAuthenticated: Bool)
-    func initUI(with contributions: Contribution, at time: String)
+    func hide(error: GitBingoError?)
+    func initUI(with contributions: Contribution?, at time: String)
     func open(_ url: URL)
 }
 
@@ -36,7 +36,7 @@ class TodayViewPresenter {
     
     func load() {
         guard let id = GroupUserDefaults.shared.load(of: .id) as? String else {
-            vc?.hide(isAuthenticated: false)
+            vc?.hide(error: .idIsEmpty)
             return
         }
         
@@ -55,20 +55,30 @@ class TodayViewPresenter {
     
     private func fetch(of id: String, at time: String) {
         vc?.startLoad()
-        fetchContributions(of: id) {
-            self.vc?.hide(isAuthenticated: true)
-            self.vc?.initUI(with: self.contributions!, at: time)
-            self.vc?.endLoad()
+        fetchContributions(of: id) { [weak self] (err) in
+            if let err = err {
+                self?.vc?.hide(error: err)
+                self?.vc?.endLoad()
+                return
+            }
+            self?.vc?.hide(error: nil)
+            self?.vc?.initUI(with: self?.contributions, at: time)
+            self?.vc?.endLoad()
         }
     }
     
-    private func fetchContributions(of id: String, completion: @escaping ()->() ) {
-        APIService.shared.fetchContributionDots(of: id) { (contributions, err) in
+    private func fetchContributions(of id: String, completion: @escaping (_ error: GitBingoError?)->() ) {
+        APIService.shared.fetchContributionDots(of: id) { [weak self] (contributions, err) in
+            if let err = err {
+                completion(err)
+                return
+            }
+            
             DispatchQueue.main.async {
                 guard let dots = contributions?.dots else { return }
                 let thisWeekContributions = Contribution(dots: dots.prefix(7).map{$0})
-                self.contributions = thisWeekContributions
-                completion()
+                self?.contributions = thisWeekContributions
+                completion(nil)
             }
         }
     }

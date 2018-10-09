@@ -90,6 +90,26 @@ extension TodayViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension TodayViewController: GitBingoWidgetProtocol {
+    func hide(error: GitBingoError?) {
+        var hasError = false
+        if let error = error {
+            githubRegisterButton.isHidden = false
+            switch error {
+            case .idIsEmpty:
+                githubRegisterButton.setTitle("Tap to register Github ID", for: .normal)
+                githubRegisterButton.isUserInteractionEnabled = true
+            default:
+                githubRegisterButton.setTitle(error.description, for: .normal)
+                githubRegisterButton.isUserInteractionEnabled = false
+            }
+            hasError = true
+        }
+        
+        githubRegisterButton.isHidden = !hasError
+        labelStackView.isHidden = hasError
+        widgetCollectionView.isHidden = hasError
+        reloadButton.isHidden = hasError
+    }
     
     func startLoad() {
         activityIndicator.isHidden = false
@@ -108,7 +128,8 @@ extension TodayViewController: GitBingoWidgetProtocol {
         reloadButton.isHidden = !isAuthenticated
     }
     
-    func initUI(with contributions: Contribution, at time: String) {
+    func initUI(with contributions: Contribution?, at time: String) {
+        guard let contributions = contributions else { return }
         todayCommitLabel.text = "\(contributions.today)"
         weekTotalLabel.text = "\(contributions.total)"
         notificationTimeLabel.text = time

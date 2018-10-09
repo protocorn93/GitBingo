@@ -78,17 +78,17 @@ class MainViewPresenter {
         DispatchQueue.global().async {
             APIService.shared.fetchContributionDots(of: id) { (contributions, err) in
                 if let err = err {
-                    DispatchQueue.main.async {
-                        self.vc?.showFailProgressStatus(with: err)
+                    DispatchQueue.main.async { [weak self] in
+                        self?.vc?.showFailProgressStatus(with: err)
                     }
                     return
                 }
                 
                 // Success case
-                DispatchQueue.main.async {
-                    self.contributions = contributions
-                    self.vc?.showSuccessProgressStatus()
-                    self.vc?.setUpGithubInputAlertButton("Welcome! \(id)👋")
+                DispatchQueue.main.async { [weak self] in
+                    self?.contributions = contributions
+                    self?.vc?.showSuccessProgressStatus()
+                    self?.vc?.setUpGithubInputAlertButton("Welcome! \(id)👋")
                 }
                 GroupUserDefaults.shared.save(id, of: .id)
             }

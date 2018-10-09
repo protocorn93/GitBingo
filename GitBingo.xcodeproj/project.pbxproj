@@ -183,9 +183,9 @@
 			children = (
 				3E9ECD02215C1B5B0089755E /* GitBingo Widget.entitlements */,
 				3E9ECCE8215C0BB00089755E /* TodayViewController.swift */,
+				3E025BCF2163B74600F93D4E /* TodayViewPresenter.swift */,
 				3E9ECCEA215C0BB00089755E /* MainInterface.storyboard */,
 				3E9ECCED215C0BB00089755E /* Info.plist */,
-				3E025BCF2163B74600F93D4E /* TodayViewPresenter.swift */,
 			);
 			path = "GitBingo Widget";
 			sourceTree = "<group>";
