@@ -210,9 +210,12 @@
                         <outlet property="activityIndicator" destination="DpR-g2-BcW" id="676-I5-hbr"/>
                         <outlet property="githubRegisterButton" destination="2oU-Io-qQD" id="yiS-DI-mrv"/>
                         <outlet property="labelStackView" destination="TGH-Uw-UI3" id="vRH-Tk-gsI"/>
+                        <outlet property="notificationLabel" destination="fvE-km-Vtg" id="Lz9-6F-SxG"/>
                         <outlet property="notificationTimeLabel" destination="gBG-lO-kj0" id="IRg-gr-IBi"/>
                         <outlet property="reloadButton" destination="ndt-4N-q0j" id="ZYy-bW-Be2"/>
                         <outlet property="todayCommitLabel" destination="GUl-cw-IYT" id="3jY-Yb-awc"/>
+                        <outlet property="todayLabel" destination="bgu-9G-zLB" id="187-Zn-bD8"/>
+                        <outlet property="weekLabel" destination="Uie-Lr-aui" id="3vd-2T-w3L"/>
                         <outlet property="weekTotalLabel" destination="Ik4-qu-RBD" id="zs9-Xz-HaA"/>
                         <outlet property="widgetCollectionView" destination="zgD-UN-9XX" id="oa1-1X-sB6"/>
                     </connections>

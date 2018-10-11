@@ -39,3 +39,8 @@
 "Ok" = "확인";
 "Yes" = "예";
 "No" = "아니오";
+
+// GitBingo Widget MainInterface.storyboard
+"Today" = "오늘";
+"Week" = "이번 주";
+"Notification" = "예약된 알람";

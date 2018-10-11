@@ -11,6 +11,11 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
+    // Localizable UI
+    @IBOutlet weak var todayLabel: UILabel!
+    @IBOutlet weak var weekLabel: UILabel!
+    @IBOutlet weak var notificationLabel: UILabel!
+    
     // To Be Hidden
     @IBOutlet weak var labelStackView: UIStackView!
     @IBOutlet weak var widgetCollectionView: UICollectionView!
@@ -33,6 +38,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         widgetCollectionView.delegate = self
         widgetCollectionView.dataSource = self
+        localization()
         setupPresenter()
     }
     
@@ -47,6 +53,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     private func load() {
         presenter.load()
+    }
+    
+    private func localization() {
+        todayLabel.text = todayLabel.text?.localized
+        weekLabel.text = weekLabel.text?.localized
+        notificationLabel.text = notificationLabel.text?.localized
     }
     
     @objc func handleRegisterNotificaiton(_ gesture: UITapGestureRecognizer) {
