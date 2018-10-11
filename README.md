@@ -19,6 +19,12 @@
 - `Delegation `, `Singleton`
 - 시도한 아키텍쳐 : `MVP`
 
+#### 공부한 내용 정리
+
+- App Extension Programming Guide for iOS
+  - [Essential](https://ehdrjsdlzzzz.github.io/2018/10/03/App-Extension-Programming-Guide-1/)
+  - [Essential - Handling Common Scenarios](https://ehdrjsdlzzzz.github.io/2018/10/09/App-Extension-Programming-Guide-2/)
+
 #### 사용한 라이브러리
 
 - [`Kanna`](https://github.com/tid-kijyun/Kanna) - https://github.com/users/ehdrjsdlzzzz/contributions 로부터 HTML을 파싱해오기 위해 사용
