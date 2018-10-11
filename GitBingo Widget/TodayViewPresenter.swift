@@ -8,6 +8,7 @@
 
 import UIKit
 
+//MARK: Protocol
 protocol GitBingoWidgetProtocol: class {
     func startLoad()
     func endLoad()
@@ -17,9 +18,11 @@ protocol GitBingoWidgetProtocol: class {
 }
 
 class TodayViewPresenter {
+    //MARK: Properties
     private weak var vc: GitBingoWidgetProtocol?
     private var contributions: Contribution?
     
+    //MARK: Life Cycle
     init() {}
     
     func attachView(_ vc: GitBingoWidgetProtocol) {

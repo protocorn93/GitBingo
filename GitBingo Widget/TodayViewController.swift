@@ -10,8 +10,7 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-    
-    // Localizable UI
+    //MARK: Outlets
     @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var weekLabel: UILabel!
     @IBOutlet weak var notificationLabel: UILabel!
@@ -32,8 +31,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
+    //MARK: Presenter
     private var presenter: TodayViewPresenter = TodayViewPresenter()
     
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         widgetCollectionView.delegate = self
@@ -42,16 +43,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         setupPresenter()
     }
     
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        completionHandler(NCUpdateResult.newData)
+    }
+    
+    //MARK: Setup
     private func setupPresenter() {
         presenter.attachView(self)
-        presenter.load()
-    }
-    
-    @IBAction func reload(_ sender: UIButton) {
-        presenter.load()
-    }
-    
-    private func load() {
         presenter.load()
     }
     
@@ -61,6 +59,16 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         notificationLabel.text = notificationLabel.text?.localized
     }
     
+    //MARK: Fetch
+    @IBAction func reload(_ sender: UIButton) {
+        presenter.load()
+    }
+    
+    private func load() {
+        presenter.load()
+    }
+    
+    //MARK: Action
     @objc func handleRegisterNotificaiton(_ gesture: UITapGestureRecognizer) {
         presenter.handleUserInteraction(type: .notificaiton)
     }
@@ -69,11 +77,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         presenter.handleUserInteraction(type: .authentication)
     }
     
-    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        completionHandler(NCUpdateResult.newData)
-    }
 }
 
+//MARK:- UICollectionViewDataSource
 extension TodayViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionViewCell.reusableIdentifier, for: indexPath)
@@ -86,6 +92,7 @@ extension TodayViewController: UICollectionViewDataSource {
     }
 }
 
+//MARK:- UICollectionViewDelegateFlowLayout
 extension TodayViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width / 7
@@ -101,6 +108,7 @@ extension TodayViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+//MARK:- GitBingoWidgetProtocol
 extension TodayViewController: GitBingoWidgetProtocol {
     func hide(error: GitBingoError?) {
         var hasError = false
