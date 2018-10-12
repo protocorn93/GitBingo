@@ -19,6 +19,13 @@ class MainViewPresenter {
     //MARK: Properties
     private weak var vc: GithubDotsRequestProtocol?
     private var contributions: Contribution?
+    private var id: String? {
+        return GroupUserDefaults.shared.load(of: .id) as? String
+    }
+    private var greeting: String {
+        guard let id = self.id else { return "Hello, Who are you?" }
+        return "Welcome! \(id)👋"
+    }
     var dotsCount: Int {
         return contributions?.count ?? 0
     }
@@ -36,38 +43,21 @@ class MainViewPresenter {
     }
     
     func refresh(mode: RefreshMode) {
-        guard let id = GroupUserDefaults.shared.load(of: .id) as? String else { return }
-        
-        switch mode {
-        case .pullToRefresh:
-            vc?.showProgressStatus(mode: .pullToRefresh)
-        case .tapToRefresh:
-            vc?.showProgressStatus(mode: .tapToRefresh)
-        }
-        
-        fetchDots(from: id)
+        guard let id = self.id else { return }
+        requestDots(from: id, mode: mode)
     }
     
-    func showError(with error: GitBingoError) {
-        vc?.showFailProgressStatus(with: error)
-    }
-    
-    func requestDots(from id: String) throws {
-        if id.count == 0 {
-            throw GitBingoError.idIsEmpty
-        }
-        vc?.showProgressStatus(mode: nil)
+    func requestDots(from id: String, mode: RefreshMode? = nil) {
+        vc?.showProgressStatus(mode: mode)
         fetchDots(from: id)
     }
     
     func requestDots() {
-        guard let id = GroupUserDefaults.shared.load(of: .id) as? String else {
-            self.vc?.setUpGithubInputAlertButton("Hello, Who are you?")
+        guard let id = self.id else {
+            self.vc?.setUpGithubInputAlertButton(greeting)
             return
         }
-        
-        vc?.showProgressStatus(mode: nil)
-        fetchDots(from: id)
+        requestDots(from: id)
     }
     
     func color(at item: Int) -> UIColor? {
@@ -86,9 +76,10 @@ class MainViewPresenter {
                 
                 // Success case
                 DispatchQueue.main.async { [weak self] in
-                    self?.contributions = contributions
-                    self?.vc?.showSuccessProgressStatus()
-                    self?.vc?.setUpGithubInputAlertButton("Welcome! \(id)👋")
+                    guard let self = self else { return }
+                    self.contributions = contributions
+                    self.vc?.showSuccessProgressStatus()
+                    self.vc?.setUpGithubInputAlertButton(self.greeting)
                 }
                 GroupUserDefaults.shared.save(id, of: .id)
             }

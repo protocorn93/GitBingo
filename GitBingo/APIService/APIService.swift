@@ -17,6 +17,10 @@ struct APIService {
     
     //MARK: Methods
     func fetchContributionDots(of id: String, completion: @escaping (Contribution?, GitBingoError?) -> ()) {
+        if id.isEmpty {
+            completion(nil, GitBingoError.idIsEmpty)
+            return
+        }
         guard let url = URL(string: "https://github.com/users/\(id)/contributions") else {
             completion(nil, GitBingoError.pageNotFound)
             return

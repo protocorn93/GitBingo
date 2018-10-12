@@ -19,7 +19,7 @@ extension UIAlertController {
         }
     }
     
-    static func showGithubIDInputAlert(on vc: UIViewController, with presenter: MainViewPresenter) {
+    static func showGithubIDInputAlert(on vc: UIViewController, completion: @escaping (String)->() ) {
         let alert = UIAlertController(title: "Github ID", message: nil, preferredStyle: .alert)
         
         alert.addTextField { (textField) in
@@ -28,13 +28,7 @@ extension UIAlertController {
         
         alert.addAction(UIAlertAction(title: "Done".localized, style: .default, handler: { (_) in
             guard let id = alert.textFields?[0].text else { return }
-            do {
-                try presenter.requestDots(from: id)
-            }catch let err as GitBingoError {
-                presenter.showError(with: err)
-            }catch {
-                presenter.showError(with: .unexpected)
-            }
+            completion(id)
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
