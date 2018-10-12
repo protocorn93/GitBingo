@@ -47,17 +47,13 @@ class MainViewPresenter {
         requestDots(from: id, mode: mode)
     }
     
-    func requestDots(from id: String, mode: RefreshMode? = nil) {
-        vc?.showProgressStatus(mode: mode)
-        fetchDots(from: id)
-    }
-    
-    func requestDots() {
-        guard let id = self.id else {
-            self.vc?.setUpGithubInputAlertButton(greeting)
+    func requestDots(from id: String? = nil, mode: RefreshMode? = nil) {
+        if let id = id ?? self.id {
+            vc?.showProgressStatus(mode: mode)
+            fetchDots(from: id)
             return
         }
-        requestDots(from: id)
+        vc?.setUpGithubInputAlertButton(greeting)
     }
     
     func color(at item: Int) -> UIColor? {
