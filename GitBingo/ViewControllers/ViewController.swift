@@ -63,7 +63,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func handleShowGithubInputAlert(_ sender: Any) {
-        UIAlertController.showGithubIDInputAlert(on: self, with: presenter)
+        UIAlertController.showGithubIDInputAlert(on: self) { [weak self] (id) in
+            self?.presenter.requestDots(from: id)
+        }
     }
 }
 
