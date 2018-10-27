@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Dot: Codable {
+class Dot {
     //MARK: Properties
     private (set) var count: Int?
     var isToday: Bool = false
