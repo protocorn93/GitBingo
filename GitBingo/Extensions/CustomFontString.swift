@@ -10,9 +10,9 @@ import UIKit
 
 extension String {
     var customFont: NSMutableAttributedString {
-        let customString = NSMutableAttributedString(string: self)
-        let ns = self as NSString
-        customString.addAttributes([NSAttributedString.Key.font : UIFont(name: "Apple Color Emoji", size: 17) ?? .systemFont(ofSize: 10)], range: NSRange.init(location: 0, length: ns.length))
-        return customString
+        let attributes: [NSAttributedString.Key : Any] = [
+            .font : UIFont(name: "Apple Color Emoji", size: 17) ?? .systemFont(ofSize: 10)
+        ]
+        return NSMutableAttributedString(string: self, attributes: attributes)
     }
 }
