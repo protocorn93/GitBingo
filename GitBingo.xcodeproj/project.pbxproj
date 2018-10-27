@@ -12,6 +12,9 @@
 		3E025BCE2163952300F93D4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE6212EFE85005E76DA /* Assets.xcassets */; };
 		3E025BD02163B74600F93D4E /* TodayViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E025BCF2163B74600F93D4E /* TodayViewPresenter.swift */; };
 		3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41C2FB213A319100371B4F /* GitBingoError.swift */; };
+		3E44477C217341C8000091DF /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E44477B217341C8000091DF /* APIServiceTests.swift */; };
+		3E44478121734A25000091DF /* KeyIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */; };
+		3E44478221734A28000091DF /* RefreshMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF116213AA222002B3142 /* RefreshMode.swift */; };
 		3E49ACC1216EDA6200E834F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EAD214721401E4D00049859 /* Localizable.strings */; };
 		3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A3D721396725002983D8 /* MainViewPresenter.swift */; };
 		3E9D2ADE213D1AFD0009DAD8 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */; };
@@ -40,6 +43,15 @@
 		3E9F6AEA212EFE85005E76DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE8212EFE85005E76DA /* LaunchScreen.storyboard */; };
 		3EAD214521401E4D00049859 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EAD214721401E4D00049859 /* Localizable.strings */; };
 		3EAD214C21401EE000049859 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD214B21401EE000049859 /* LocalizedString.swift */; };
+		3EB776BA217087D7005D8DD3 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8589212EFF4C002540A8 /* APIService.swift */; };
+		3EB776BB217087DD005D8DD3 /* GitBingoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41C2FB213A319100371B4F /* GitBingoError.swift */; };
+		3EB776BC217087E5005D8DD3 /* Contributions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8593212F0CC3002540A8 /* Contributions.swift */; };
+		3EB776BD217087E7005D8DD3 /* ContributionGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8591212F09D1002540A8 /* ContributionGrade.swift */; };
+		3EB776BE217087E9005D8DD3 /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC858F212F094D002540A8 /* Dot.swift */; };
+		3EB776BF217087F4005D8DD3 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD214B21401EE000049859 /* LocalizedString.swift */; };
+		3EB776C0217087F6005D8DD3 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC858C212F0912002540A8 /* UIColorExtensions.swift */; };
+		3EB776C121708844005D8DD3 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A3D721396725002983D8 /* MainViewPresenter.swift */; };
+		3EB776C22170884C005D8DD3 /* GroupUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9ECD04215D7E530089755E /* GroupUserDefaults.swift */; };
 		3EBC858A212EFF4C002540A8 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8589212EFF4C002540A8 /* APIService.swift */; };
 		3EBC858D212F0912002540A8 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC858C212F0912002540A8 /* UIColorExtensions.swift */; };
 		3EBC8590212F094D002540A8 /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC858F212F094D002540A8 /* Dot.swift */; };
@@ -51,6 +63,7 @@
 		3EFBF11B213AE2BE002B3142 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11A213AE2BE002B3142 /* SectionHeaderView.swift */; };
 		3EFBF11D213AE2CE002B3142 /* SectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11C213AE2CE002B3142 /* SectionFooterView.swift */; };
 		3EFBF11F213AE60F002B3142 /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */; };
+		98351E14827FFEAE12A613CE /* Pods_GitBingoMVPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D239E7D9A82A3FC5281A0B51 /* Pods_GitBingoMVPTests.framework */; };
 		D0A00E275CBBA4D03F87A6AC /* Pods_GitBingo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E8CC45C06872C44992DEE5 /* Pods_GitBingo.framework */; };
 		EF8696A60B2318777674E23B /* Pods_GitBingo_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6CBE3AD583DBCE1DF782DF /* Pods_GitBingo_Widget.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +75,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3E9ECCE3215C0BAF0089755E;
 			remoteInfo = "GitBingo Widget";
+		};
+		3EB776B121708742005D8DD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E9F6AD4212EFE84005E76DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E9F6ADB212EFE84005E76DA;
+			remoteInfo = GitBingo;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -87,6 +107,7 @@
 		3E025BCF2163B74600F93D4E /* TodayViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewPresenter.swift; sourceTree = "<group>"; };
 		3E0E50F82140C34800CDC145 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3E41C2FB213A319100371B4F /* GitBingoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoError.swift; sourceTree = "<group>"; };
+		3E44477B217341C8000091DF /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		3E49ACBE216EDA5800E834F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		3E49ACC0216EDA5D00E834F7 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		3E98A3D721396725002983D8 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
@@ -114,6 +135,8 @@
 		3EAD214921401E8900049859 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3EAD214A21401E8900049859 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3EAD214B21401EE000049859 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
+		3EB776AC21708742005D8DD3 /* GitBingoMVPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitBingoMVPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EB776B021708742005D8DD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EBC8589212EFF4C002540A8 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		3EBC858C212F0912002540A8 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		3EBC858F212F094D002540A8 /* Dot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dot.swift; sourceTree = "<group>"; };
@@ -128,6 +151,9 @@
 		614835ACA74051AEE57BE1E6 /* Pods-GitBingo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBingo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitBingo/Pods-GitBingo.debug.xcconfig"; sourceTree = "<group>"; };
 		66E8CC45C06872C44992DEE5 /* Pods_GitBingo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitBingo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E62AED9D0A440C7BAFBA1C4 /* Pods-GitBingo Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBingo Widget.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitBingo Widget/Pods-GitBingo Widget.release.xcconfig"; sourceTree = "<group>"; };
+		BE69592BBC0AC1B2DC9B2555 /* Pods-GitBingoMVPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBingoMVPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitBingoMVPTests/Pods-GitBingoMVPTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D239E7D9A82A3FC5281A0B51 /* Pods_GitBingoMVPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitBingoMVPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DED38B19AE960636A5577854 /* Pods-GitBingoMVPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBingoMVPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitBingoMVPTests/Pods-GitBingoMVPTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +171,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0A00E275CBBA4D03F87A6AC /* Pods_GitBingo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EB776A921708742005D8DD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98351E14827FFEAE12A613CE /* Pods_GitBingoMVPTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +232,7 @@
 			children = (
 				3E9F6ADE212EFE84005E76DA /* GitBingo */,
 				3E9ECCE7215C0BB00089755E /* GitBingo Widget */,
+				3EB776AD21708742005D8DD3 /* GitBingoMVPTests */,
 				3E9F6ADD212EFE84005E76DA /* Products */,
 				575079EBB40B2821944E3002 /* Pods */,
 				8E0845C7CB97F204213F45CD /* Frameworks */,
@@ -209,6 +244,7 @@
 			children = (
 				3E9F6ADC212EFE84005E76DA /* GitBingo.app */,
 				3E9ECCE4215C0BAF0089755E /* GitBingo Widget.appex */,
+				3EB776AC21708742005D8DD3 /* GitBingoMVPTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,6 +276,15 @@
 				3EAD214721401E4D00049859 /* Localizable.strings */,
 			);
 			path = Localizing;
+			sourceTree = "<group>";
+		};
+		3EB776AD21708742005D8DD3 /* GitBingoMVPTests */ = {
+			isa = PBXGroup;
+			children = (
+				3EB776B021708742005D8DD3 /* Info.plist */,
+				3E44477B217341C8000091DF /* APIServiceTests.swift */,
+			);
+			path = GitBingoMVPTests;
 			sourceTree = "<group>";
 		};
 		3EBC8588212EFF3F002540A8 /* APIService */ = {
@@ -289,6 +334,8 @@
 				06B0D3F9794FDFB0E4B689D8 /* Pods-GitBingo.release.xcconfig */,
 				0B3A2418F4C9FCD8A5C151C3 /* Pods-GitBingo Widget.debug.xcconfig */,
 				9E62AED9D0A440C7BAFBA1C4 /* Pods-GitBingo Widget.release.xcconfig */,
+				BE69592BBC0AC1B2DC9B2555 /* Pods-GitBingoMVPTests.debug.xcconfig */,
+				DED38B19AE960636A5577854 /* Pods-GitBingoMVPTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -299,6 +346,7 @@
 				66E8CC45C06872C44992DEE5 /* Pods_GitBingo.framework */,
 				3E9ECCE5215C0BB00089755E /* NotificationCenter.framework */,
 				4F6CBE3AD583DBCE1DF782DF /* Pods_GitBingo_Widget.framework */,
+				D239E7D9A82A3FC5281A0B51 /* Pods_GitBingoMVPTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -345,6 +393,26 @@
 			productReference = 3E9F6ADC212EFE84005E76DA /* GitBingo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3EB776AB21708742005D8DD3 /* GitBingoMVPTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EB776B521708742005D8DD3 /* Build configuration list for PBXNativeTarget "GitBingoMVPTests" */;
+			buildPhases = (
+				48195F24F2137CA0F67C0F93 /* [CP] Check Pods Manifest.lock */,
+				3EB776A821708742005D8DD3 /* Sources */,
+				3EB776A921708742005D8DD3 /* Frameworks */,
+				3EB776AA21708742005D8DD3 /* Resources */,
+				77452DD3809124D081586C53 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3EB776B221708742005D8DD3 /* PBXTargetDependency */,
+			);
+			name = GitBingoMVPTests;
+			productName = GitBingoMVPTests;
+			productReference = 3EB776AC21708742005D8DD3 /* GitBingoMVPTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -372,6 +440,10 @@
 							};
 						};
 					};
+					3EB776AB21708742005D8DD3 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 3E9F6ADB212EFE84005E76DA;
+					};
 				};
 			};
 			buildConfigurationList = 3E9F6AD7212EFE84005E76DA /* Build configuration list for PBXProject "GitBingo" */;
@@ -390,6 +462,7 @@
 			targets = (
 				3E9F6ADB212EFE84005E76DA /* GitBingo */,
 				3E9ECCE3215C0BAF0089755E /* GitBingo Widget */,
+				3EB776AB21708742005D8DD3 /* GitBingoMVPTests */,
 			);
 		};
 /* End PBXProject section */
@@ -416,6 +489,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3EB776AA21708742005D8DD3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -431,6 +511,24 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-GitBingo Widget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48195F24F2137CA0F67C0F93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GitBingoMVPTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -453,6 +551,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77452DD3809124D081586C53 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GitBingoMVPTests/Pods-GitBingoMVPTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GitBingoMVPTests/Pods-GitBingoMVPTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C3F69FC11C669E4DE3C10D07 /* [CP] Embed Pods Frameworks */ = {
@@ -527,6 +643,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3EB776A821708742005D8DD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EB776BD217087E7005D8DD3 /* ContributionGrade.swift in Sources */,
+				3EB776C121708844005D8DD3 /* MainViewPresenter.swift in Sources */,
+				3E44477C217341C8000091DF /* APIServiceTests.swift in Sources */,
+				3EB776BE217087E9005D8DD3 /* Dot.swift in Sources */,
+				3EB776BA217087D7005D8DD3 /* APIService.swift in Sources */,
+				3EB776BC217087E5005D8DD3 /* Contributions.swift in Sources */,
+				3EB776BB217087DD005D8DD3 /* GitBingoError.swift in Sources */,
+				3EB776BF217087F4005D8DD3 /* LocalizedString.swift in Sources */,
+				3EB776C22170884C005D8DD3 /* GroupUserDefaults.swift in Sources */,
+				3E44478121734A25000091DF /* KeyIdentifier.swift in Sources */,
+				3EB776C0217087F6005D8DD3 /* UIColorExtensions.swift in Sources */,
+				3E44478221734A28000091DF /* RefreshMode.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -534,6 +669,11 @@
 			isa = PBXTargetDependency;
 			target = 3E9ECCE3215C0BAF0089755E /* GitBingo Widget */;
 			targetProxy = 3E9ECCEE215C0BB00089755E /* PBXContainerItemProxy */;
+		};
+		3EB776B221708742005D8DD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E9F6ADB212EFE84005E76DA /* GitBingo */;
+			targetProxy = 3EB776B121708742005D8DD3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -790,6 +930,53 @@
 			};
 			name = Release;
 		};
+		3EB776B321708742005D8DD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE69592BBC0AC1B2DC9B2555 /* Pods-GitBingoMVPTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 452DHHAC9T;
+				INFOPLIST_FILE = GitBingoMVPTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dk.GitBingoMVPTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitBingo.app/GitBingo";
+			};
+			name = Debug;
+		};
+		3EB776B421708742005D8DD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DED38B19AE960636A5577854 /* Pods-GitBingoMVPTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 452DHHAC9T;
+				INFOPLIST_FILE = GitBingoMVPTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dk.GitBingoMVPTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitBingo.app/GitBingo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -816,6 +1003,15 @@
 			buildConfigurations = (
 				3E9F6AEF212EFE85005E76DA /* Debug */,
 				3E9F6AF0212EFE85005E76DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EB776B521708742005D8DD3 /* Build configuration list for PBXNativeTarget "GitBingoMVPTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EB776B321708742005D8DD3 /* Debug */,
+				3EB776B421708742005D8DD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
