@@ -54,9 +54,9 @@ class MainViewPresenter {
     }
     
     func request(from id: String? = nil, mode: RefreshMode? = nil) {
+        self.vc?.showProgressStatus(mode: mode)
         if let id = id ?? self.id {
             fetch(from: id) { (contributions, err) in
-                self.vc?.showProgressStatus(mode: mode)
                 if let err = err {
                     DispatchQueue.main.async { [weak self] in
                         self?.vc?.showFailProgressStatus(with: err)
