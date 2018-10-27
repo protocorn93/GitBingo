@@ -8,17 +8,25 @@
 
 import UIKit
 
-protocol GithubDotsRequestProtocol: class {
+protocol DotsUpdateableDelegate: class {
     func showProgressStatus(mode: RefreshMode?)
     func showSuccessProgressStatus()
     func showFailProgressStatus(with error: GitBingoError)
     func setUpGithubInputAlertButton(_ title: String)
 }
 
+protocol APIServicable: class {
+    func fetch(from id: String, completion: @escaping (Contribution?, GitBingoError?)->())
+}
+
 class MainViewPresenter {
     //MARK: Properties
-    private weak var vc: GithubDotsRequestProtocol?
+    private weak var vc: DotsUpdateableDelegate?
     private var contributions: Contribution?
+    private var service: APIServiceProtocol?
+    var dotsCount: Int {
+        return contributions?.count ?? 0
+    }
     private var id: String? {
         return GroupUserDefaults.shared.load(of: .id) as? String
     }
@@ -26,15 +34,13 @@ class MainViewPresenter {
         guard let id = self.id else { return "Hello, Who are you?" }
         return "Welcome! \(id)👋"
     }
-    var dotsCount: Int {
-        return contributions?.count ?? 0
-    }
     
     //MARK: Life Cycle
-    init() {}
+    init(service: APIServiceProtocol) {
+        self.service = service
+    }
     
-    //MARK: Methods
-    func attachView(_ vc: GithubDotsRequestProtocol) {
+    func attachView(_ vc: DotsUpdateableDelegate) {
         self.vc = vc
     }
     
@@ -44,25 +50,13 @@ class MainViewPresenter {
     
     func refresh(mode: RefreshMode) {
         guard let id = self.id else { return }
-        requestDots(from: id, mode: mode)
+        request(from: id, mode: mode)
     }
     
-    func requestDots(from id: String? = nil, mode: RefreshMode? = nil) {
+    func request(from id: String? = nil, mode: RefreshMode? = nil) {
         if let id = id ?? self.id {
-            vc?.showProgressStatus(mode: mode)
-            fetchDots(from: id)
-            return
-        }
-        vc?.setUpGithubInputAlertButton(greeting)
-    }
-    
-    func color(at item: Int) -> UIColor? {
-        return contributions?.colors[item]
-    }
-    
-    private func fetchDots(from id: String) {
-        DispatchQueue.global().async {
-            APIService.shared.fetchContributionDots(of: id) { (contributions, err) in
+            fetch(from: id) { (contributions, err) in
+                self.vc?.showProgressStatus(mode: mode)
                 if let err = err {
                     DispatchQueue.main.async { [weak self] in
                         self?.vc?.showFailProgressStatus(with: err)
@@ -78,6 +72,22 @@ class MainViewPresenter {
                     self.vc?.setUpGithubInputAlertButton(self.greeting)
                 }
                 GroupUserDefaults.shared.save(id, of: .id)
+            }
+            return
+        }
+        vc?.setUpGithubInputAlertButton(greeting)
+    }
+    
+    func color(at item: Int) -> UIColor? {
+        return contributions?.colors[item]
+    }
+}
+
+extension MainViewPresenter: APIServicable {
+    func fetch(from id: String, completion: @escaping (Contribution?, GitBingoError?)->()) {
+        DispatchQueue.global().async {
+            self.service?.fetchContributionDots(of: id) { (contributions, err) in
+                completion(contributions, err)
             }
         }
     }

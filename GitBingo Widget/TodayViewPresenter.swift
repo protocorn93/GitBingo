@@ -21,9 +21,12 @@ class TodayViewPresenter {
     //MARK: Properties
     private weak var vc: GitBingoWidgetProtocol?
     private var contributions: Contribution?
+    private var service: APIServiceProtocol?
     
     //MARK: Life Cycle
-    init() {}
+    init(service: APIServiceProtocol) {
+        self.service = service
+    }
     
     func attachView(_ vc: GitBingoWidgetProtocol) {
         self.vc = vc
@@ -71,7 +74,7 @@ class TodayViewPresenter {
     }
     
     private func fetchContributions(of id: String, completion: @escaping (_ error: GitBingoError?)->() ) {
-        APIService.shared.fetchContributionDots(of: id) { [weak self] (contributions, err) in
+        service?.fetchContributionDots(of: id) { [weak self] (contributions, err) in
             if let err = err {
                 completion(err)
                 return

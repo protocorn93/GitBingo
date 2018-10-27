@@ -32,7 +32,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     //MARK: Presenter
-    private var presenter: TodayViewPresenter = TodayViewPresenter()
+    private var presenter: TodayViewPresenter = TodayViewPresenter(service: APIService(parser: Parser()))
     
     //MARK: Life Cycle
     override func viewDidLoad() {
