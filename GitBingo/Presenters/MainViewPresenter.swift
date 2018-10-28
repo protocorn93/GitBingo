@@ -23,7 +23,7 @@ class MainViewPresenter {
     //MARK: Properties
     private weak var vc: DotsUpdateableDelegate?
     private var contributions: Contribution?
-    private var service: APIServiceProtocol?
+    private var service: APIServiceProtocol
     var dotsCount: Int {
         return contributions?.count ?? 0
     }
@@ -86,7 +86,7 @@ class MainViewPresenter {
 extension MainViewPresenter: APIServicable {
     func fetch(from id: String, completion: @escaping (Contribution?, GitBingoError?)->()) {
         DispatchQueue.global().async {
-            self.service?.fetchContributionDots(of: id) { (contributions, err) in
+            self.service.fetchContributionDots(of: id) { (contributions, err) in
                 completion(contributions, err)
             }
         }

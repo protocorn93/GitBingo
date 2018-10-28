@@ -10,6 +10,7 @@ import Foundation
 import Kanna
 
 protocol APIServiceProtocol: class {
+    init(parser: HTMLParsingProtocol)
     func fetchContributionDots(of id: String, completion: @escaping (Contribution?, GitBingoError?) ->())
 }
 
@@ -42,8 +43,9 @@ class Parser: HTMLParsingProtocol {
 class APIService: APIServiceProtocol {
     //MARK: Properties
     private let session = URLSession(configuration: .default)
-    private let parser: HTMLParsingProtocol!
-    init(parser: HTMLParsingProtocol) {
+    private let parser: HTMLParsingProtocol
+    
+    required init(parser: HTMLParsingProtocol) {
         self.parser = parser
     }
     
