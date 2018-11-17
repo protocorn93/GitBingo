@@ -9,19 +9,10 @@
 import UIKit
 
 extension UIAlertController {
-    func setupCustomFont() {
-        if let title = self.title {
-            self.setValue(title.customFont, forKey: "attributedTitle")
-        }
-        
-        if let message = self.message {
-            self.setValue(message.customFont, forKey: "attributedMessage")
-        }
-    }
     
-    static func showGithubIDInputAlert(on vc: UIViewController, completion: @escaping (String)->() ) {
+    static func getTextFieldAlert(_ completion: @escaping (String)->() ) -> UIAlertController {
         let alert = UIAlertController(title: "Github ID", message: nil, preferredStyle: .alert)
-        
+    
         alert.addTextField { (textField) in
             textField.placeholder = "Input your Github ID".localized
         }
@@ -33,7 +24,19 @@ extension UIAlertController {
         
         alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
         
-        vc.present(alert, animated: true, completion: nil)
+        alert.actions.first?.isEnabled = false
+
+        return alert
+    }
+    
+    @objc func handleEdtingChanged(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        guard text.isEmpty else {
+            actions.first?.isEnabled = true
+            return
+        }
+        
+        actions.first?.isEnabled = false
     }
     
     static func showAlert(on vc: UIViewController, title: String, message: String) {

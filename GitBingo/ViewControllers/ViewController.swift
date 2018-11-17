@@ -63,9 +63,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func handleShowGithubInputAlert(_ sender: Any) {
-        UIAlertController.showGithubIDInputAlert(on: self) { [weak self] (id) in
+        let alert = UIAlertController.showTextFieldAlert { [weak self] (id) in
             self?.presenter.request(from: id)
         }
+        alert.textFields?.first?.addTarget(alert, action: #selector(UIAlertController.handleEdtingChanged(_:)), for: .editingChanged)
+        present(alert, animated: true, completion: nil)
     }
 }
 
