@@ -54,8 +54,8 @@ class MainViewPresenter {
     }
     
     func request(from id: String? = nil, mode: RefreshMode? = nil) {
-        self.vc?.showProgressStatus(mode: mode)
         if let id = id ?? self.id {
+            self.vc?.showProgressStatus(mode: mode)
             fetch(from: id) { (contributions, err) in
                 if let err = err {
                     DispatchQueue.main.async { [weak self] in
@@ -81,6 +81,7 @@ class MainViewPresenter {
     func color(at item: Int) -> UIColor? {
         return contributions?.colors[item]
     }
+    
 }
 
 extension MainViewPresenter: APIServicable {
