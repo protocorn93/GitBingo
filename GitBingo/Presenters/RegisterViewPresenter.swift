@@ -10,7 +10,7 @@ import UIKit
 import UserNotifications
 
 protocol RegisterNotificationProtocol: class {
-    func showWarningAlert(alert: GitBingoAlert)
+    func showWarningAlert(alertState: GitBingoAlert)
     func updateDescriptionLabel(with text: String)
 }
 
@@ -55,9 +55,9 @@ class RegisterViewPresenter {
         center.getNotificationSettings { (settings) in
             if settings.authorizationStatus == .authorized {
                 let register = GitBingoAlert.register(self.hasScheduledNotification, self.time)
-                self.vc?.showWarningAlert(alert: register)
+                self.vc?.showWarningAlert(alertState: register)
             }else {
-                self.vc?.showWarningAlert(alert: .unauthorized)
+                self.vc?.showWarningAlert(alertState: .unauthorized)
             }
         }
     }
@@ -90,7 +90,7 @@ class RegisterViewPresenter {
         
         center.add(request) { (error) in
             if ((error) != nil){
-                self.vc?.showWarningAlert(alert: .registerFailed)
+                self.vc?.showWarningAlert(alertState: .registerFailed)
             }
             GroupUserDefaults.shared.save(self.time, of: .notification)
         }
@@ -104,7 +104,7 @@ class RegisterViewPresenter {
                 self.updateScheduledNotificationIndicator()
             }
             
-            self.vc?.showWarningAlert(alert: remove)
+            self.vc?.showWarningAlert(alertState: remove)
         }
     }
     

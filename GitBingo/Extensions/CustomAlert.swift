@@ -39,18 +39,20 @@ extension UIAlertController {
         actions.first?.isEnabled = false
     }
     
-    static func showAlert(on vc: UIViewController, title: String, message: String) {
+    static func getAlert(title: String, message: String) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Ok".localized, style: .default, handler: nil))
-        vc.present(alert, animated: true, completion: nil)
+        
+        return alert
     }
     
-    static func showAlert(on vc: UIViewController, title: String, message: String, with completion: ((UIAlertAction)->())?) {
+    static func getAlert(title: String, message: String, with completion: ((UIAlertAction)->())?) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yes".localized, style: .default, handler: completion))
         alert.addAction(UIAlertAction(title: "No".localized, style: .cancel, handler: nil))
-        vc.present(alert, animated: true, completion: nil)
+        
+        return alert
     }
 }
