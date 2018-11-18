@@ -53,28 +53,9 @@ class RegisterAlertViewController: UIViewController {
 extension RegisterAlertViewController: RegisterNotificationProtocol {
     
     func showWarningAlert(alertState: GitBingoAlert) {
-        let alert: UIAlertController
-        switch alertState {
-        case .register(let hasScheduledNotification, let time):
-            if hasScheduledNotification {
-                alert = UIAlertController.getAlert(title: "🤓", message: "Scheduled Notification Existed.\nDo you want to UPDATE it to %@?".localized(with: time)) { (_) in
-                    self.presenter.generateNotification()
-                    self.dismiss(animated: true, completion: nil)
-                }
-                
-                break
-            }
-            
-            alert = UIAlertController.getAlert(title: "Register".localized, message: "Do you want to GET Notification at\n%@ daily?".localized(with: time)) { (_) in
-                self.presenter.generateNotification()
-                self.dismiss(animated: true, completion: nil)
-            }
-        case .unauthorized:
-            alert = UIAlertController.getAlert(title: "Not Authorized".localized, message: "CHECK Notifications Configuration in Settings".localized)
-        case .registerFailed:
-            alert = UIAlertController.getAlert(title: "Error".localized, message: GitBingoError.failToRegisterNotification.description)
-        case .removeNotification(let completion):
-            alert = UIAlertController.getAlert(title: "Remove".localized, message: "Do you really want to REMOVE Scheduled Notification?".localized, with: completion)
+        let alert = alertState.getAlert { (_) in
+            self.presenter.generateNotification()
+            self.dismiss(animated: true, completion: nil)
         }
         
         present(alert, animated: true, completion: nil)
