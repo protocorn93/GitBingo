@@ -1,0 +1,42 @@
+
+/* Class = "UIButton"; normalTitle = "Tap to register Github ID"; ObjectID = "2oU-Io-qQD"; */
+"2oU-Io-qQD.normalTitle" = "Tap to register Github ID";
+
+/* Class = "UILabel"; text = "Fri"; ObjectID = "AgZ-Rp-itW"; */
+"AgZ-Rp-itW.text" = "Fri";
+
+/* Class = "UILabel"; text = "Sun"; ObjectID = "BiH-oJ-V4Z"; */
+"BiH-oJ-V4Z.text" = "Sun";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "GUl-cw-IYT"; */
+"GUl-cw-IYT.text" = "-";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "Ik4-qu-RBD"; */
+"Ik4-qu-RBD.text" = "-";
+
+/* Class = "UILabel"; text = "Thu"; ObjectID = "QPl-Cs-wKo"; */
+"QPl-Cs-wKo.text" = "Thu";
+
+/* Class = "UILabel"; text = "Week"; ObjectID = "Uie-Lr-aui"; */
+"Uie-Lr-aui.text" = "Week";
+
+/* Class = "UILabel"; text = "Wed"; ObjectID = "VPc-Ns-rz3"; */
+"VPc-Ns-rz3.text" = "Wed";
+
+/* Class = "UILabel"; text = "Today"; ObjectID = "bgu-9G-zLB"; */
+"bgu-9G-zLB.text" = "Today";
+
+/* Class = "UILabel"; text = "Notification"; ObjectID = "fvE-km-Vtg"; */
+"fvE-km-Vtg.text" = "Notification";
+
+/* Class = "UILabel"; text = "-"; ObjectID = "gBG-lO-kj0"; */
+"gBG-lO-kj0.text" = "-";
+
+/* Class = "UILabel"; text = "Sat"; ObjectID = "jRr-gW-BWt"; */
+"jRr-gW-BWt.text" = "Sat";
+
+/* Class = "UILabel"; text = "Tue"; ObjectID = "yx3-bE-QBm"; */
+"yx3-bE-QBm.text" = "Tue";
+
+/* Class = "UILabel"; text = "Mon"; ObjectID = "zTf-Ux-BFK"; */
+"zTf-Ux-BFK.text" = "Mon";

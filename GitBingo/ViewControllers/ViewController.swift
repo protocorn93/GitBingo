@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
     //MARK: Properties
     private var refreshControl = UIRefreshControl()
-    private var presenter: MainViewPresenter = MainViewPresenter()
+    private var presenter: MainViewPresenter = MainViewPresenter(service: APIService(parser: Parser()))
     
     //MARK: Life Cycle
     override func viewDidLoad() {
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     
     fileprivate func setupPresenter() {
         presenter.attachView(self)
-        presenter.requestDots()
+        presenter.request()
     }
     
     fileprivate func setupRefreshControl() {
@@ -63,7 +63,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func handleShowGithubInputAlert(_ sender: Any) {
-        UIAlertController.showGithubIDInputAlert(on: self, with: presenter)
+        let alert = UIAlertController.getTextFieldAlert { [weak self] (id) in
+            self?.presenter.request(from: id)
+        }
+        alert.textFields?.first?.addTarget(alert, action: #selector(UIAlertController.handleEdtingChanged(_:)), for: .editingChanged)
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -113,7 +117,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 }
 
 //MARK:- GithubDotsRequestProtocol
-extension ViewController: GithubDotsRequestProtocol {
+extension ViewController: DotsUpdateableDelegate {
     
     func setUpGithubInputAlertButton(_ title: String) {
         githubInputAlertButton.setTitle(title, for: .normal)

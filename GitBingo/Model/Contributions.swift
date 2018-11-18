@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Contribution: Codable {
+class Contribution {
     //MARK: Properties
     var dots: [Dot]
     var count: Int {
@@ -26,9 +26,9 @@ class Contribution: Codable {
         }
         return total
     }
-    var today: Int? {
+    var today: Int {
         let today = dots.filter {$0.isToday == true}
-        return today.first?.count
+        return today.first?.count ?? 0
     }
     
     //MARK: Life Cycle

@@ -7,62 +7,39 @@
 //
 
 import Foundation
-import Kanna
 
-struct APIService {
+protocol APIServiceProtocol: class {
+    func fetchContributionDots(of id: String, completion: @escaping (Contribution?, GitBingoError?) ->())
+}
+
+class APIService: APIServiceProtocol {
     //MARK: Properties
-    static let shared = APIService()
     private let session = URLSession(configuration: .default)
-    private init() {}
+    private let parser: HTMLParsingProtocol
+    
+    init(parser: HTMLParsingProtocol) {
+        self.parser = parser
+    }
     
     //MARK: Methods
     func fetchContributionDots(of id: String, completion: @escaping (Contribution?, GitBingoError?) -> ()) {
         guard let url = URL(string: "https://github.com/users/\(id)/contributions") else {
-            completion(nil, GitBingoError.pageNotFound)
+            completion(nil, .pageNotFound)
             return
         }
         let task = self.session.dataTask(with: url) { (data, response, error) in
             if error != nil {
-                completion(nil, GitBingoError.networkError)
+                completion(nil, .networkError)
                 return
             }
             
-            guard let data = data, let rawHtml = String(data: data, encoding: .utf8) else { return }
-            
-            do {
-                let dayElements = try self.parseHTML(from: rawHtml)
-                
-                var dots: [Dot] = []
-                
-                if let dayElements = dayElements {
-                    dayElements.forEach { (day) in
-                        guard let date = day["data-date"] else { return }
-                        guard let color = day["fill"] else { return }
-                        guard let dataCount = day["data-count"], let count = Int(dataCount) else { return }
-                        let dot = Dot(date: date, color: color, count: count)
-                        dots.append(dot)
-                    }
-                    dots.last?.isToday = true
-                    completion(Contribution(dots: dots), nil)
-                }
-            } catch let err as GitBingoError {
-                completion(nil, err)
-            } catch {
-                completion(nil, GitBingoError.networkError)
+            if let contribution = self.parser.parse(from: data) {
+                completion(contribution, nil)
+            }else {
+                completion(nil, .pageNotFound)
             }
         }
         
         task.resume()
     }
-    
-    fileprivate func parseHTML(from rawHTML: String) throws -> XPathObject? {
-        guard let doc = try? HTML(html: rawHTML, encoding: .utf8) else { return nil}
-        
-        if doc.body?.content == "Not Found" {
-            throw GitBingoError.pageNotFound
-        }
-        
-        return doc.css("g > .day")
-    }
-    
 }

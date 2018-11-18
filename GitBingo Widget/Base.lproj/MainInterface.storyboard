@@ -20,6 +20,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zH-jQ-L0Q">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                 <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="DpR-g2-BcW">
+                                        <rect key="frame" x="150" y="30" width="20" height="20"/>
+                                    </activityIndicatorView>
                                     <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TGH-Uw-UI3">
                                         <rect key="frame" x="32" y="18.5" width="256" height="43.5"/>
                                         <subviews>
@@ -80,6 +83,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="TGH-Uw-UI3" firstAttribute="centerX" secondItem="1zH-jQ-L0Q" secondAttribute="centerX" id="BjW-B2-aVD"/>
+                                    <constraint firstItem="DpR-g2-BcW" firstAttribute="centerY" secondItem="1zH-jQ-L0Q" secondAttribute="centerY" id="PFz-EK-QlM"/>
+                                    <constraint firstItem="DpR-g2-BcW" firstAttribute="centerX" secondItem="1zH-jQ-L0Q" secondAttribute="centerX" id="Srh-mj-8fB"/>
                                     <constraint firstItem="TGH-Uw-UI3" firstAttribute="width" secondItem="1zH-jQ-L0Q" secondAttribute="width" multiplier="0.8" id="aN0-ce-gl2"/>
                                     <constraint firstItem="TGH-Uw-UI3" firstAttribute="centerY" secondItem="1zH-jQ-L0Q" secondAttribute="centerY" id="glQ-G7-TfL"/>
                                 </constraints>
@@ -147,7 +152,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="widgetcell" id="vA6-U2-g8O">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UICollectionViewCell" id="vA6-U2-g8O">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -179,9 +184,6 @@
                                     <action selector="reload:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="Ofa-ou-BJa"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="DpR-g2-BcW">
-                                <rect key="frame" x="141.5" y="36.5" width="37" height="37"/>
-                            </activityIndicatorView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="zgD-UN-9XX" secondAttribute="trailing" id="20f-4c-9XP"/>
@@ -194,8 +196,6 @@
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="1zH-jQ-L0Q" secondAttribute="trailing" id="Knh-JC-XEO"/>
                             <constraint firstItem="2oU-Io-qQD" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="L0z-79-Yoj"/>
                             <constraint firstItem="zgD-UN-9XX" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="QSi-YN-ZZ2"/>
-                            <constraint firstItem="DpR-g2-BcW" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="XaO-2a-0LA"/>
-                            <constraint firstItem="DpR-g2-BcW" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="XeC-Fg-uBc"/>
                             <constraint firstItem="2oU-Io-qQD" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" constant="-10" id="dQY-aX-n6L"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="zgD-UN-9XX" secondAttribute="bottom" id="iD9-R6-7I5"/>
                             <constraint firstItem="ndt-4N-q0j" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" constant="8" id="jCx-1d-3iH"/>
@@ -210,9 +210,12 @@
                         <outlet property="activityIndicator" destination="DpR-g2-BcW" id="676-I5-hbr"/>
                         <outlet property="githubRegisterButton" destination="2oU-Io-qQD" id="yiS-DI-mrv"/>
                         <outlet property="labelStackView" destination="TGH-Uw-UI3" id="vRH-Tk-gsI"/>
+                        <outlet property="notificationLabel" destination="fvE-km-Vtg" id="Lz9-6F-SxG"/>
                         <outlet property="notificationTimeLabel" destination="gBG-lO-kj0" id="IRg-gr-IBi"/>
                         <outlet property="reloadButton" destination="ndt-4N-q0j" id="ZYy-bW-Be2"/>
                         <outlet property="todayCommitLabel" destination="GUl-cw-IYT" id="3jY-Yb-awc"/>
+                        <outlet property="todayLabel" destination="bgu-9G-zLB" id="187-Zn-bD8"/>
+                        <outlet property="weekLabel" destination="Uie-Lr-aui" id="3vd-2T-w3L"/>
                         <outlet property="weekTotalLabel" destination="Ik4-qu-RBD" id="zs9-Xz-HaA"/>
                         <outlet property="widgetCollectionView" destination="zgD-UN-9XX" id="oa1-1X-sB6"/>
                     </connections>

@@ -10,6 +10,10 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
+    //MARK: Outlets
+    @IBOutlet weak var todayLabel: UILabel!
+    @IBOutlet weak var weekLabel: UILabel!
+    @IBOutlet weak var notificationLabel: UILabel!
     
     // To Be Hidden
     @IBOutlet weak var labelStackView: UIStackView!
@@ -27,95 +31,59 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
-    private var contributions: Contribution?
+    //MARK: Presenter
+    private var presenter: TodayViewPresenter = TodayViewPresenter(service: APIService(parser: Parser()))
     
+    //MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         widgetCollectionView.delegate = self
         widgetCollectionView.dataSource = self
-        load()
-    }
-    
-    @IBAction func reload(_ sender: UIButton) {
-        guard let id = GroupUserDefaults.shared.load(of: .id) as? String else { return }
-        fetch(of: id)
-    }
-    
-    private func load() {
-        guard let id = GroupUserDefaults.shared.load(of: .id) as? String else {
-            initiateUI(isAuthenticated: false)
-            return
-        }
-        fetch(of: id)
-        
-        guard let reserverdNotificaitonTime = GroupUserDefaults.shared.load(of: .notification) as? String else {
-            self.notificationTimeLabel.text = "➕"
-            return
-        }
-        
-        self.notificationTimeLabel.text = reserverdNotificaitonTime
-    }
-    
-    private func fetch(of id: String) {
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-        fetchContributions(of: id) {
-            self.initiateUI(isAuthenticated: true)
-            self.activityIndicator.stopAnimating()
-            self.widgetCollectionView.reloadData()
-        }
-    }
-    
-    private func initiateUI(isAuthenticated: Bool) {
-        githubRegisterButton.isHidden = isAuthenticated
-        labelStackView.isHidden = !isAuthenticated
-        widgetCollectionView.isHidden = !isAuthenticated
-        reloadButton.isHidden = !isAuthenticated
-        
-        todayCommitLabel.text = "\(contributions?.today ?? 0)"
-        weekTotalLabel.text = "\(contributions?.total ?? 0)"
-    }
-    
-    private func fetchContributions(of id: String, completion: @escaping ()->() ) {
-        APIService.shared.fetchContributionDots(of: id) { (contributions, err) in
-            DispatchQueue.main.async {
-                guard let dots = contributions?.dots else { return }
-                let thisWeekContributions = Contribution(dots: dots.prefix(7).map{$0})
-                self.contributions = thisWeekContributions
-                completion()
-            }
-        }
-    }
-    
-    @objc func handleRegisterNotificaiton(_ gesture: UITapGestureRecognizer) {
-        handleUserInteraction(type: .notificaiton)
-    }
-        
-    @IBAction func handleRegisterID(_ sender: UIButton) {
-        handleUserInteraction(type: .authentication)
-    }
-    
-    private func handleUserInteraction(type: AppURL) {
-        guard let url = URL(string: "GitBingoHost://\(type.path)") else { return }
-        extensionContext?.open(url, completionHandler: nil)
+        localization()
+        setupPresenter()
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        self.widgetCollectionView.reloadData()
-        
         completionHandler(NCUpdateResult.newData)
     }
+    
+    //MARK: Setup
+    private func setupPresenter() {
+        presenter.attachView(self)
+        presenter.load()
+    }
+    
+    private func localization() {
+        todayLabel.text = todayLabel.text?.localized
+        weekLabel.text = weekLabel.text?.localized
+        notificationLabel.text = notificationLabel.text?.localized
+    }
+    
+    //MARK: Fetch
+    @IBAction func reload(_ sender: UIButton) {
+        presenter.load()
+    }
+    
+    private func load() {
+        presenter.load()
+    }
+    
+    //MARK: Action
+    @objc func handleRegisterNotificaiton(_ gesture: UITapGestureRecognizer) {
+        presenter.handleUserInteraction(type: .notificaiton)
+    }
+        
+    @IBAction func handleRegisterID(_ sender: UIButton) {
+        presenter.handleUserInteraction(type: .authentication)
+    }
+    
 }
 
+//MARK:- UICollectionViewDataSource
 extension TodayViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "widgetcell", for: indexPath)
-        cell.backgroundColor = contributions?.colors[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionViewCell.reusableIdentifier, for: indexPath)
+        cell.backgroundColor = presenter.colors(at: indexPath)
         return cell
     }
     
@@ -124,6 +92,7 @@ extension TodayViewController: UICollectionViewDataSource {
     }
 }
 
+//MARK:- UICollectionViewDelegateFlowLayout
 extension TodayViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width / 7
@@ -136,5 +105,57 @@ extension TodayViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+}
+
+//MARK:- GitBingoWidgetProtocol
+extension TodayViewController: GitBingoWidgetProtocol {
+    func hide(error: GitBingoError?) {
+        var hasError = false
+        if let error = error {
+            githubRegisterButton.isHidden = false
+            switch error {
+            case .idIsEmpty:
+                githubRegisterButton.setTitle("Tap to register Github ID", for: .normal)
+                githubRegisterButton.isUserInteractionEnabled = true
+            default:
+                githubRegisterButton.setTitle(error.description, for: .normal)
+                githubRegisterButton.isUserInteractionEnabled = false
+            }
+            hasError = true
+        }
+        
+        githubRegisterButton.isHidden = !hasError
+        labelStackView.isHidden = hasError
+        widgetCollectionView.isHidden = hasError
+        reloadButton.isHidden = hasError
+    }
+    
+    func startLoad() {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
+    
+    func endLoad() {
+        activityIndicator.stopAnimating()
+        widgetCollectionView.reloadData()
+    }
+
+    func hide(isAuthenticated: Bool) {
+        githubRegisterButton.isHidden = isAuthenticated
+        labelStackView.isHidden = !isAuthenticated
+        widgetCollectionView.isHidden = !isAuthenticated
+        reloadButton.isHidden = !isAuthenticated
+    }
+    
+    func initUI(with contributions: Contribution?, at time: String) {
+        guard let contributions = contributions else { return }
+        todayCommitLabel.text = "\(contributions.today)"
+        weekTotalLabel.text = "\(contributions.total)"
+        notificationTimeLabel.text = time
+    }
+    
+    func open(_ url: URL) {
+        extensionContext?.open(url, completionHandler: nil)
     }
 }

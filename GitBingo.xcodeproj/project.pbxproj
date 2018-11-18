@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3E007BCE213BD0780007DD5C /* RegisterAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E007BCD213BD0780007DD5C /* RegisterAlertViewController.swift */; };
-		3E007BD0213BD4740007DD5C /* CustomFontString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E007BCF213BD4740007DD5C /* CustomFontString.swift */; };
 		3E025BCE2163952300F93D4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE6212EFE85005E76DA /* Assets.xcassets */; };
+		3E025BD02163B74600F93D4E /* TodayViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E025BCF2163B74600F93D4E /* TodayViewPresenter.swift */; };
 		3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41C2FB213A319100371B4F /* GitBingoError.swift */; };
+		3E49ACC1216EDA6200E834F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EAD214721401E4D00049859 /* Localizable.strings */; };
 		3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A3D721396725002983D8 /* MainViewPresenter.swift */; };
 		3E9D2ADE213D1AFD0009DAD8 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */; };
 		3E9D2AE0213D1B8F0009DAD8 /* KeyIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */; };
@@ -44,6 +45,10 @@
 		3EBC8592212F09D1002540A8 /* ContributionGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8591212F09D1002540A8 /* ContributionGrade.swift */; };
 		3EBC8594212F0CC3002540A8 /* Contributions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8593212F0CC3002540A8 /* Contributions.swift */; };
 		3ED9666F2156FB60008A8897 /* GitBingoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED9666E2156FB60008A8897 /* GitBingoAlert.swift */; };
+		3EE0A3CD219FD3280003962E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0A3CC219FD3280003962E /* Parser.swift */; };
+		3EE0A3CE219FD3720003962E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0A3CC219FD3280003962E /* Parser.swift */; };
+		3EE0A3D6219FD4540003962E /* GitBingoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0A3D5219FD4540003962E /* GitBingoTests.swift */; };
+		3EF465E821674C6700E877D7 /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */; };
 		3EFBF117213AA222002B3142 /* RefreshMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF116213AA222002B3142 /* RefreshMode.swift */; };
 		3EFBF11B213AE2BE002B3142 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11A213AE2BE002B3142 /* SectionHeaderView.swift */; };
 		3EFBF11D213AE2CE002B3142 /* SectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11C213AE2CE002B3142 /* SectionFooterView.swift */; };
@@ -59,6 +64,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3E9ECCE3215C0BAF0089755E;
 			remoteInfo = "GitBingo Widget";
+		};
+		3EE0A3D8219FD4540003962E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E9F6AD4212EFE84005E76DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E9F6ADB212EFE84005E76DA;
+			remoteInfo = GitBingo;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -80,9 +92,11 @@
 		06B0D3F9794FDFB0E4B689D8 /* Pods-GitBingo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBingo.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitBingo/Pods-GitBingo.release.xcconfig"; sourceTree = "<group>"; };
 		0B3A2418F4C9FCD8A5C151C3 /* Pods-GitBingo Widget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBingo Widget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitBingo Widget/Pods-GitBingo Widget.debug.xcconfig"; sourceTree = "<group>"; };
 		3E007BCD213BD0780007DD5C /* RegisterAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterAlertViewController.swift; sourceTree = "<group>"; };
-		3E007BCF213BD4740007DD5C /* CustomFontString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontString.swift; sourceTree = "<group>"; };
+		3E025BCF2163B74600F93D4E /* TodayViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewPresenter.swift; sourceTree = "<group>"; };
 		3E0E50F82140C34800CDC145 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3E41C2FB213A319100371B4F /* GitBingoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoError.swift; sourceTree = "<group>"; };
+		3E49ACBE216EDA5800E834F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		3E49ACC0216EDA5D00E834F7 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		3E98A3D721396725002983D8 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyIdentifier.swift; sourceTree = "<group>"; };
@@ -114,6 +128,10 @@
 		3EBC8591212F09D1002540A8 /* ContributionGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionGrade.swift; sourceTree = "<group>"; };
 		3EBC8593212F0CC3002540A8 /* Contributions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contributions.swift; sourceTree = "<group>"; };
 		3ED9666E2156FB60008A8897 /* GitBingoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoAlert.swift; sourceTree = "<group>"; };
+		3EE0A3CC219FD3280003962E /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		3EE0A3D3219FD4540003962E /* GitBingoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitBingoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EE0A3D5219FD4540003962E /* GitBingoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoTests.swift; sourceTree = "<group>"; };
+		3EE0A3D7219FD4540003962E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EFBF116213AA222002B3142 /* RefreshMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshMode.swift; sourceTree = "<group>"; };
 		3EFBF11A213AE2BE002B3142 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		3EFBF11C213AE2CE002B3142 /* SectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFooterView.swift; sourceTree = "<group>"; };
@@ -122,6 +140,9 @@
 		614835ACA74051AEE57BE1E6 /* Pods-GitBingo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBingo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitBingo/Pods-GitBingo.debug.xcconfig"; sourceTree = "<group>"; };
 		66E8CC45C06872C44992DEE5 /* Pods_GitBingo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitBingo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E62AED9D0A440C7BAFBA1C4 /* Pods-GitBingo Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBingo Widget.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitBingo Widget/Pods-GitBingo Widget.release.xcconfig"; sourceTree = "<group>"; };
+		BE69592BBC0AC1B2DC9B2555 /* Pods-GitBingoMVPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBingoMVPTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitBingoMVPTests/Pods-GitBingoMVPTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D239E7D9A82A3FC5281A0B51 /* Pods_GitBingoMVPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitBingoMVPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DED38B19AE960636A5577854 /* Pods-GitBingoMVPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBingoMVPTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitBingoMVPTests/Pods-GitBingoMVPTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +160,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0A00E275CBBA4D03F87A6AC /* Pods_GitBingo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EE0A3D0219FD4540003962E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +208,7 @@
 			children = (
 				3E9ECD02215C1B5B0089755E /* GitBingo Widget.entitlements */,
 				3E9ECCE8215C0BB00089755E /* TodayViewController.swift */,
+				3E025BCF2163B74600F93D4E /* TodayViewPresenter.swift */,
 				3E9ECCEA215C0BB00089755E /* MainInterface.storyboard */,
 				3E9ECCED215C0BB00089755E /* Info.plist */,
 			);
@@ -191,6 +220,7 @@
 			children = (
 				3E9F6ADE212EFE84005E76DA /* GitBingo */,
 				3E9ECCE7215C0BB00089755E /* GitBingo Widget */,
+				3EE0A3D4219FD4540003962E /* GitBingoTests */,
 				3E9F6ADD212EFE84005E76DA /* Products */,
 				575079EBB40B2821944E3002 /* Pods */,
 				8E0845C7CB97F204213F45CD /* Frameworks */,
@@ -202,6 +232,7 @@
 			children = (
 				3E9F6ADC212EFE84005E76DA /* GitBingo.app */,
 				3E9ECCE4215C0BAF0089755E /* GitBingo Widget.appex */,
+				3EE0A3D3219FD4540003962E /* GitBingoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,6 +271,7 @@
 			children = (
 				3EBC8589212EFF4C002540A8 /* APIService.swift */,
 				3E9ECD04215D7E530089755E /* GroupUserDefaults.swift */,
+				3EE0A3CC219FD3280003962E /* Parser.swift */,
 			);
 			path = APIService;
 			sourceTree = "<group>";
@@ -249,7 +281,6 @@
 			children = (
 				3EBC858C212F0912002540A8 /* UIColorExtensions.swift */,
 				3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */,
-				3E007BCF213BD4740007DD5C /* CustomFontString.swift */,
 				3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */,
 				3EAD214B21401EE000049859 /* LocalizedString.swift */,
 			);
@@ -264,6 +295,15 @@
 				3EBC8593212F0CC3002540A8 /* Contributions.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3EE0A3D4219FD4540003962E /* GitBingoTests */ = {
+			isa = PBXGroup;
+			children = (
+				3EE0A3D5219FD4540003962E /* GitBingoTests.swift */,
+				3EE0A3D7219FD4540003962E /* Info.plist */,
+			);
+			path = GitBingoTests;
 			sourceTree = "<group>";
 		};
 		3EFBF118213AE2A1002B3142 /* View */ = {
@@ -282,6 +322,8 @@
 				06B0D3F9794FDFB0E4B689D8 /* Pods-GitBingo.release.xcconfig */,
 				0B3A2418F4C9FCD8A5C151C3 /* Pods-GitBingo Widget.debug.xcconfig */,
 				9E62AED9D0A440C7BAFBA1C4 /* Pods-GitBingo Widget.release.xcconfig */,
+				BE69592BBC0AC1B2DC9B2555 /* Pods-GitBingoMVPTests.debug.xcconfig */,
+				DED38B19AE960636A5577854 /* Pods-GitBingoMVPTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -292,6 +334,7 @@
 				66E8CC45C06872C44992DEE5 /* Pods_GitBingo.framework */,
 				3E9ECCE5215C0BB00089755E /* NotificationCenter.framework */,
 				4F6CBE3AD583DBCE1DF782DF /* Pods_GitBingo_Widget.framework */,
+				D239E7D9A82A3FC5281A0B51 /* Pods_GitBingoMVPTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -338,13 +381,31 @@
 			productReference = 3E9F6ADC212EFE84005E76DA /* GitBingo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3EE0A3D2219FD4540003962E /* GitBingoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3EE0A3DA219FD4540003962E /* Build configuration list for PBXNativeTarget "GitBingoTests" */;
+			buildPhases = (
+				3EE0A3CF219FD4540003962E /* Sources */,
+				3EE0A3D0219FD4540003962E /* Frameworks */,
+				3EE0A3D1219FD4540003962E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3EE0A3D9219FD4540003962E /* PBXTargetDependency */,
+			);
+			name = GitBingoTests;
+			productName = GitBingoTests;
+			productReference = 3EE0A3D3219FD4540003962E /* GitBingoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		3E9F6AD4212EFE84005E76DA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "이동건";
 				TargetAttributes = {
@@ -365,6 +426,10 @@
 							};
 						};
 					};
+					3EE0A3D2219FD4540003962E = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 3E9F6ADB212EFE84005E76DA;
+					};
 				};
 			};
 			buildConfigurationList = 3E9F6AD7212EFE84005E76DA /* Build configuration list for PBXProject "GitBingo" */;
@@ -383,6 +448,7 @@
 			targets = (
 				3E9F6ADB212EFE84005E76DA /* GitBingo */,
 				3E9ECCE3215C0BAF0089755E /* GitBingo Widget */,
+				3EE0A3D2219FD4540003962E /* GitBingoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -393,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E025BCE2163952300F93D4E /* Assets.xcassets in Resources */,
+				3E49ACC1216EDA6200E834F7 /* Localizable.strings in Resources */,
 				3E9ECCEC215C0BB00089755E /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +472,13 @@
 				3EAD214521401E4D00049859 /* Localizable.strings in Resources */,
 				3E9F6AE7212EFE85005E76DA /* Assets.xcassets in Resources */,
 				3E9F6AE5212EFE84005E76DA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EE0A3D1219FD4540003962E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,11 +554,14 @@
 				3E9ECCFB215C10CB0089755E /* LocalizedString.swift in Sources */,
 				3E9ECD06215D80AC0089755E /* GroupUserDefaults.swift in Sources */,
 				3E9ECD03215C1C660089755E /* KeyIdentifier.swift in Sources */,
+				3EE0A3CE219FD3720003962E /* Parser.swift in Sources */,
+				3EF465E821674C6700E877D7 /* ReusableIdentifier.swift in Sources */,
 				3E9ECCFE215C10D70089755E /* Contributions.swift in Sources */,
 				3E9ECD09215DD2D20089755E /* AppURL.swift in Sources */,
 				3E9ECCFC215C10D20089755E /* Dot.swift in Sources */,
 				3E9ECCFD215C10D50089755E /* ContributionGrade.swift in Sources */,
 				3E9ECD00215C10EA0089755E /* UIColorExtensions.swift in Sources */,
+				3E025BD02163B74600F93D4E /* TodayViewPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,7 +575,6 @@
 				3EBC8594212F0CC3002540A8 /* Contributions.swift in Sources */,
 				3E9ECD05215D7E530089755E /* GroupUserDefaults.swift in Sources */,
 				3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */,
-				3E007BD0213BD4740007DD5C /* CustomFontString.swift in Sources */,
 				3E9ECD08215DD2C30089755E /* AppURL.swift in Sources */,
 				3EBC858A212EFF4C002540A8 /* APIService.swift in Sources */,
 				3EFBF11D213AE2CE002B3142 /* SectionFooterView.swift in Sources */,
@@ -513,7 +589,16 @@
 				3EBC8592212F09D1002540A8 /* ContributionGrade.swift in Sources */,
 				3EBC8590212F094D002540A8 /* Dot.swift in Sources */,
 				3EBC858D212F0912002540A8 /* UIColorExtensions.swift in Sources */,
+				3EE0A3CD219FD3280003962E /* Parser.swift in Sources */,
 				3E9D2ADE213D1AFD0009DAD8 /* CustomAlert.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EE0A3CF219FD4540003962E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EE0A3D6219FD4540003962E /* GitBingoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +610,11 @@
 			target = 3E9ECCE3215C0BAF0089755E /* GitBingo Widget */;
 			targetProxy = 3E9ECCEE215C0BB00089755E /* PBXContainerItemProxy */;
 		};
+		3EE0A3D9219FD4540003962E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E9F6ADB212EFE84005E76DA /* GitBingo */;
+			targetProxy = 3EE0A3D8219FD4540003962E /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -532,6 +622,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				3E9ECCEB215C0BB00089755E /* Base */,
+				3E49ACBE216EDA5800E834F7 /* en */,
+				3E49ACC0216EDA5D00E834F7 /* ko */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -576,7 +668,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 452DHHAC9T;
 				INFOPLIST_FILE = "GitBingo Widget/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -588,7 +680,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -601,7 +693,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 452DHHAC9T;
 				INFOPLIST_FILE = "GitBingo Widget/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -612,7 +704,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -778,6 +870,51 @@
 			};
 			name = Release;
 		};
+		3EE0A3DB219FD4540003962E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 452DHHAC9T;
+				INFOPLIST_FILE = GitBingoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dk.GitBingoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitBingo.app/GitBingo";
+			};
+			name = Debug;
+		};
+		3EE0A3DC219FD4540003962E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 452DHHAC9T;
+				INFOPLIST_FILE = GitBingoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dk.GitBingoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitBingo.app/GitBingo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -804,6 +941,15 @@
 			buildConfigurations = (
 				3E9F6AEF212EFE85005E76DA /* Debug */,
 				3E9F6AF0212EFE85005E76DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3EE0A3DA219FD4540003962E /* Build configuration list for PBXNativeTarget "GitBingoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3EE0A3DB219FD4540003962E /* Debug */,
+				3EE0A3DC219FD4540003962E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
