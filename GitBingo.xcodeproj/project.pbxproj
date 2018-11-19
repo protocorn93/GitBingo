@@ -44,7 +44,7 @@
 		3EBC8590212F094D002540A8 /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC858F212F094D002540A8 /* Dot.swift */; };
 		3EBC8592212F09D1002540A8 /* ContributionGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8591212F09D1002540A8 /* ContributionGrade.swift */; };
 		3EBC8594212F0CC3002540A8 /* Contributions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8593212F0CC3002540A8 /* Contributions.swift */; };
-		3ED9666F2156FB60008A8897 /* GitBingoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED9666E2156FB60008A8897 /* GitBingoAlert.swift */; };
+		3ED9666F2156FB60008A8897 /* GitBingoAlertState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED9666E2156FB60008A8897 /* GitBingoAlertState.swift */; };
 		3EE0A3CD219FD3280003962E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0A3CC219FD3280003962E /* Parser.swift */; };
 		3EE0A3CE219FD3720003962E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0A3CC219FD3280003962E /* Parser.swift */; };
 		3EE0A3D6219FD4540003962E /* GitBingoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0A3D5219FD4540003962E /* GitBingoTests.swift */; };
@@ -127,7 +127,7 @@
 		3EBC858F212F094D002540A8 /* Dot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dot.swift; sourceTree = "<group>"; };
 		3EBC8591212F09D1002540A8 /* ContributionGrade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionGrade.swift; sourceTree = "<group>"; };
 		3EBC8593212F0CC3002540A8 /* Contributions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contributions.swift; sourceTree = "<group>"; };
-		3ED9666E2156FB60008A8897 /* GitBingoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoAlert.swift; sourceTree = "<group>"; };
+		3ED9666E2156FB60008A8897 /* GitBingoAlertState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoAlertState.swift; sourceTree = "<group>"; };
 		3EE0A3CC219FD3280003962E /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		3EE0A3D3219FD4540003962E /* GitBingoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitBingoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EE0A3D5219FD4540003962E /* GitBingoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoTests.swift; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 				3E41C2FB213A319100371B4F /* GitBingoError.swift */,
 				3EFBF116213AA222002B3142 /* RefreshMode.swift */,
 				3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */,
-				3ED9666E2156FB60008A8897 /* GitBingoAlert.swift */,
+				3ED9666E2156FB60008A8897 /* GitBingoAlertState.swift */,
 				3E9ECD07215DD2C30089755E /* AppURL.swift */,
 			);
 			path = Helper;
@@ -579,7 +579,7 @@
 				3EBC858A212EFF4C002540A8 /* APIService.swift in Sources */,
 				3EFBF11D213AE2CE002B3142 /* SectionFooterView.swift in Sources */,
 				3E9D2AE0213D1B8F0009DAD8 /* KeyIdentifier.swift in Sources */,
-				3ED9666F2156FB60008A8897 /* GitBingoAlert.swift in Sources */,
+				3ED9666F2156FB60008A8897 /* GitBingoAlertState.swift in Sources */,
 				3E9D2AE2213D1D100009DAD8 /* RegisterViewPresenter.swift in Sources */,
 				3EFBF11F213AE60F002B3142 /* ReusableIdentifier.swift in Sources */,
 				3EFBF117213AA222002B3142 /* RefreshMode.swift in Sources */,
