@@ -29,16 +29,6 @@ extension UIAlertController {
         return alert
     }
     
-    @objc func handleEdtingChanged(_ textField: UITextField) {
-        guard let text = textField.text else { return }
-        guard text.isEmpty else {
-            actions.first?.isEnabled = true
-            return
-        }
-        
-        actions.first?.isEnabled = false
-    }
-    
     static func getAlert(title: String, message: String) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
@@ -54,5 +44,15 @@ extension UIAlertController {
         alert.addAction(UIAlertAction(title: "No".localized, style: .cancel, handler: nil))
         
         return alert
+    }
+    
+    @objc func handleEdtingChanged(_ textField: UITextField) {
+        guard let text = textField.text else { return }
+        guard text.isEmpty else {
+            actions.first?.isEnabled = true
+            return
+        }
+        
+        actions.first?.isEnabled = false
     }
 }

@@ -8,20 +8,20 @@
 
 import UIKit
 
-enum GitBingoAlert {
-    case register(Bool, String)
+enum GitBingoAlertState {
+    case register(Bool, String, (UIAlertAction)->())
     case unauthorized
     case registerFailed
-    case removeNotification(((UIAlertAction)->())?)
+    case removeNotification(((UIAlertAction)->Void)?)
     
-    func getAlert(_ completion: @escaping (UIAlertAction)->Void) -> UIAlertController {
+    var alert: UIAlertController {
         switch self {
-        case .register(let hasScheduledNotification, let time):
+        case .register(let hasScheduledNotification, let time, let handler):
             if hasScheduledNotification {
-                return UIAlertController.getAlert(title: "🤓", message: "Scheduled Notification Existed.\nDo you want to UPDATE it to %@?".localized(with: time), with: completion)
+                return UIAlertController.getAlert(title: "🤓", message: "Scheduled Notification Existed.\nDo you want to UPDATE it to %@?".localized(with: time), with: handler)
             }
             
-            return UIAlertController.getAlert(title: "Register".localized, message: "Do you want to GET Notification at\n%@ daily?".localized(with: time), with: completion)
+            return UIAlertController.getAlert(title: "Register".localized, message: "Do you want to GET Notification at\n%@ daily?".localized(with: time), with: handler)
         case .unauthorized:
             return UIAlertController.getAlert(title: "Not Authorized".localized, message: "CHECK Notifications Configuration in Settings".localized)
         case .registerFailed:

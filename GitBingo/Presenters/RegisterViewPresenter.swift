@@ -10,8 +10,9 @@ import UIKit
 import UserNotifications
 
 protocol RegisterNotificationProtocol: class {
-    func showWarningAlert(alertState: GitBingoAlert)
+    func showAlert(alertState: GitBingoAlertState)
     func updateDescriptionLabel(with text: String)
+    func dismissVC()
 }
 
 class RegisterViewPresenter {
@@ -54,10 +55,13 @@ class RegisterViewPresenter {
     func showAlert() {
         center.getNotificationSettings { (settings) in
             if settings.authorizationStatus == .authorized {
-                let register = GitBingoAlert.register(self.hasScheduledNotification, self.time)
-                self.vc?.showWarningAlert(alertState: register)
+                let register = GitBingoAlertState.register(self.hasScheduledNotification, self.time, { _ in
+                    self.vc?.dismissVC()
+                    self.generateNotification()
+                })
+                self.vc?.showAlert(alertState: register)
             }else {
-                self.vc?.showWarningAlert(alertState: .unauthorized)
+                self.vc?.showAlert(alertState: .unauthorized)
             }
         }
     }
@@ -71,7 +75,7 @@ class RegisterViewPresenter {
         vc?.updateDescriptionLabel(with: "No Scheduled Notification so far".localized)
     }
     
-    func generateNotification() {
+    private func generateNotification() {
         guard let times = pasreTime(from: time) else { return }
         let content = UNMutableNotificationContent()
         content.title = "Wait!".localized
@@ -90,7 +94,7 @@ class RegisterViewPresenter {
         
         center.add(request) { (error) in
             if ((error) != nil){
-                self.vc?.showWarningAlert(alertState: .registerFailed)
+                self.vc?.showAlert(alertState: .registerFailed)
             }
             GroupUserDefaults.shared.save(self.time, of: .notification)
         }
@@ -98,13 +102,13 @@ class RegisterViewPresenter {
     
     func removeNotification() {
         if hasScheduledNotification {
-            let remove = GitBingoAlert.removeNotification { (_) in
+            let remove = GitBingoAlertState.removeNotification { (_) in
                 self.center.removeAllPendingNotificationRequests()
                 GroupUserDefaults.shared.remove(of: .notification)
                 self.updateScheduledNotificationIndicator()
             }
             
-            self.vc?.showWarningAlert(alertState: remove)
+            self.vc?.showAlert(alertState: remove)
         }
     }
     

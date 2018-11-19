@@ -51,12 +51,12 @@ class RegisterAlertViewController: UIViewController {
 
 //MARK:- RegisterNotificationProtocol
 extension RegisterAlertViewController: RegisterNotificationProtocol {
+    func dismissVC() {
+        self.dismiss(animated: true, completion: nil)
+    }
     
-    func showWarningAlert(alertState: GitBingoAlert) {
-        let alert = alertState.getAlert { (_) in
-            self.presenter.generateNotification()
-            self.dismiss(animated: true, completion: nil)
-        }
+    func showAlert(alertState: GitBingoAlertState) {
+        let alert = alertState.alert
         
         present(alert, animated: true, completion: nil)
     }
