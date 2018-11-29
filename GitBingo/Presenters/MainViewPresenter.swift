@@ -15,10 +15,6 @@ protocol DotsUpdateableDelegate: class {
     func setUpGithubInputAlertButton(_ title: String)
 }
 
-protocol APIServicable: class {
-    func fetch(from id: String, completion: @escaping (Contribution?, GitBingoError?)->())
-}
-
 class MainViewPresenter {
     //MARK: Properties
     private weak var vc: DotsUpdateableDelegate?
@@ -75,16 +71,5 @@ class MainViewPresenter {
     
     func color(at item: Int) -> UIColor? {
         return contributions?.colors[item]
-    }
-    
-}
-
-extension MainViewPresenter: APIServicable {
-    func fetch(from id: String, completion: @escaping (Contribution?, GitBingoError?)->()) {
-        DispatchQueue.global().async {
-            self.service.fetchContributionDots(of: id) { (contributions, err) in
-                completion(contributions, err)
-            }
-        }
     }
 }
