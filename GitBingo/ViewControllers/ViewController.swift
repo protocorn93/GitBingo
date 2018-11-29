@@ -120,7 +120,9 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 extension ViewController: DotsUpdateableDelegate {
     
     func setUpGithubInputAlertButton(_ title: String) {
-        githubInputAlertButton.setTitle(title, for: .normal)
+        DispatchQueue.main.async {
+            self.githubInputAlertButton.setTitle(title, for: .normal)
+        }
     }
     
     func showProgressStatus(mode: RefreshMode?) {
@@ -139,24 +141,28 @@ extension ViewController: DotsUpdateableDelegate {
     }
     
     func showSuccessProgressStatus() {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        SVProgressHUD.showSuccess(withStatus: "Success")
-        SVProgressHUD.dismiss(withDelay: 1)
-        
-        if refreshControl.isRefreshing {
-            refreshControl.endRefreshing()
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            SVProgressHUD.showSuccess(withStatus: "Success")
+            SVProgressHUD.dismiss(withDelay: 1)
+            
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
+            
+            self.collectionView.isHidden = false
+            self.collectionView.reloadData()
         }
-        
-        collectionView.isHidden = false
-        collectionView.reloadData()
     }
     
     func showFailProgressStatus(with error: GitBingoError) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        SVProgressHUD.showError(withStatus: error.description)
-        SVProgressHUD.dismiss(withDelay: 1)
-        if refreshControl.isRefreshing {
-            refreshControl.endRefreshing()
+        DispatchQueue.main.async {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            SVProgressHUD.showError(withStatus: error.description)
+            SVProgressHUD.dismiss(withDelay: 1)
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
         }
     }
 }

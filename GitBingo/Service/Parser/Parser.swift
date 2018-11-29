@@ -8,10 +8,6 @@
 
 import Kanna
 
-protocol HTMLParsingProtocol: class {
-    func parse(from data: Data?) -> Contribution?
-}
-
 class Parser: HTMLParsingProtocol {
     func parse(from data: Data?) -> Contribution? {
         guard let data = data, let rawHTML = String(data: data, encoding: .utf8) else { return nil }
