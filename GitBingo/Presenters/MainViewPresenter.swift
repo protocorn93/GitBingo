@@ -56,21 +56,16 @@ class MainViewPresenter {
     func request(from id: String? = nil, mode: RefreshMode? = nil) {
         if let id = id ?? self.id {
             self.vc?.showProgressStatus(mode: mode)
-            fetch(from: id) { (contributions, err) in
+            service.fetchContributionDots(of: id) { (contributions, err) in
                 if let err = err {
-                    DispatchQueue.main.async { [weak self] in
-                        self?.vc?.showFailProgressStatus(with: err)
-                    }
+                    self.vc?.showFailProgressStatus(with: err)
                     return
                 }
                 
-                // Success case
-                DispatchQueue.main.async { [weak self] in
-                    guard let self = self else { return }
-                    self.contributions = contributions
-                    self.vc?.showSuccessProgressStatus()
-                    self.vc?.setUpGithubInputAlertButton(self.greeting)
-                }
+                self.contributions = contributions
+                self.vc?.showSuccessProgressStatus()
+                self.vc?.setUpGithubInputAlertButton(self.greeting)
+
                 GroupUserDefaults.shared.save(id, of: .id)
             }
             return

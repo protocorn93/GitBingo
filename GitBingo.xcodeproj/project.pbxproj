@@ -12,6 +12,28 @@
 		3E025BD02163B74600F93D4E /* TodayViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E025BCF2163B74600F93D4E /* TodayViewPresenter.swift */; };
 		3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41C2FB213A319100371B4F /* GitBingoError.swift */; };
 		3E49ACC1216EDA6200E834F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EAD214721401E4D00049859 /* Localizable.strings */; };
+		3E74ADFF21AF75EC00DE3B82 /* SessionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74ADFE21AF75EC00DE3B82 /* SessionManagerProtocol.swift */; };
+		3E74AE0021AF765100DE3B82 /* SessionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74ADFE21AF75EC00DE3B82 /* SessionManagerProtocol.swift */; };
+		3E74AE0121AF765300DE3B82 /* SessionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74ADFE21AF75EC00DE3B82 /* SessionManagerProtocol.swift */; };
+		3E74AE0221AF771400DE3B82 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8589212EFF4C002540A8 /* APIService.swift */; };
+		3E74AE0521AF777300DE3B82 /* HTMLParsingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74AE0421AF777300DE3B82 /* HTMLParsingProtocol.swift */; };
+		3E74AE0621AF777700DE3B82 /* HTMLParsingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74AE0421AF777300DE3B82 /* HTMLParsingProtocol.swift */; };
+		3E74AE0721AF777800DE3B82 /* HTMLParsingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74AE0421AF777300DE3B82 /* HTMLParsingProtocol.swift */; };
+		3E74AE0821AF77A700DE3B82 /* Contributions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8593212F0CC3002540A8 /* Contributions.swift */; };
+		3E74AE0921AF77A700DE3B82 /* Contributions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8593212F0CC3002540A8 /* Contributions.swift */; };
+		3E74AE0A21AF77AC00DE3B82 /* GitBingoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41C2FB213A319100371B4F /* GitBingoError.swift */; };
+		3E74AE0B21AF77B800DE3B82 /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC858F212F094D002540A8 /* Dot.swift */; };
+		3E74AE0C21AF77BD00DE3B82 /* ContributionGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8591212F09D1002540A8 /* ContributionGrade.swift */; };
+		3E74AE0D21AF77EE00DE3B82 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC858C212F0912002540A8 /* UIColorExtensions.swift */; };
+		3E74AE0E21AF77FB00DE3B82 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD214B21401EE000049859 /* LocalizedString.swift */; };
+		3E74AE1021AF8FAE00DE3B82 /* SessionManagerStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74AE0F21AF8FAE00DE3B82 /* SessionManagerStub.swift */; };
+		3E74AE1221AF8FD000DE3B82 /* APIServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74AE1121AF8FD000DE3B82 /* APIServiceStub.swift */; };
+		3E74AE1321AF902800DE3B82 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A3D721396725002983D8 /* MainViewPresenter.swift */; };
+		3E74AE1421AF918A00DE3B82 /* GroupUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9ECD04215D7E530089755E /* GroupUserDefaults.swift */; };
+		3E74AE1521AF918F00DE3B82 /* RefreshMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF116213AA222002B3142 /* RefreshMode.swift */; };
+		3E74AE1621AF91BB00DE3B82 /* KeyIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */; };
+		3E74AE1821AFADC300DE3B82 /* MainViewStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74AE1721AFADC300DE3B82 /* MainViewStub.swift */; };
+		3E74AE1A21AFAE9000DE3B82 /* GitBingoPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74AE1921AFAE9000DE3B82 /* GitBingoPresenterTests.swift */; };
 		3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A3D721396725002983D8 /* MainViewPresenter.swift */; };
 		3E9D2ADE213D1AFD0009DAD8 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */; };
 		3E9D2AE0213D1B8F0009DAD8 /* KeyIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */; };
@@ -24,7 +46,6 @@
 		3E9ECCFB215C10CB0089755E /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD214B21401EE000049859 /* LocalizedString.swift */; };
 		3E9ECCFC215C10D20089755E /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC858F212F094D002540A8 /* Dot.swift */; };
 		3E9ECCFD215C10D50089755E /* ContributionGrade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8591212F09D1002540A8 /* ContributionGrade.swift */; };
-		3E9ECCFE215C10D70089755E /* Contributions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8593212F0CC3002540A8 /* Contributions.swift */; };
 		3E9ECCFF215C10DA0089755E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC8589212EFF4C002540A8 /* APIService.swift */; };
 		3E9ECD00215C10EA0089755E /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBC858C212F0912002540A8 /* UIColorExtensions.swift */; };
 		3E9ECD03215C1C660089755E /* KeyIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */; };
@@ -97,6 +118,12 @@
 		3E41C2FB213A319100371B4F /* GitBingoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoError.swift; sourceTree = "<group>"; };
 		3E49ACBE216EDA5800E834F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		3E49ACC0216EDA5D00E834F7 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		3E74ADFE21AF75EC00DE3B82 /* SessionManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerProtocol.swift; sourceTree = "<group>"; };
+		3E74AE0421AF777300DE3B82 /* HTMLParsingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParsingProtocol.swift; sourceTree = "<group>"; };
+		3E74AE0F21AF8FAE00DE3B82 /* SessionManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerStub.swift; sourceTree = "<group>"; };
+		3E74AE1121AF8FD000DE3B82 /* APIServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceStub.swift; sourceTree = "<group>"; };
+		3E74AE1721AFADC300DE3B82 /* MainViewStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewStub.swift; sourceTree = "<group>"; };
+		3E74AE1921AFAE9000DE3B82 /* GitBingoPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoPresenterTests.swift; sourceTree = "<group>"; };
 		3E98A3D721396725002983D8 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyIdentifier.swift; sourceTree = "<group>"; };
@@ -194,6 +221,15 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		3E74AE0321AF775C00DE3B82 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3E74AE0421AF777300DE3B82 /* HTMLParsingProtocol.swift */,
+				3E74ADFE21AF75EC00DE3B82 /* SessionManagerProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		3E98A3D621396716002983D8 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +276,7 @@
 		3E9F6ADE212EFE84005E76DA /* GitBingo */ = {
 			isa = PBXGroup;
 			children = (
+				3E74AE0321AF775C00DE3B82 /* Protocols */,
 				3E9ECD01215C1B450089755E /* GitBingo.entitlements */,
 				3EAD214221401E2900049859 /* Localizing */,
 				3E007BCC213BD0560007DD5C /* ViewControllers */,
@@ -301,6 +338,10 @@
 			isa = PBXGroup;
 			children = (
 				3EE0A3D5219FD4540003962E /* GitBingoTests.swift */,
+				3E74AE1921AFAE9000DE3B82 /* GitBingoPresenterTests.swift */,
+				3E74AE0F21AF8FAE00DE3B82 /* SessionManagerStub.swift */,
+				3E74AE1121AF8FD000DE3B82 /* APIServiceStub.swift */,
+				3E74AE1721AFADC300DE3B82 /* MainViewStub.swift */,
 				3EE0A3D7219FD4540003962E /* Info.plist */,
 			);
 			path = GitBingoTests;
@@ -548,6 +589,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E74AE0121AF765300DE3B82 /* SessionManagerProtocol.swift in Sources */,
+				3E74AE0821AF77A700DE3B82 /* Contributions.swift in Sources */,
 				3E9ECCE9215C0BB00089755E /* TodayViewController.swift in Sources */,
 				3E9ECCFF215C10DA0089755E /* APIService.swift in Sources */,
 				3E9ECCFA215C10AF0089755E /* GitBingoError.swift in Sources */,
@@ -556,12 +599,12 @@
 				3E9ECD03215C1C660089755E /* KeyIdentifier.swift in Sources */,
 				3EE0A3CE219FD3720003962E /* Parser.swift in Sources */,
 				3EF465E821674C6700E877D7 /* ReusableIdentifier.swift in Sources */,
-				3E9ECCFE215C10D70089755E /* Contributions.swift in Sources */,
 				3E9ECD09215DD2D20089755E /* AppURL.swift in Sources */,
 				3E9ECCFC215C10D20089755E /* Dot.swift in Sources */,
 				3E9ECCFD215C10D50089755E /* ContributionGrade.swift in Sources */,
 				3E9ECD00215C10EA0089755E /* UIColorExtensions.swift in Sources */,
 				3E025BD02163B74600F93D4E /* TodayViewPresenter.swift in Sources */,
+				3E74AE0721AF777800DE3B82 /* HTMLParsingProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,12 +620,14 @@
 				3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */,
 				3E9ECD08215DD2C30089755E /* AppURL.swift in Sources */,
 				3EBC858A212EFF4C002540A8 /* APIService.swift in Sources */,
+				3E74ADFF21AF75EC00DE3B82 /* SessionManagerProtocol.swift in Sources */,
 				3EFBF11D213AE2CE002B3142 /* SectionFooterView.swift in Sources */,
 				3E9D2AE0213D1B8F0009DAD8 /* KeyIdentifier.swift in Sources */,
 				3ED9666F2156FB60008A8897 /* GitBingoAlertState.swift in Sources */,
 				3E9D2AE2213D1D100009DAD8 /* RegisterViewPresenter.swift in Sources */,
 				3EFBF11F213AE60F002B3142 /* ReusableIdentifier.swift in Sources */,
 				3EFBF117213AA222002B3142 /* RefreshMode.swift in Sources */,
+				3E74AE0521AF777300DE3B82 /* HTMLParsingProtocol.swift in Sources */,
 				3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */,
 				3E9F6AE0212EFE84005E76DA /* AppDelegate.swift in Sources */,
 				3E007BCE213BD0780007DD5C /* RegisterAlertViewController.swift in Sources */,
@@ -598,7 +643,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E74AE0E21AF77FB00DE3B82 /* LocalizedString.swift in Sources */,
+				3E74AE0D21AF77EE00DE3B82 /* UIColorExtensions.swift in Sources */,
+				3E74AE0021AF765100DE3B82 /* SessionManagerProtocol.swift in Sources */,
+				3E74AE1A21AFAE9000DE3B82 /* GitBingoPresenterTests.swift in Sources */,
+				3E74AE0921AF77A700DE3B82 /* Contributions.swift in Sources */,
+				3E74AE1421AF918A00DE3B82 /* GroupUserDefaults.swift in Sources */,
+				3E74AE1221AF8FD000DE3B82 /* APIServiceStub.swift in Sources */,
+				3E74AE0221AF771400DE3B82 /* APIService.swift in Sources */,
+				3E74AE0B21AF77B800DE3B82 /* Dot.swift in Sources */,
+				3E74AE0A21AF77AC00DE3B82 /* GitBingoError.swift in Sources */,
+				3E74AE1521AF918F00DE3B82 /* RefreshMode.swift in Sources */,
+				3E74AE1621AF91BB00DE3B82 /* KeyIdentifier.swift in Sources */,
+				3E74AE1321AF902800DE3B82 /* MainViewPresenter.swift in Sources */,
+				3E74AE1821AFADC300DE3B82 /* MainViewStub.swift in Sources */,
+				3E74AE0C21AF77BD00DE3B82 /* ContributionGrade.swift in Sources */,
 				3EE0A3D6219FD4540003962E /* GitBingoTests.swift in Sources */,
+				3E74AE0621AF777700DE3B82 /* HTMLParsingProtocol.swift in Sources */,
+				3E74AE1021AF8FAE00DE3B82 /* SessionManagerStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
