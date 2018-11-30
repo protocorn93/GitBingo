@@ -9,14 +9,14 @@
 import UIKit
 
 class Contribution {
-    //MARK: Properties
+    // MARK: Properties
     var dots: [Dot]
     var count: Int {
         return dots.count
     }
     var colors: [UIColor?] {
         let colors: [UIColor?] = dots.map {$0.grade?.color}
-        
+
         return colors
     }
     var total: Int {
@@ -30,23 +30,23 @@ class Contribution {
         let today = dots.filter {$0.isToday == true}
         return today.first?.count ?? 0
     }
-    
-    //MARK: Life Cycle
-    init(dots:[Dot]) {
+
+    // MARK: Life Cycle
+    init(dots: [Dot]) {
         var dots = dots
-        
+
         let thisWeekContributedDate = dots.count % 7
         let notYetDot = 7 - thisWeekContributedDate
-        
+
         if notYetDot != 7 {
             for _ in (0..<notYetDot) {
                 dots.append(Dot())
             }
         }
-        
+
         var groupedDots: [[Dot]] = []
         var week: [Dot] = []
-        
+
         for (index, dot) in dots.enumerated() {
             week.append(dot)
             if (index + 1) % 7 == 0 {
@@ -54,9 +54,9 @@ class Contribution {
                 week.removeAll()
             }
         }
-        
+
         groupedDots = groupedDots.reversed()
-        
+
         self.dots = groupedDots.flatMap {$0}
     }
 }

@@ -5,9 +5,11 @@ target 'GitBingo' do
   use_frameworks!
   pod 'Kanna'
   pod 'SVProgressHUD'
+  pod 'SwiftLint'
 end
 
 target 'GitBingo Widget' do
   use_frameworks!
   pod 'Kanna'
+  pod 'SwiftLint'
 end

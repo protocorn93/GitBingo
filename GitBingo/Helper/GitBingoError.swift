@@ -14,7 +14,7 @@ enum GitBingoError: Error {
     case networkError
     case idIsEmpty
     case failToRegisterNotification
-    
+
     var description: String {
         switch self {
         case .pageNotFound:
