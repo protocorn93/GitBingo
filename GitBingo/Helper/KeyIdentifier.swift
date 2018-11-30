@@ -11,7 +11,7 @@ import Foundation
 enum KeyIdentifier {
     case id
     case notification
-    
+
     var value: String {
         switch self {
         case .id:

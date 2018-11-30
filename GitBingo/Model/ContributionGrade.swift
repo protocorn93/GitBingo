@@ -15,7 +15,7 @@ enum ContributionGrade: String {
     case normal = "#7bc96f"
     case hard = "#239a3b"
     case extreme = "#196127"
-    
+
     var color: UIColor {
         switch self {
         case .notYet:

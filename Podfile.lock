@@ -1,20 +1,24 @@
 PODS:
   - Kanna (4.0.2)
   - SVProgressHUD (2.2.5)
+  - SwiftLint (0.28.0)
 
 DEPENDENCIES:
   - Kanna
   - SVProgressHUD
+  - SwiftLint
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Kanna
     - SVProgressHUD
+    - SwiftLint
 
 SPEC CHECKSUMS:
   Kanna: c60b61d72554bf04ed1ee074f9b379855cab4892
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftLint: 088cfacb75b45970017e62b7524d506776d60148
 
-PODFILE CHECKSUM: 1e070a93f221c5da063810baf5eecd2011c48662
+PODFILE CHECKSUM: 477186835c445e3cece4b795cb1ccf0defdaf4d2
 
-COCOAPODS: 1.5.0.beta.1
+COCOAPODS: 1.5.3

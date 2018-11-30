@@ -9,50 +9,50 @@
 import UIKit
 
 extension UIAlertController {
-    
-    static func getTextFieldAlert(_ completion: @escaping (String)->() ) -> UIAlertController {
+
+    static func getTextFieldAlert(_ completion: @escaping (String) -> Void ) -> UIAlertController {
         let alert = UIAlertController(title: "Github ID", message: nil, preferredStyle: .alert)
-    
+
         alert.addTextField { (textField) in
             textField.placeholder = "Input your Github ID".localized
         }
-        
+
         alert.addAction(UIAlertAction(title: "Done".localized, style: .default, handler: { (_) in
             guard let id = alert.textFields?[0].text else { return }
             completion(id)
         }))
-        
+
         alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
-        
+
         alert.actions.first?.isEnabled = false
 
         return alert
     }
-    
+
     static func getAlert(title: String, message: String) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
+
         alert.addAction(UIAlertAction(title: "Ok".localized, style: .default, handler: nil))
-        
+
         return alert
     }
-    
-    static func getAlert(title: String, message: String, with completion: ((UIAlertAction)->())?) -> UIAlertController {
+
+    static func getAlert(title: String, message: String, with completion: ((UIAlertAction) -> Void)?) -> UIAlertController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
+
         alert.addAction(UIAlertAction(title: "Yes".localized, style: .default, handler: completion))
         alert.addAction(UIAlertAction(title: "No".localized, style: .cancel, handler: nil))
-        
+
         return alert
     }
-    
+
     @objc func handleEdtingChanged(_ textField: UITextField) {
         guard let text = textField.text else { return }
         guard text.isEmpty else {
             actions.first?.isEnabled = true
             return
         }
-        
+
         actions.first?.isEnabled = false
     }
 }

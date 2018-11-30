@@ -11,7 +11,7 @@ import Foundation
 enum AppURL {
     case authentication
     case notificaiton
-    
+
     var path: String {
         switch self {
         case .authentication:

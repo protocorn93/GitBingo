@@ -13,22 +13,22 @@ class MainViewStub: DotsUpdateableDelegate {
     var showSuccessProggressStatusDidCalled: Bool = false
     var showFailProgressStatusDidCalled: Bool = false
     var setUpGithubInputAlertButtonDidCalled: Bool = false
-    
+
     var error: GitBingoError?
-    
+
     func showProgressStatus(mode: RefreshMode?) {
         showProgressStatusDidCalled = true
     }
-    
+
     func showSuccessProgressStatus() {
         showSuccessProggressStatusDidCalled = true
     }
-    
+
     func showFailProgressStatus(with error: GitBingoError) {
         self.error = error
         showFailProgressStatusDidCalled = true
     }
-    
+
     func setUpGithubInputAlertButton(_ title: String) {
         setUpGithubInputAlertButtonDidCalled = true
     }
