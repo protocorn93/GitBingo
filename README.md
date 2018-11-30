@@ -12,7 +12,7 @@
 
 #### 사용한 기술
 
-- `Swift4`, `Xcode9`, `UserNotifications`, `Error Handling`, `Localizing`, `Networking`, `UIApplicationShortCuts`, `Today Extensions`
+- `Swift4`, `Xcode9`, `UserNotifications`, `Error Handling`, `Localizing`, `Networking`, `UIApplicationShortCuts`, `Today Extensions`, `SwiftLint`
 
 #### 사용한 아키텍쳐
 
@@ -29,6 +29,7 @@
 
 - [`Kanna`](https://github.com/tid-kijyun/Kanna) - https://github.com/users/ehdrjsdlzzzz/contributions 로부터 HTML을 파싱해오기 위해 사용
 - [`SVProgressHUD`](https://github.com/SVProgressHUD/SVProgressHUD) - Indicator와 함께 코멘트를 사용하기 위해 사용
+- [`SwiftLint`](https://github.com/realm/SwiftLint) - Swift 스타일과 컨벤션을 지키기 위해
 
 #### 문제점
 
