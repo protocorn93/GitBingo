@@ -9,6 +9,6 @@
 import UIKit
 
 class SectionHeaderView: UICollectionReusableView {
-    //MARK: Outlets
+    // MARK: Outlets
     @IBOutlet weak var weekLabel: UILabel!
 }

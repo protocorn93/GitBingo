@@ -16,7 +16,7 @@ protocol DotsUpdateableDelegate: class {
 }
 
 class MainViewPresenter {
-    //MARK: Properties
+    // MARK: Properties
     private weak var vc: DotsUpdateableDelegate?
     private var contributions: Contribution?
     private var service: APIServiceProtocol
@@ -30,25 +30,25 @@ class MainViewPresenter {
         guard let id = self.id else { return "Hello, Who are you?" }
         return "Welcome! \(id)👋"
     }
-    
-    //MARK: Life Cycle
+
+    // MARK: Life Cycle
     init(service: APIServiceProtocol) {
         self.service = service
     }
-    
+
     func attachView(_ vc: DotsUpdateableDelegate) {
         self.vc = vc
     }
-    
+
     func detatchView() {
         self.vc = nil
     }
-    
+
     func refresh(mode: RefreshMode) {
         guard let id = self.id else { return }
         request(from: id, mode: mode)
     }
-    
+
     func request(from id: String? = nil, mode: RefreshMode? = nil) {
         if let id = id ?? self.id {
             self.vc?.showProgressStatus(mode: mode)
@@ -57,7 +57,7 @@ class MainViewPresenter {
                     self.vc?.showFailProgressStatus(with: err)
                     return
                 }
-                
+
                 self.contributions = contributions
                 self.vc?.showSuccessProgressStatus()
                 self.vc?.setUpGithubInputAlertButton(self.greeting)
@@ -68,7 +68,7 @@ class MainViewPresenter {
         }
         vc?.setUpGithubInputAlertButton(greeting)
     }
-    
+
     func color(at item: Int) -> UIColor? {
         return contributions?.colors[item]
     }

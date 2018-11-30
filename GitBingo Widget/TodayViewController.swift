@@ -10,15 +10,15 @@ import UIKit
 import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-    //MARK: Outlets
+    // MARK: Outlets
     @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var weekLabel: UILabel!
     @IBOutlet weak var notificationLabel: UILabel!
-    
+
     // To Be Hidden
     @IBOutlet weak var labelStackView: UIStackView!
     @IBOutlet weak var widgetCollectionView: UICollectionView!
-    
+
     @IBOutlet weak var reloadButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var githubRegisterButton: UIButton!
@@ -30,11 +30,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             notificationTimeLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRegisterNotificaiton)))
         }
     }
-    
-    //MARK: Presenter
+
+    // MARK: Presenter
     private var presenter: TodayViewPresenter = TodayViewPresenter(service: APIService(parser: Parser()))
-    
-    //MARK: Life Cycle
+
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         widgetCollectionView.delegate = self
@@ -42,73 +42,73 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         localization()
         setupPresenter()
     }
-    
+
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         completionHandler(NCUpdateResult.newData)
     }
-    
-    //MARK: Setup
+
+    // MARK: Setup
     private func setupPresenter() {
         presenter.attachView(self)
         presenter.load()
     }
-    
+
     private func localization() {
         todayLabel.text = todayLabel.text?.localized
         weekLabel.text = weekLabel.text?.localized
         notificationLabel.text = notificationLabel.text?.localized
     }
-    
-    //MARK: Fetch
+
+    // MARK: Fetch
     @IBAction func reload(_ sender: UIButton) {
         presenter.load()
     }
-    
+
     private func load() {
         presenter.load()
     }
-    
-    //MARK: Action
+
+    // MARK: Action
     @objc func handleRegisterNotificaiton(_ gesture: UITapGestureRecognizer) {
         presenter.handleUserInteraction(type: .notificaiton)
     }
-        
+
     @IBAction func handleRegisterID(_ sender: UIButton) {
         presenter.handleUserInteraction(type: .authentication)
     }
-    
+
 }
 
-//MARK:- UICollectionViewDataSource
+// MARK: - UICollectionViewDataSource
 extension TodayViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionViewCell.reusableIdentifier, for: indexPath)
         cell.backgroundColor = presenter.colors(at: indexPath)
         return cell
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 7
     }
 }
 
-//MARK:- UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegateFlowLayout
 extension TodayViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width / 7
         return CGSize(width: width, height: width)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
 }
 
-//MARK:- GitBingoWidgetProtocol
+// MARK: - GitBingoWidgetProtocol
 extension TodayViewController: GitBingoWidgetProtocol {
     func hide(error: GitBingoError?) {
         var hasError = false
@@ -124,18 +124,18 @@ extension TodayViewController: GitBingoWidgetProtocol {
             }
             hasError = true
         }
-        
+
         githubRegisterButton.isHidden = !hasError
         labelStackView.isHidden = hasError
         widgetCollectionView.isHidden = hasError
         reloadButton.isHidden = hasError
     }
-    
+
     func startLoad() {
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
     }
-    
+
     func endLoad() {
         activityIndicator.stopAnimating()
         widgetCollectionView.reloadData()
@@ -147,14 +147,14 @@ extension TodayViewController: GitBingoWidgetProtocol {
         widgetCollectionView.isHidden = !isAuthenticated
         reloadButton.isHidden = !isAuthenticated
     }
-    
+
     func initUI(with contributions: Contribution?, at time: String) {
         guard let contributions = contributions else { return }
         todayCommitLabel.text = "\(contributions.today)"
         weekTotalLabel.text = "\(contributions.total)"
         notificationTimeLabel.text = time
     }
-    
+
     func open(_ url: URL) {
         extensionContext?.open(url, completionHandler: nil)
     }

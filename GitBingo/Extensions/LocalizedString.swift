@@ -12,7 +12,7 @@ extension String {
     var localized: String {
         return NSLocalizedString(self, tableName: "Localizable", value: "\(self)", comment: "")
     }
-    
+
     func localized(with value: String) -> String {
         let format = NSLocalizedString(self, tableName: "Localizable", value: "\(self)", comment: "")
         return String.localizedStringWithFormat(format, value)

@@ -13,11 +13,11 @@ class Parser: HTMLParsingProtocol {
         guard let data = data, let rawHTML = String(data: data, encoding: .utf8) else { return nil }
         guard let doc = try? HTML(html: rawHTML, encoding: .utf8) else { return nil }
         if doc.body?.content == "Not Found" { return nil }
-        
+
         let dayElements = doc.css("g > .day")
-        
+
         var dots: [Dot] = []
-        
+
         dayElements.forEach { (day) in
             guard let date = day["data-date"] else { return }
             guard let color = day["fill"] else { return }
