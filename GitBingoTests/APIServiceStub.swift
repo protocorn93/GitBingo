@@ -26,7 +26,7 @@ class APIServiceStub: APIServiceProtocol {
             return
         }
 
-        let task = session.dataTask(with: url) { (_, _, error) in
+        session.dataTask(with: url) { (_, _, error) in
             if let error = error {
                 self.error = error as? GitBingoError
                 completion(nil, self.error)

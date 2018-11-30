@@ -23,7 +23,7 @@ class RegisterViewPresenter {
     private var removeNotificationCompletion: ((UIAlertAction) -> Void)?
 
     private var hasScheduledNotification: Bool {
-        guard let _ = GroupUserDefaults.shared.load(of: .notification) else { return false }
+        guard GroupUserDefaults.shared.load(of: .notification) != nil else { return false }
         return true
     }
 
@@ -93,7 +93,7 @@ class RegisterViewPresenter {
         let request = UNNotificationRequest(identifier: "GitBingo", content: content, trigger: trigger)
 
         center.add(request) { (error) in
-            if ((error) != nil) {
+            if error != nil {
                 self.vc?.showAlert(alertState: .registerFailed)
             }
             GroupUserDefaults.shared.save(self.time, of: .notification)

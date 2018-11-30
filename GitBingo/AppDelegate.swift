@@ -19,10 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let center = UNUserNotificationCenter.current()
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
 
-        center.requestAuthorization(options: options) {
-            (_, _) in
-
-        }
+        center.requestAuthorization(options: options) { (_, _) in }
 
         addShortcuts(to: application)
 
