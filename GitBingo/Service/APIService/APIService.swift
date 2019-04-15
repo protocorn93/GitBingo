@@ -14,11 +14,12 @@ protocol APIServiceProtocol: class {
 
 class APIService: APIServiceProtocol {
     // MARK: Properties
-    private let session = URLSession(configuration: .default)
+    private let session: SessionManagerProtocol
     private let parser: HTMLParsingProtocol
 
-    init(parser: HTMLParsingProtocol) {
+    init(parser: HTMLParsingProtocol, session: SessionManagerProtocol) {
         self.parser = parser
+        self.session = session
     }
 
     // MARK: Methods

@@ -16,7 +16,8 @@ class ViewController: UIViewController {
 
     // MARK: Properties
     private var refreshControl = UIRefreshControl()
-    private var presenter: MainViewPresenter = MainViewPresenter(service: APIService(parser: Parser()))
+    private var presenter: MainViewPresenter = MainViewPresenter(service: APIService(parser: Parser(),
+                                                                                     session: URLSession(configuration: .default)))
 
     // MARK: Life Cycle
     override func viewDidLoad() {
