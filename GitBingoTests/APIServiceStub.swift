@@ -12,13 +12,13 @@ import XCTest
 class APIServiceStub: APIServiceProtocol {
     private var session: SessionManagerProtocol
     var error: GitBingoError?
-    var contributions: Contribution?
+    var contributions: Contributions?
 
     init(_ session: SessionManagerProtocol) {
         self.session = session
     }
 
-    func fetchContributionDots(of id: String, completion: @escaping (Contribution?, GitBingoError?) -> Void) {
+    func fetchContributionDots(of id: String, completion: @escaping (Contributions?, GitBingoError?) -> Void) {
         guard let url = URL(string: "https://github.com/users/\(id)/contributions") else {
             self.error = .pageNotFound
             completion(nil, .pageNotFound)
@@ -33,7 +33,7 @@ class APIServiceStub: APIServiceProtocol {
                 return
             }
 
-            self.contributions = Contribution(dots: [])
+            self.contributions = Contributions(dots: [])
             completion(self.contributions, nil)
         }
     }
