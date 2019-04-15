@@ -9,7 +9,7 @@
 import Kanna
 
 class Parser: HTMLParsingProtocol {
-    func parse(from data: Data?) -> Contribution? {
+    func parse(from data: Data?) -> Contributions? {
         guard let data = data, let rawHTML = String(data: data, encoding: .utf8) else { return nil }
         guard let doc = try? HTML(html: rawHTML, encoding: .utf8) else { return nil }
         if doc.body?.content == "Not Found" { return nil }
@@ -26,6 +26,6 @@ class Parser: HTMLParsingProtocol {
             dots.append(dot)
         }
         dots.last?.isToday = true
-        return Contribution(dots: dots)
+        return Contributions(dots: dots)
     }
 }

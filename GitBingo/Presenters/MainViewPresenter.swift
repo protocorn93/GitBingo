@@ -18,7 +18,7 @@ protocol DotsUpdateableDelegate: class {
 class MainViewPresenter {
     // MARK: Properties
     private weak var vc: DotsUpdateableDelegate?
-    private var contributions: Contribution?
+    private var contributions: Contributions?
     private var service: APIServiceProtocol
     var dotsCount: Int {
         return contributions?.count ?? 0

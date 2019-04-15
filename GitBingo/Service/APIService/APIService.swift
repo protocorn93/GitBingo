@@ -9,7 +9,7 @@
 import Foundation
 
 protocol APIServiceProtocol: class {
-    func fetchContributionDots(of id: String, completion: @escaping (Contribution?, GitBingoError?) -> Void)
+    func fetchContributionDots(of id: String, completion: @escaping (Contributions?, GitBingoError?) -> Void)
 }
 
 class APIService: APIServiceProtocol {
@@ -22,7 +22,7 @@ class APIService: APIServiceProtocol {
     }
 
     // MARK: Methods
-    func fetchContributionDots(of id: String, completion: @escaping (Contribution?, GitBingoError?) -> Void) {
+    func fetchContributionDots(of id: String, completion: @escaping (Contributions?, GitBingoError?) -> Void) {
         guard let url = URL(string: "https://github.com/users/\(id)/contributions") else {
             completion(nil, .pageNotFound)
             return
@@ -33,8 +33,8 @@ class APIService: APIServiceProtocol {
                 return
             }
 
-            if let contribution = self.parser.parse(from: data) {
-                completion(contribution, nil)
+            if let contributions = self.parser.parse(from: data) {
+                completion(contributions, nil)
             } else {
                 completion(nil, .pageNotFound)
             }

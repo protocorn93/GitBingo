@@ -13,14 +13,14 @@ protocol GitBingoWidgetProtocol: class {
     func startLoad()
     func endLoad()
     func hide(error: GitBingoError?)
-    func initUI(with contributions: Contribution?, at time: String)
+    func initUI(with contributions: Contributions?, at time: String)
     func open(_ url: URL)
 }
 
 class TodayViewPresenter {
     // MARK: Properties
     private weak var vc: GitBingoWidgetProtocol?
-    private var contributions: Contribution?
+    private var contributions: Contributions?
     private var service: APIServiceProtocol?
 
     // MARK: Life Cycle
@@ -82,7 +82,7 @@ class TodayViewPresenter {
 
             DispatchQueue.main.async {
                 guard let dots = contributions?.dots else { return }
-                let thisWeekContributions = Contribution(dots: dots.prefix(7).map {$0})
+                let thisWeekContributions = Contributions(dots: dots.prefix(7).map {$0})
                 self?.contributions = thisWeekContributions
                 completion(nil)
             }
