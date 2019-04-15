@@ -32,7 +32,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
 
     // MARK: Presenter
-    private var presenter: TodayViewPresenter = TodayViewPresenter(service: APIService(parser: Parser()))
+    private var presenter: TodayViewPresenter = TodayViewPresenter(service: APIService(parser: Parser(),
+                                                                                       session: URLSession(configuration: .default)))
 
     // MARK: Life Cycle
     override func viewDidLoad() {
@@ -148,7 +149,7 @@ extension TodayViewController: GitBingoWidgetProtocol {
         reloadButton.isHidden = !isAuthenticated
     }
 
-    func initUI(with contributions: Contribution?, at time: String) {
+    func initUI(with contributions: Contributions?, at time: String) {
         guard let contributions = contributions else { return }
         todayCommitLabel.text = "\(contributions.today)"
         weekTotalLabel.text = "\(contributions.total)"

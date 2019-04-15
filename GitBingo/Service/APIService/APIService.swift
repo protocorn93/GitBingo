@@ -9,20 +9,21 @@
 import Foundation
 
 protocol APIServiceProtocol: class {
-    func fetchContributionDots(of id: String, completion: @escaping (Contribution?, GitBingoError?) -> Void)
+    func fetchContributionDots(of id: String, completion: @escaping (Contributions?, GitBingoError?) -> Void)
 }
 
 class APIService: APIServiceProtocol {
     // MARK: Properties
-    private let session = URLSession(configuration: .default)
+    private let session: SessionManagerProtocol
     private let parser: HTMLParsingProtocol
 
-    init(parser: HTMLParsingProtocol) {
+    init(parser: HTMLParsingProtocol, session: SessionManagerProtocol) {
         self.parser = parser
+        self.session = session
     }
 
     // MARK: Methods
-    func fetchContributionDots(of id: String, completion: @escaping (Contribution?, GitBingoError?) -> Void) {
+    func fetchContributionDots(of id: String, completion: @escaping (Contributions?, GitBingoError?) -> Void) {
         guard let url = URL(string: "https://github.com/users/\(id)/contributions") else {
             completion(nil, .pageNotFound)
             return
@@ -33,8 +34,8 @@ class APIService: APIServiceProtocol {
                 return
             }
 
-            if let contribution = self.parser.parse(from: data) {
-                completion(contribution, nil)
+            if let contributions = self.parser.parse(from: data) {
+                completion(contributions, nil)
             } else {
                 completion(nil, .pageNotFound)
             }

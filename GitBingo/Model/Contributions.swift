@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Contribution {
+class Contributions {
     // MARK: Properties
     var dots: [Dot]
     var count: Int {

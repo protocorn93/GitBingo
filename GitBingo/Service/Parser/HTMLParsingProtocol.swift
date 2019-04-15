@@ -9,5 +9,5 @@
 import Foundation
 
 protocol HTMLParsingProtocol: class {
-    func parse(from data: Data?) -> Contribution?
+    func parse(from data: Data?) -> Contributions?
 }
