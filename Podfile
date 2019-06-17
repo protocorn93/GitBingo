@@ -6,6 +6,8 @@ target 'GitBingo' do
   pod 'Kanna'
   pod 'SVProgressHUD'
   pod 'SwiftLint'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 end
 
 target 'GitBingo Widget' do

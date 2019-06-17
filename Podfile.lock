@@ -1,24 +1,38 @@
 PODS:
   - Kanna (4.0.2)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
   - SVProgressHUD (2.2.5)
   - SwiftLint (0.28.0)
 
 DEPENDENCIES:
   - Kanna
+  - RxCocoa
+  - RxSwift
   - SVProgressHUD
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Kanna
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - SVProgressHUD
     - SwiftLint
 
 SPEC CHECKSUMS:
   Kanna: c60b61d72554bf04ed1ee074f9b379855cab4892
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 088cfacb75b45970017e62b7524d506776d60148
 
-PODFILE CHECKSUM: 477186835c445e3cece4b795cb1ccf0defdaf4d2
+PODFILE CHECKSUM: b2a9232744b3cfa94677ce21a6d0955142132994
 
 COCOAPODS: 1.5.3
