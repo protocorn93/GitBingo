@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var githubInputAlertButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -73,7 +73,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension ViewController: UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -113,7 +113,7 @@ extension ViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let widht = self.view.frame.width / 7
         return CGSize(width: widht, height: widht)
@@ -121,7 +121,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - GithubDotsRequestProtocol
-extension ViewController: DotsUpdateableDelegate {
+extension HomeViewController: DotsUpdateableDelegate {
 
     func setUpGithubInputAlertButton(_ title: String) {
         DispatchQueue.main.async {
