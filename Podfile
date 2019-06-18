@@ -14,4 +14,6 @@ target 'GitBingo Widget' do
   use_frameworks!
   pod 'Kanna'
   pod 'SwiftLint'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 end
