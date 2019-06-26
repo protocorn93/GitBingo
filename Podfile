@@ -6,10 +6,16 @@ target 'GitBingo' do
   pod 'Kanna'
   pod 'SVProgressHUD'
   pod 'SwiftLint'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxDataSources'
 end
 
 target 'GitBingo Widget' do
   use_frameworks!
   pod 'Kanna'
   pod 'SwiftLint'
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'RxDataSources'
 end
