@@ -7,43 +7,72 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxDataSources
 import SVProgressHUD
 
 class HomeViewController: UIViewController {
+    // MARK: Typealias
+    typealias CellConfiguration = (CollectionViewSectionedDataSource<DotsSectionModel>, UICollectionView, IndexPath, ContributionGrade) -> UICollectionViewCell
+    typealias SupplementaryViewConfiguration = ((CollectionViewSectionedDataSource<HomeViewController.DotsSectionModel>, UICollectionView, String, IndexPath) -> UICollectionReusableView)?
+    typealias DotsSectionModel = SectionModel<String, ContributionGrade>
+    typealias DotsDataSources = RxCollectionViewSectionedReloadDataSource<DotsSectionModel>
     // MARK: Outlets
     @IBOutlet weak var githubInputAlertButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
 
     // MARK: Properties
     private var refreshControl = UIRefreshControl()
-    private var presenter: MainViewPresenter = MainViewPresenter(service: APIService(parser: Parser(),
-                                                                                     session: URLSession(configuration: .default)))
+    private var homeViewModel = HomeViewModel(parser: Parser(), session: URLSession(configuration: .default))
+    private var disposeBag = DisposeBag()
+    
+    private lazy var cellConfiguration: CellConfiguration = { (dataSource, collectionView, indexPath, grade) in
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionViewCell.reusableIdentifier, for: indexPath)
+        cell.backgroundColor = grade.color
+        return cell
+    }
+    private lazy var supplementaryViewConfiguration: SupplementaryViewConfiguration = { (dataSource, collectionView, kind, indexPath) in
+        guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.reusableIdentifier, for: indexPath) as? SectionHeaderView else {
+            return UICollectionReusableView()
+        }
+        view.weekLabel.text = dataSource.sectionModels[indexPath.section].model
+        return view
+    }
+    private var dotsDataSource: DotsDataSources {
+        let dataSource = DotsDataSources(configureCell: cellConfiguration)
+        dataSource.configureSupplementaryView = supplementaryViewConfiguration
+        return dataSource
+    }
 
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNaviagtionBar()
-        setupCollectionView()
-        setupPresenter()
-        setupRefreshControl()
+        setupViews()
+        bindCollectionView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        homeViewModel.fetch(id: "ehdrjsdlzzzz")
     }
 
     // MARK: Setups
+    private func setupViews() {
+        setupNaviagtionBar()
+        setupCollectionView()
+        setupRefreshControl()
+    }
+    
     fileprivate func setupNaviagtionBar() {
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
 
     fileprivate func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        collectionView.rx.setDelegate(self).disposed(by: disposeBag)
         collectionView.allowsSelection = false
     }
-
-    fileprivate func setupPresenter() {
-        presenter.attachView(self)
-        presenter.request()
-    }
-
+    
     fileprivate func setupRefreshControl() {
         if #available(iOS 10.0, *) {
             collectionView.refreshControl = refreshControl
@@ -53,62 +82,24 @@ class HomeViewController: UIViewController {
 
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
+    
+    private func bindCollectionView() {
+        homeViewModel.sectionModels
+            .bind(to: collectionView.rx.items(dataSource: dotsDataSource))
+            .disposed(by: disposeBag)
+    }
 
     // MARK: Actions
     @objc func refresh() {
-        presenter.refresh(mode: .pullToRefresh)
+        
     }
 
     @IBAction func handleRefresh(_ sender: Any) {
-        presenter.refresh(mode: .tapToRefresh)
+        
     }
 
     @IBAction func handleShowGithubInputAlert(_ sender: Any) {
-        let alert = UIAlertController.getTextFieldAlert { [weak self] (id) in
-            self?.presenter.request(from: id)
-        }
-        alert.textFields?.first?.addTarget(alert, action: #selector(UIAlertController.handleEdtingChanged(_:)), for: .editingChanged)
-        present(alert, animated: true, completion: nil)
-    }
-}
 
-// MARK: - UICollectionViewDataSource
-extension HomeViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? 7 : presenter.dotsCount - 7
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UICollectionViewCell.reusableIdentifier, for: indexPath)
-        let index = indexPath.section == 0 ? indexPath.item : indexPath.item + 7
-        cell.backgroundColor = presenter.color(at: index)
-        return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionHeader {
-            guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.reusableIdentifier, for: indexPath) as? SectionHeaderView else {
-                return UICollectionReusableView()
-            }
-            view.weekLabel.text = indexPath.section == 0 ? "This Week" : "Last Weeks"
-            return view
-        }
-        guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionFooterView.reusableIdentifier, for: indexPath) as? SectionFooterView else {
-            return UICollectionReusableView()
-        }
-        return view
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: 30)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return section == 0 ? CGSize(width: self.view.frame.width, height: 0) : CGSize(width: self.view.frame.width, height: 20)
     }
 }
 
@@ -118,55 +109,10 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let widht = self.view.frame.width / 7
         return CGSize(width: widht, height: widht)
     }
-}
-
-// MARK: - GithubDotsRequestProtocol
-extension HomeViewController: DotsUpdateableDelegate {
-
-    func setUpGithubInputAlertButton(_ title: String) {
-        DispatchQueue.main.async {
-            self.githubInputAlertButton.setTitle(title, for: .normal)
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: self.view.frame.width, height: 30)
     }
-
-    func showProgressStatus(mode: RefreshMode?) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        if let mode = mode {
-            switch mode {
-            case .pullToRefresh:
-                refreshControl.beginRefreshing()
-            case .tapToRefresh:
-                SVProgressHUD.show()
-            }
-
-            return
-        }
-        SVProgressHUD.show()
-    }
-
-    func showSuccessProgressStatus() {
-        DispatchQueue.main.async {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            SVProgressHUD.showSuccess(withStatus: "Success")
-            SVProgressHUD.dismiss(withDelay: 1)
-
-            if self.refreshControl.isRefreshing {
-                self.refreshControl.endRefreshing()
-            }
-
-            self.collectionView.isHidden = false
-            self.collectionView.reloadData()
-        }
-    }
-
-    func showFailProgressStatus(with error: GitBingoError) {
-        DispatchQueue.main.async {
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-            SVProgressHUD.showError(withStatus: error.description)
-            SVProgressHUD.dismiss(withDelay: 1)
-            if self.refreshControl.isRefreshing {
-                self.refreshControl.endRefreshing()
-            }
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return section == 0 ? CGSize(width: self.view.frame.width, height: 0) : CGSize(width: self.view.frame.width, height: 20)
     }
 }
