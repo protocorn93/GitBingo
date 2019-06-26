@@ -14,6 +14,9 @@ class Contributions {
     var count: Int {
         return dots.count
     }
+    var grades: [ContributionGrade] {
+        return dots.compactMap { $0.grade }
+    }
     var colors: [UIColor?] {
         let colors: [UIColor?] = dots.map {$0.grade?.color}
 
