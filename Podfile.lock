@@ -1,8 +1,13 @@
 PODS:
+  - Differentiator (4.0.1)
   - Kanna (4.0.2)
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
   - RxRelay (5.0.0):
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
@@ -12,27 +17,32 @@ PODS:
 DEPENDENCIES:
   - Kanna
   - RxCocoa
+  - RxDataSources
   - RxSwift
   - SVProgressHUD
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Differentiator
     - Kanna
     - RxCocoa
+    - RxDataSources
     - RxRelay
     - RxSwift
     - SVProgressHUD
     - SwiftLint
 
 SPEC CHECKSUMS:
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   Kanna: c60b61d72554bf04ed1ee074f9b379855cab4892
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 088cfacb75b45970017e62b7524d506776d60148
 
-PODFILE CHECKSUM: b602ad18b57db4675a6905518b2a56319fb39c80
+PODFILE CHECKSUM: 05e93c40bf5e9501c201c54b0fbd21b711637bd1
 
 COCOAPODS: 1.5.3

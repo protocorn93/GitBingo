@@ -8,6 +8,7 @@ target 'GitBingo' do
   pod 'SwiftLint'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'RxDataSources'
 end
 
 target 'GitBingo Widget' do
@@ -16,4 +17,5 @@ target 'GitBingo Widget' do
   pod 'SwiftLint'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'RxDataSources'
 end
