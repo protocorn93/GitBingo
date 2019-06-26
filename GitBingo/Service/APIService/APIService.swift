@@ -9,13 +9,15 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 protocol APIServiceProtocol: class {
     func fetchContributionDots(of id: String, completion: @escaping (Contributions?, GitBingoError?) -> Void)
 }
 
 protocol ContributionDotsRepository {
-    func fetch(_ id: String) -> Observable<Contributions>
+    var contributions: PublishSubject<Contributions> { get }
+    func fetch(_ id: String)
 }
 
 class GitBingoContributionDotsRepository: ContributionDotsRepository {
@@ -23,33 +25,22 @@ class GitBingoContributionDotsRepository: ContributionDotsRepository {
     private let parser: HTMLParsingProtocol
     private var disposeBag = DisposeBag()
     
+    var contributions: PublishSubject<Contributions> = PublishSubject()
+    
     init(parser: HTMLParsingProtocol, session: SessionManagerProtocol) {
         self.parser = parser
         self.session = session
     }
     
-    func fetch(_ id: String) -> Observable<Contributions> {
-        return Observable<Contributions>.create { emitter in
-            guard let url = URL(string: "https://github.com/users/\(id)/contributions") else {
-                emitter.onError(GitBingoError.pageNotFound)
-                return Disposables.create()
-            }
-
-            let task = self.session.dataTask(with: url) { (data, _, error) in
-                if error != nil {
-                    emitter.onError(GitBingoError.networkError)
-                    return
-                }
-
-                if let contributions = self.parser.parse(from: data) {
-                    emitter.onNext(contributions)
-                } else {
-                    emitter.onError(GitBingoError.pageNotFound)
-                }
-            }
-            task.resume()
-            return Disposables.create()
+    func fetch(_ id: String) {
+        guard let url = URL(string: "https://github.com/users/\(id)/contributions") else {
+            contributions.onError(GitBingoError.pageNotFound)
+            return
         }
+        URLSession.shared.rx.response(request: URLRequest(url: url))
+            .compactMap { [weak self] in self?.parser.parse(from: $0.data) }
+            .bind(to: contributions)
+            .disposed(by: disposeBag)
     }
 }
 
