@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
     typealias SupplementaryViewConfiguration = ((CollectionViewSectionedDataSource<HomeViewController.DotsSectionModel>, UICollectionView, String, IndexPath) -> UICollectionReusableView)?
     typealias DotsSectionModel = SectionModel<String, ContributionGrade>
     typealias DotsDataSources = RxCollectionViewSectionedReloadDataSource<DotsSectionModel>
+    
     // MARK: Outlets
     @IBOutlet weak var githubInputAlertButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -32,6 +33,7 @@ class HomeViewController: UIViewController {
         cell.backgroundColor = grade.color
         return cell
     }
+    
     private lazy var supplementaryViewConfiguration: SupplementaryViewConfiguration = { (dataSource, collectionView, kind, indexPath) in
         guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.reusableIdentifier, for: indexPath) as? SectionHeaderView else {
             return UICollectionReusableView()
@@ -39,6 +41,7 @@ class HomeViewController: UIViewController {
         view.weekLabel.text = dataSource.sectionModels[indexPath.section].model
         return view
     }
+    
     private var dotsDataSource: DotsDataSources {
         let dataSource = DotsDataSources(configureCell: cellConfiguration)
         dataSource.configureSupplementaryView = supplementaryViewConfiguration
@@ -99,7 +102,9 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func handleShowGithubInputAlert(_ sender: Any) {
-
+        guard let idInputViewController = IDInputViewController.instantiate() else { return }
+        idInputViewController.modalPresentationStyle = .overCurrentContext
+        present(idInputViewController, animated: false, completion: nil)
     }
 }
 

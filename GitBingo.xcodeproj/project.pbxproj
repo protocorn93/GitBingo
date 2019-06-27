@@ -37,6 +37,9 @@
 		3E74AE1F21AFB4C800DE3B82 /* RefreshMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF116213AA222002B3142 /* RefreshMode.swift */; };
 		3E74AE2921AFB5E400DE3B82 /* HTMLParsingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74AE0421AF777300DE3B82 /* HTMLParsingProtocol.swift */; };
 		3E80980D22C39F2400980879 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E80980C22C39F2400980879 /* HomeViewModel.swift */; };
+		3E80980F22C4E07000980879 /* IDInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E80980E22C4E07000980879 /* IDInputViewController.swift */; };
+		3E80981122C4E07E00980879 /* IDInputViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E80981022C4E07E00980879 /* IDInputViewController.storyboard */; };
+		3E80981322C4E0A900980879 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E80981222C4E0A900980879 /* Storyboarded.swift */; };
 		3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A3D721396725002983D8 /* MainViewPresenter.swift */; };
 		3E9D2ADE213D1AFD0009DAD8 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */; };
 		3E9D2AE0213D1B8F0009DAD8 /* KeyIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */; };
@@ -129,6 +132,9 @@
 		3E74AE1721AFADC300DE3B82 /* MainViewStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewStub.swift; sourceTree = "<group>"; };
 		3E74AE1921AFAE9000DE3B82 /* GitBingoPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoPresenterTests.swift; sourceTree = "<group>"; };
 		3E80980C22C39F2400980879 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		3E80980E22C4E07000980879 /* IDInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDInputViewController.swift; sourceTree = "<group>"; };
+		3E80981022C4E07E00980879 /* IDInputViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IDInputViewController.storyboard; sourceTree = "<group>"; };
+		3E80981222C4E0A900980879 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		3E98A3D721396725002983D8 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyIdentifier.swift; sourceTree = "<group>"; };
@@ -210,6 +216,8 @@
 			children = (
 				3E9F6AE1212EFE84005E76DA /* HomeViewController.swift */,
 				3E007BCD213BD0780007DD5C /* RegisterAlertViewController.swift */,
+				3E80980E22C4E07000980879 /* IDInputViewController.swift */,
+				3E80981022C4E07E00980879 /* IDInputViewController.storyboard */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -343,6 +351,7 @@
 				3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */,
 				3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */,
 				3EAD214B21401EE000049859 /* LocalizedString.swift */,
+				3E80981222C4E0A900980879 /* Storyboarded.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -537,6 +546,7 @@
 				3E9F6AEA212EFE85005E76DA /* LaunchScreen.storyboard in Resources */,
 				3EAD214521401E4D00049859 /* Localizable.strings in Resources */,
 				3E9F6AE7212EFE85005E76DA /* Assets.xcassets in Resources */,
+				3E80981122C4E07E00980879 /* IDInputViewController.storyboard in Resources */,
 				3E9F6AE5212EFE84005E76DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -685,8 +695,10 @@
 				3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */,
 				3E9F6AE0212EFE84005E76DA /* AppDelegate.swift in Sources */,
 				3E007BCE213BD0780007DD5C /* RegisterAlertViewController.swift in Sources */,
+				3E80980F22C4E07000980879 /* IDInputViewController.swift in Sources */,
 				3EBC8592212F09D1002540A8 /* ContributionGrade.swift in Sources */,
 				3EBC8590212F094D002540A8 /* Dot.swift in Sources */,
+				3E80981322C4E0A900980879 /* Storyboarded.swift in Sources */,
 				3EBC858D212F0912002540A8 /* UIColorExtensions.swift in Sources */,
 				3EE0A3CD219FD3280003962E /* Parser.swift in Sources */,
 				3E9D2ADE213D1AFD0009DAD8 /* CustomAlert.swift in Sources */,
