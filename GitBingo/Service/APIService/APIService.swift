@@ -7,9 +7,41 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
+import RxDataSources
 
 protocol APIServiceProtocol: class {
     func fetchContributionDots(of id: String, completion: @escaping (Contributions?, GitBingoError?) -> Void)
+}
+
+protocol ContributionDotsRepository {
+    var contributions: PublishSubject<Contributions> { get }
+    func fetch(_ id: String)
+}
+
+class GitBingoContributionDotsRepository: ContributionDotsRepository {
+    private let session: SessionManagerProtocol
+    private let parser: HTMLParsingProtocol
+    private var disposeBag = DisposeBag()
+    
+    var contributions: PublishSubject<Contributions> = PublishSubject()
+    
+    init(parser: HTMLParsingProtocol, session: SessionManagerProtocol) {
+        self.parser = parser
+        self.session = session
+    }
+    
+    func fetch(_ id: String) {
+        guard let url = URL(string: "https://github.com/users/\(id)/contributions") else {
+            contributions.onError(GitBingoError.pageNotFound)
+            return
+        }
+        URLSession.shared.rx.response(request: URLRequest(url: url))
+            .compactMap { [weak self] in self?.parser.parse(from: $0.data) }
+            .bind(to: contributions)
+            .disposed(by: disposeBag)
+    }
 }
 
 class APIService: APIServiceProtocol {

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EZC-pN-prZ">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Input View Controller-->
+        <scene sceneID="G6h-5B-AGs">
+            <objects>
+                <viewController storyboardIdentifier="IDInputViewController" id="EZC-pN-prZ" customClass="IDInputViewController" customModule="GitBingo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="F09-Gg-07g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WpX-94-J2Z">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EER-7r-hd2">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tc2-79-ICn">
+                                <rect key="frame" x="50" y="-220" width="314" height="220"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Pjb-tc-H01">
+                                        <rect key="frame" x="30" y="45.5" width="254" height="129"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Github ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHe-tO-JND">
+                                                <rect key="frame" x="0.0" y="0.0" width="254" height="29"/>
+                                                <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Github ID를 입력하세요." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lCH-u3-XHL">
+                                                <rect key="frame" x="0.0" y="49" width="254" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PxO-lf-rc6">
+                                                <rect key="frame" x="0.0" y="99" width="254" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avv-fn-0iT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="117" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <state key="normal" title="취소"/>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aww-MV-qg5">
+                                                        <rect key="frame" x="137" y="0.0" width="117" height="30"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                        <state key="normal" title="완료"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Pjb-tc-H01" secondAttribute="trailing" constant="30" id="QNh-Bv-wqc"/>
+                                    <constraint firstAttribute="height" constant="220" id="Y1Y-dJ-958"/>
+                                    <constraint firstItem="Pjb-tc-H01" firstAttribute="centerY" secondItem="tc2-79-ICn" secondAttribute="centerY" id="cXe-vC-a6k"/>
+                                    <constraint firstItem="Pjb-tc-H01" firstAttribute="centerX" secondItem="tc2-79-ICn" secondAttribute="centerX" id="ibz-zd-bJ7"/>
+                                    <constraint firstItem="Pjb-tc-H01" firstAttribute="leading" secondItem="tc2-79-ICn" secondAttribute="leading" constant="30" id="mZe-w6-9ni"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tc2-79-ICn" firstAttribute="top" secondItem="F09-Gg-07g" secondAttribute="top" constant="-220" id="2ZQ-9J-Sfg"/>
+                            <constraint firstItem="WpX-94-J2Z" firstAttribute="leading" secondItem="geE-Re-Ucv" secondAttribute="leading" id="Khi-Wu-K3H"/>
+                            <constraint firstItem="WpX-94-J2Z" firstAttribute="top" secondItem="F09-Gg-07g" secondAttribute="top" id="Xxl-mY-PtB"/>
+                            <constraint firstItem="tc2-79-ICn" firstAttribute="leading" secondItem="geE-Re-Ucv" secondAttribute="leading" constant="50" id="ac3-OP-ad4"/>
+                            <constraint firstItem="geE-Re-Ucv" firstAttribute="trailing" secondItem="tc2-79-ICn" secondAttribute="trailing" constant="50" id="bS8-wu-G4V"/>
+                            <constraint firstItem="geE-Re-Ucv" firstAttribute="trailing" secondItem="WpX-94-J2Z" secondAttribute="trailing" id="g8g-T7-7gC"/>
+                            <constraint firstAttribute="bottom" secondItem="WpX-94-J2Z" secondAttribute="bottom" id="ykA-pX-GuK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="geE-Re-Ucv"/>
+                    </view>
+                    <connections>
+                        <outlet property="alertView" destination="tc2-79-ICn" id="AD7-np-dAn"/>
+                        <outlet property="alertViewTopAnchor" destination="2ZQ-9J-Sfg" id="5nq-Z3-XOZ"/>
+                        <outlet property="cancelButton" destination="avv-fn-0iT" id="XTy-kF-yFH"/>
+                        <outlet property="doneButton" destination="Aww-MV-qg5" id="Tcs-cY-PuG"/>
+                        <outlet property="idTextField" destination="lCH-u3-XHL" id="vyO-Sy-jqh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BWZ-gg-nQv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="228.98550724637684" y="120.53571428571428"/>
+        </scene>
+    </scenes>
+</document>

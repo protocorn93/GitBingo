@@ -36,6 +36,10 @@
 		3E74AE1A21AFAE9000DE3B82 /* GitBingoPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74AE1921AFAE9000DE3B82 /* GitBingoPresenterTests.swift */; };
 		3E74AE1F21AFB4C800DE3B82 /* RefreshMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF116213AA222002B3142 /* RefreshMode.swift */; };
 		3E74AE2921AFB5E400DE3B82 /* HTMLParsingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74AE0421AF777300DE3B82 /* HTMLParsingProtocol.swift */; };
+		3E80980D22C39F2400980879 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E80980C22C39F2400980879 /* HomeViewModel.swift */; };
+		3E80980F22C4E07000980879 /* IDInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E80980E22C4E07000980879 /* IDInputViewController.swift */; };
+		3E80981122C4E07E00980879 /* IDInputViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E80981022C4E07E00980879 /* IDInputViewController.storyboard */; };
+		3E80981322C4E0A900980879 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E80981222C4E0A900980879 /* Storyboarded.swift */; };
 		3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E98A3D721396725002983D8 /* MainViewPresenter.swift */; };
 		3E9D2ADE213D1AFD0009DAD8 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */; };
 		3E9D2AE0213D1B8F0009DAD8 /* KeyIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */; };
@@ -56,7 +60,7 @@
 		3E9ECD08215DD2C30089755E /* AppURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9ECD07215DD2C30089755E /* AppURL.swift */; };
 		3E9ECD09215DD2D20089755E /* AppURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9ECD07215DD2C30089755E /* AppURL.swift */; };
 		3E9F6AE0212EFE84005E76DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F6ADF212EFE84005E76DA /* AppDelegate.swift */; };
-		3E9F6AE2212EFE84005E76DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE1212EFE84005E76DA /* ViewController.swift */; };
+		3E9F6AE2212EFE84005E76DA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE1212EFE84005E76DA /* HomeViewController.swift */; };
 		3E9F6AE5212EFE84005E76DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE3212EFE84005E76DA /* Main.storyboard */; };
 		3E9F6AE7212EFE85005E76DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE6212EFE85005E76DA /* Assets.xcassets */; };
 		3E9F6AEA212EFE85005E76DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E9F6AE8212EFE85005E76DA /* LaunchScreen.storyboard */; };
@@ -74,7 +78,6 @@
 		3EF465E821674C6700E877D7 /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */; };
 		3EFBF117213AA222002B3142 /* RefreshMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF116213AA222002B3142 /* RefreshMode.swift */; };
 		3EFBF11B213AE2BE002B3142 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11A213AE2BE002B3142 /* SectionHeaderView.swift */; };
-		3EFBF11D213AE2CE002B3142 /* SectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11C213AE2CE002B3142 /* SectionFooterView.swift */; };
 		3EFBF11F213AE60F002B3142 /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */; };
 		D0A00E275CBBA4D03F87A6AC /* Pods_GitBingo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E8CC45C06872C44992DEE5 /* Pods_GitBingo.framework */; };
 		EF8696A60B2318777674E23B /* Pods_GitBingo_Widget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6CBE3AD583DBCE1DF782DF /* Pods_GitBingo_Widget.framework */; };
@@ -127,6 +130,10 @@
 		3E74AE1121AF8FD000DE3B82 /* APIServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceStub.swift; sourceTree = "<group>"; };
 		3E74AE1721AFADC300DE3B82 /* MainViewStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewStub.swift; sourceTree = "<group>"; };
 		3E74AE1921AFAE9000DE3B82 /* GitBingoPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoPresenterTests.swift; sourceTree = "<group>"; };
+		3E80980C22C39F2400980879 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		3E80980E22C4E07000980879 /* IDInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDInputViewController.swift; sourceTree = "<group>"; };
+		3E80981022C4E07E00980879 /* IDInputViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IDInputViewController.storyboard; sourceTree = "<group>"; };
+		3E80981222C4E0A900980879 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		3E98A3D721396725002983D8 /* MainViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewPresenter.swift; sourceTree = "<group>"; };
 		3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		3E9D2ADF213D1B8F0009DAD8 /* KeyIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyIdentifier.swift; sourceTree = "<group>"; };
@@ -142,7 +149,7 @@
 		3E9ECD07215DD2C30089755E /* AppURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppURL.swift; sourceTree = "<group>"; };
 		3E9F6ADC212EFE84005E76DA /* GitBingo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitBingo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E9F6ADF212EFE84005E76DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3E9F6AE1212EFE84005E76DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3E9F6AE1212EFE84005E76DA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3E9F6AE4212EFE84005E76DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E9F6AE6212EFE85005E76DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E9F6AE9212EFE85005E76DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -164,7 +171,6 @@
 		3EE0A3D7219FD4540003962E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EFBF116213AA222002B3142 /* RefreshMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshMode.swift; sourceTree = "<group>"; };
 		3EFBF11A213AE2BE002B3142 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
-		3EFBF11C213AE2CE002B3142 /* SectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionFooterView.swift; sourceTree = "<group>"; };
 		3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
 		4F6CBE3AD583DBCE1DF782DF /* Pods_GitBingo_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitBingo_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		614835ACA74051AEE57BE1E6 /* Pods-GitBingo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitBingo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitBingo/Pods-GitBingo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -206,8 +212,10 @@
 		3E007BCC213BD0560007DD5C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3E9F6AE1212EFE84005E76DA /* ViewController.swift */,
+				3E9F6AE1212EFE84005E76DA /* HomeViewController.swift */,
 				3E007BCD213BD0780007DD5C /* RegisterAlertViewController.swift */,
+				3E80980E22C4E07000980879 /* IDInputViewController.swift */,
+				3E80981022C4E07E00980879 /* IDInputViewController.storyboard */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -240,6 +248,14 @@
 				3E74AE0421AF777300DE3B82 /* HTMLParsingProtocol.swift */,
 			);
 			path = Parser;
+			sourceTree = "<group>";
+		};
+		3E80980B22C39ECB00980879 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3E80980C22C39F2400980879 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		3E98A3D621396716002983D8 /* Presenters */ = {
@@ -292,6 +308,7 @@
 				3E9ECD01215C1B450089755E /* GitBingo.entitlements */,
 				3EAD214221401E2900049859 /* Localizing */,
 				3E007BCC213BD0560007DD5C /* ViewControllers */,
+				3E80980B22C39ECB00980879 /* ViewModel */,
 				3EFBF118213AE2A1002B3142 /* View */,
 				3E41C2FA213A318300371B4F /* Helper */,
 				3E98A3D621396716002983D8 /* Presenters */,
@@ -332,6 +349,7 @@
 				3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */,
 				3E9D2ADD213D1AFD0009DAD8 /* CustomAlert.swift */,
 				3EAD214B21401EE000049859 /* LocalizedString.swift */,
+				3E80981222C4E0A900980879 /* Storyboarded.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -363,7 +381,6 @@
 			isa = PBXGroup;
 			children = (
 				3EFBF11A213AE2BE002B3142 /* SectionHeaderView.swift */,
-				3EFBF11C213AE2CE002B3142 /* SectionFooterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -526,6 +543,7 @@
 				3E9F6AEA212EFE85005E76DA /* LaunchScreen.storyboard in Resources */,
 				3EAD214521401E4D00049859 /* Localizable.strings in Resources */,
 				3E9F6AE7212EFE85005E76DA /* Assets.xcassets in Resources */,
+				3E80981122C4E07E00980879 /* IDInputViewController.storyboard in Resources */,
 				3E9F6AE5212EFE84005E76DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,12 +618,22 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GitBingo/Pods-GitBingo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -646,14 +674,14 @@
 			files = (
 				3EAD214C21401EE000049859 /* LocalizedString.swift in Sources */,
 				3EFBF11B213AE2BE002B3142 /* SectionHeaderView.swift in Sources */,
-				3E9F6AE2212EFE84005E76DA /* ViewController.swift in Sources */,
+				3E9F6AE2212EFE84005E76DA /* HomeViewController.swift in Sources */,
+				3E80980D22C39F2400980879 /* HomeViewModel.swift in Sources */,
 				3EBC8594212F0CC3002540A8 /* Contributions.swift in Sources */,
 				3E9ECD05215D7E530089755E /* GroupUserDefaults.swift in Sources */,
 				3E98A3D821396725002983D8 /* MainViewPresenter.swift in Sources */,
 				3E9ECD08215DD2C30089755E /* AppURL.swift in Sources */,
 				3EBC858A212EFF4C002540A8 /* APIService.swift in Sources */,
 				3E74ADFF21AF75EC00DE3B82 /* SessionManagerProtocol.swift in Sources */,
-				3EFBF11D213AE2CE002B3142 /* SectionFooterView.swift in Sources */,
 				3E9D2AE0213D1B8F0009DAD8 /* KeyIdentifier.swift in Sources */,
 				3ED9666F2156FB60008A8897 /* GitBingoAlertState.swift in Sources */,
 				3E9D2AE2213D1D100009DAD8 /* RegisterViewPresenter.swift in Sources */,
@@ -663,8 +691,10 @@
 				3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */,
 				3E9F6AE0212EFE84005E76DA /* AppDelegate.swift in Sources */,
 				3E007BCE213BD0780007DD5C /* RegisterAlertViewController.swift in Sources */,
+				3E80980F22C4E07000980879 /* IDInputViewController.swift in Sources */,
 				3EBC8592212F09D1002540A8 /* ContributionGrade.swift in Sources */,
 				3EBC8590212F094D002540A8 /* Dot.swift in Sources */,
+				3E80981322C4E0A900980879 /* Storyboarded.swift in Sources */,
 				3EBC858D212F0912002540A8 /* UIColorExtensions.swift in Sources */,
 				3EE0A3CD219FD3280003962E /* Parser.swift in Sources */,
 				3E9D2ADE213D1AFD0009DAD8 /* CustomAlert.swift in Sources */,
