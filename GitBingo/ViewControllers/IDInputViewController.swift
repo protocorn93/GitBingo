@@ -30,6 +30,8 @@ class IDInputViewController: UIViewController {
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var alertViewTopAnchor: NSLayoutConstraint!
     
+    private (set) var id = PublishSubject<String>()
+    private var doneButtonIsValid = BehaviorSubject<Bool>(value: false)
     private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -38,8 +40,8 @@ class IDInputViewController: UIViewController {
         bind()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         animateAlertView(.show)
     }
     
@@ -58,16 +60,43 @@ class IDInputViewController: UIViewController {
     }
     
     private func setupDoneButton() {
+        doneButton.setTitleColor(ContributionGrade.noneGreen.color, for: .disabled)
         doneButton.setTitleColor(ContributionGrade.extremeGreen.color, for: .normal)
     }
     
     private func bind() {
+        bindViewAttributes()
+        bindActions()
+    }
+    
+    private func bindViewAttributes() {
+        idTextField.rx.text.orEmpty
+            .map { !$0.isEmpty }
+            .bind(to: doneButtonIsValid)
+            .disposed(by: disposeBag)
+        
+        doneButtonIsValid
+            .bind(to: doneButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindActions() {
         cancelButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.animateAlertView(.hide, completion: {
                     self?.dismiss(animated: false, completion: nil)
                 })
-            }).disposed(by: disposeBag)
+            })
+            .disposed(by: disposeBag)
+        
+        doneButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.animateAlertView(.hide, completion: {
+                    self?.id.onNext(self?.idTextField.text ?? "")
+                    self?.dismiss(animated: false, completion: nil)
+                })
+            })
+            .disposed(by: disposeBag)
     }
     
     private func animateAlertView(_ state: AlertViewState, completion: (() -> Void)? = nil ) {
