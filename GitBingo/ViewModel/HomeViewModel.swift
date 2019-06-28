@@ -15,6 +15,7 @@ struct HomeViewModel {
     private var session: SessionManagerProtocol
     
     private (set) var sectionModels: PublishSubject<[SectionModel<String, ContributionGrade>]> = PublishSubject()
+    private (set) var isLoading: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     private var contributionsDotsRepository: ContributionDotsRepository
     private var disposeBag = DisposeBag()
     
@@ -27,6 +28,7 @@ struct HomeViewModel {
     }
     
     func fetch(id: String) {
+        isLoading.onNext(true)
         contributionsDotsRepository.fetch(id)
     }
     
@@ -34,7 +36,12 @@ struct HomeViewModel {
         contributionsDotsRepository.contributions
             .map { [SectionModel<String, ContributionGrade>(model: "This Week", items: $0.grades.prefix(7).map { $0 }),
                     SectionModel<String, ContributionGrade>(model: "Last Weeks", items: $0.grades.suffix(from: 7).map { $0 })] }
-            .bind(to: sectionModels)
+            .subscribe(onNext: {
+                self.sectionModels.onNext($0)
+                self.isLoading.onNext(false)
+            }, onError: {
+                self.isLoading.onError($0)
+            })
             .disposed(by: disposeBag)
     }
 }

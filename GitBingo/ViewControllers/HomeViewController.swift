@@ -52,15 +52,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        bindCollectionView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        homeViewModel.fetch(id: "ehdrjsdlzzzz")
+        bind()
     }
 
-    // MARK: Setups
+    // MARK: Setup Views
     private func setupViews() {
         setupNaviagtionBar()
         setupCollectionView()
@@ -86,6 +81,20 @@ class HomeViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
+    private func bind() {
+        bindProgressView()
+        bindCollectionView()
+    }
+    
+    private func bindProgressView() {
+        homeViewModel.isLoading.subscribe(onNext: { isLoading in
+            isLoading ? SVProgressHUD.show() : SVProgressHUD.dismiss()
+        }, onError: { error in
+            guard let error = error as? GitBingoError else { return }
+            SVProgressHUD.showError(withStatus: error.description)
+        }).disposed(by: disposeBag)
+    }
+    
     private func bindCollectionView() {
         homeViewModel.sectionModels
             .bind(to: collectionView.rx.items(dataSource: dotsDataSource))
@@ -104,6 +113,9 @@ class HomeViewController: UIViewController {
     @IBAction func handleShowGithubInputAlert(_ sender: Any) {
         guard let idInputViewController = IDInputViewController.instantiate() else { return }
         idInputViewController.modalPresentationStyle = .overCurrentContext
+        idInputViewController.id.subscribe(onNext: { [weak self] id in
+            self?.homeViewModel.fetch(id: id)
+        }).disposed(by: disposeBag)
         present(idInputViewController, animated: false, completion: nil)
     }
 }
