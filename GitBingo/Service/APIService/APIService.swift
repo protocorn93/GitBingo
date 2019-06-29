@@ -39,7 +39,10 @@ class GitBingoContributionDotsRepository: ContributionDotsRepository {
         }
         URLSession.shared.rx.response(request: URLRequest(url: url))
             .compactMap { [weak self] in self?.parser.parse(from: $0.data) }
-            .bind(to: contributions)
+            .subscribe(onNext: { [weak self] in
+                self?.contributions.onNext($0)
+            })
+//            .bind(to: contributions)
             .disposed(by: disposeBag)
     }
 }

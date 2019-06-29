@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
 
     // MARK: Properties
     private var refreshControl = UIRefreshControl()
-    private var homeViewModel = HomeViewModel(parser: Parser(), session: URLSession(configuration: .default))
+    private var homeViewModel = HomeViewModel()
     private var disposeBag = DisposeBag()
     
     private lazy var cellConfiguration: CellConfiguration = { (dataSource, collectionView, indexPath, grade) in
@@ -68,6 +68,7 @@ class HomeViewController: UIViewController {
 
     fileprivate func setupCollectionView() {
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.allowsSelection = false
     }
     
@@ -82,17 +83,14 @@ class HomeViewController: UIViewController {
     }
     
     private func bind() {
-        bindProgressView()
+        bindButtonTitle()
         bindCollectionView()
     }
     
-    private func bindProgressView() {
-        homeViewModel.isLoading.subscribe(onNext: { isLoading in
-            isLoading ? SVProgressHUD.show() : SVProgressHUD.dismiss()
-        }, onError: { error in
-            guard let error = error as? GitBingoError else { return }
-            SVProgressHUD.showError(withStatus: error.description)
-        }).disposed(by: disposeBag)
+    private func bindButtonTitle() {
+        homeViewModel.buttonTitle
+            .bind(to: githubInputAlertButton.rx.title(for: .normal))
+            .disposed(by: disposeBag)
     }
     
     private func bindCollectionView() {
@@ -111,11 +109,10 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func handleShowGithubInputAlert(_ sender: Any) {
-        guard let idInputViewController = IDInputViewController.instantiate() else { return }
+        guard let idInputViewController = IDInputViewController.instantiate(with: IDInputViewDependencyFactory(parser: Parser(),
+                                                                                                               session: URLSession(configuration: .default),
+                                                                                                               homeViewModel: homeViewModel)) else { return }
         idInputViewController.modalPresentationStyle = .overCurrentContext
-        idInputViewController.id.subscribe(onNext: { [weak self] id in
-            self?.homeViewModel.fetch(id: id)
-        }).disposed(by: disposeBag)
         present(idInputViewController, animated: false, completion: nil)
     }
 }
