@@ -16,7 +16,6 @@ protocol APIServiceProtocol: class {
 }
 
 protocol ContributionDotsRepository {
-    var contributions: PublishSubject<Contributions> { get }
     func fetch(_ id: String) -> Observable<Contributions>
 }
 
@@ -24,8 +23,6 @@ class GitBingoContributionDotsRepository: ContributionDotsRepository {
     private let session: SessionManagerProtocol
     private let parser: HTMLParsingProtocol
     private var disposeBag = DisposeBag()
-    
-    var contributions: PublishSubject<Contributions> = PublishSubject()
     
     init(parser: HTMLParsingProtocol, session: SessionManagerProtocol) {
         self.parser = parser
