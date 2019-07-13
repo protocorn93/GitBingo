@@ -17,7 +17,7 @@ protocol APIServiceProtocol: class {
 
 protocol ContributionDotsRepository {
     var contributions: PublishSubject<Contributions> { get }
-    func fetch(_ id: String)
+    func fetch(_ id: String) -> Observable<Contributions>
 }
 
 class GitBingoContributionDotsRepository: ContributionDotsRepository {
@@ -32,18 +32,16 @@ class GitBingoContributionDotsRepository: ContributionDotsRepository {
         self.session = session
     }
     
-    func fetch(_ id: String) {
-        guard let url = URL(string: "https://github.com/users/\(id)/contributions") else {
-            contributions.onError(GitBingoError.pageNotFound)
-            return
+    func fetch(_ id: String) -> Observable<Contributions> {
+        let url = URL(string: "https://github.com/users/\(id)/contributions")!
+        return URLSession.shared.rx.response(request: URLRequest(url: url)).map { response, data in
+            print(response.statusCode)
+            if 200..<300 ~= response.statusCode {
+                guard let contributions = self.parser.parse(from: data) else { throw GitBingoError.pageNotFound }
+                return contributions
+            }
+            throw GitBingoError.pageNotFound
         }
-        URLSession.shared.rx.response(request: URLRequest(url: url))
-            .compactMap { [weak self] in self?.parser.parse(from: $0.data) }
-            .subscribe(onNext: { [weak self] in
-                self?.contributions.onNext($0)
-            })
-//            .bind(to: contributions)
-            .disposed(by: disposeBag)
     }
 }
 
