@@ -43,24 +43,10 @@ class IDInputViewModel: IDInputViewModelType {
     
     private func bind() {
         bindIDTextField()
-        bindSectionModels()
     }
     
     private func bindIDTextField() {
         inputText.bind(to: id).disposed(by: disposeBag)
         inputText.map { !$0.isEmpty }.bind(to: doneButtonValidation).disposed(by: disposeBag)
-    }
-    
-    private func bindSectionModels() {
-        contributionsDotsRepository.contributions
-            .map { [SectionModel<String, ContributionGrade>(model: "This Week", items: $0.grades.prefix(7).map { $0 }),
-                    SectionModel<String, ContributionGrade>(model: "Last Weeks", items: $0.grades.suffix(from: 7).map { $0 })] }
-            .subscribe(onNext: {
-                self.homeViewModel.sectionModels.onNext($0)
-                self.isLoading.onNext(false)
-            }, onError: {
-                self.isLoading.onError($0)
-            })
-            .disposed(by: disposeBag)
     }
 }

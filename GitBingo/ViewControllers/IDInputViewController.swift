@@ -29,6 +29,7 @@ class IDInputViewController: UIViewController {
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var errorMessageLabel: UILabel!
     @IBOutlet weak var alertViewTopAnchor: NSLayoutConstraint!
     
     private var idInputViewModel: IDInputViewModelType?
@@ -46,9 +47,15 @@ class IDInputViewController: UIViewController {
     }
     
     private func setupViews() {
+        setupErrorMessageLabel()
         setupAlertView()
         setupCancelButton()
         setupDoneButton()
+    }
+    
+    private func setupErrorMessageLabel() {
+        errorMessageLabel.layer.cornerRadius = 20
+        errorMessageLabel.layer.masksToBounds = true 
     }
     
     private func setupAlertView() {

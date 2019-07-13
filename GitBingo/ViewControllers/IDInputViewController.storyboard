@@ -23,6 +23,23 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EER-7r-hd2">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="에러" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kqg-Ec-mql">
+                                            <rect key="frame" x="20" y="40" width="374" height="50"/>
+                                            <color key="backgroundColor" red="1" green="0.18016737620410961" blue="0.17661065924657535" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="z1y-37-Wqe"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Kqg-Ec-mql" firstAttribute="leading" secondItem="EER-7r-hd2" secondAttribute="leading" constant="20" id="SST-uc-00j"/>
+                                        <constraint firstItem="Kqg-Ec-mql" firstAttribute="top" secondItem="EER-7r-hd2" secondAttribute="top" constant="40" id="bLR-l4-zvb"/>
+                                        <constraint firstAttribute="trailing" secondItem="Kqg-Ec-mql" secondAttribute="trailing" constant="20" id="lv3-fh-1NO"/>
+                                    </constraints>
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
@@ -86,9 +103,10 @@
                     </view>
                     <connections>
                         <outlet property="alertView" destination="tc2-79-ICn" id="AD7-np-dAn"/>
-                        <outlet property="alertViewTopAnchor" destination="2ZQ-9J-Sfg" id="5nq-Z3-XOZ"/>
+                        <outlet property="alertViewTopAnchor" destination="2ZQ-9J-Sfg" id="Spy-Qe-znG"/>
                         <outlet property="cancelButton" destination="avv-fn-0iT" id="XTy-kF-yFH"/>
                         <outlet property="doneButton" destination="Aww-MV-qg5" id="Tcs-cY-PuG"/>
+                        <outlet property="errorMessageLabel" destination="Kqg-Ec-mql" id="69h-q9-420"/>
                         <outlet property="idTextField" destination="lCH-u3-XHL" id="vyO-Sy-jqh"/>
                     </connections>
                 </viewController>
