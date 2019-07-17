@@ -43,8 +43,24 @@ class IDInputViewModel: IDInputViewModelType {
     
     func fetch() {
         isLoading.onNext(true)
-        homeViewModel.buttonTitle.onNext(id.value)
-        contributionsDotsRepository.fetch(id.value)
+        let input = id.value
+        contributionsDotsRepository
+            .fetch(input)
+            .map(mapping)
+            .subscribe(onNext: { sectionModels in
+                self.isLoading.onNext(false)
+                self.responseStatus.onNext(.success)
+                self.homeViewModel.sectionModels.onNext(sectionModels)
+            }, onError: { error in
+                self.isLoading.onNext(false)
+                self.responseStatus.onNext(.failed(error))
+            })
+            .disposed(by: disposeBag)
+    }
+   
+    private func mapping(from contributions: Contributions) -> [SectionModel<String, ContributionGrade>] {
+        return [SectionModel<String, ContributionGrade>(model: "This Week", items: contributions.grades.prefix(7).map { $0 }),
+                SectionModel<String, ContributionGrade>(model: "Last Weeks", items: contributions.grades.suffix(from: 7).map { $0 })]
     }
     
     private func bind() {
