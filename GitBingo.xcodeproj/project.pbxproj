@@ -76,6 +76,7 @@
 		3EE0A3CD219FD3280003962E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0A3CC219FD3280003962E /* Parser.swift */; };
 		3EE0A3CE219FD3720003962E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0A3CC219FD3280003962E /* Parser.swift */; };
 		3EE0A3D6219FD4540003962E /* GitBingoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0A3D5219FD4540003962E /* GitBingoTests.swift */; };
+		3EEBA6B122DF7970009F907C /* HomeViewDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEBA6B022DF7970009F907C /* HomeViewDependencyContainer.swift */; };
 		3EF465E821674C6700E877D7 /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */; };
 		3EFBF117213AA222002B3142 /* RefreshMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF116213AA222002B3142 /* RefreshMode.swift */; };
 		3EFBF11B213AE2BE002B3142 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11A213AE2BE002B3142 /* SectionHeaderView.swift */; };
@@ -171,6 +172,7 @@
 		3EE0A3D3219FD4540003962E /* GitBingoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitBingoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EE0A3D5219FD4540003962E /* GitBingoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoTests.swift; sourceTree = "<group>"; };
 		3EE0A3D7219FD4540003962E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3EEBA6B022DF7970009F907C /* HomeViewDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDependencyContainer.swift; sourceTree = "<group>"; };
 		3EFBF116213AA222002B3142 /* RefreshMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshMode.swift; sourceTree = "<group>"; };
 		3EFBF11A213AE2BE002B3142 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 		3E9F6ADE212EFE84005E76DA /* GitBingo */ = {
 			isa = PBXGroup;
 			children = (
+				3EEBA6AF22DF7961009F907C /* Dependencies */,
 				3E9ECD01215C1B450089755E /* GitBingo.entitlements */,
 				3EAD214221401E2900049859 /* Localizing */,
 				3E007BCC213BD0560007DD5C /* ViewControllers */,
@@ -418,6 +421,14 @@
 				3E80981722C7A57800980879 /* IDInputViewModel.swift */,
 			);
 			path = IDInputVIewModel;
+			sourceTree = "<group>";
+		};
+		3EEBA6AF22DF7961009F907C /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				3EEBA6B022DF7970009F907C /* HomeViewDependencyContainer.swift */,
+			);
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 		3EFBF118213AE2A1002B3142 /* View */ = {
@@ -717,6 +728,7 @@
 			files = (
 				3EAD214C21401EE000049859 /* LocalizedString.swift in Sources */,
 				3EFBF11B213AE2BE002B3142 /* SectionHeaderView.swift in Sources */,
+				3EEBA6B122DF7970009F907C /* HomeViewDependencyContainer.swift in Sources */,
 				3E9F6AE2212EFE84005E76DA /* HomeViewController.swift in Sources */,
 				3E80980D22C39F2400980879 /* HomeViewModel.swift in Sources */,
 				3EBC8594212F0CC3002540A8 /* Contributions.swift in Sources */,
