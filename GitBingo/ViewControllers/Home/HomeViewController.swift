@@ -18,13 +18,15 @@ class HomeViewController: UIViewController {
     typealias SupplementaryViewConfiguration = ((CollectionViewSectionedDataSource<HomeViewController.DotsSectionModel>, UICollectionView, String, IndexPath) -> UICollectionReusableView)?
     typealias DotsSectionModel = SectionModel<String, ContributionGrade>
     typealias DotsDataSources = RxCollectionViewSectionedReloadDataSource<DotsSectionModel>
+    
     // MARK: Outlets
     @IBOutlet weak var githubInputAlertButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
 
     // MARK: Properties
     private var refreshControl = UIRefreshControl()
-    private var homeViewModel = HomeViewModel(parser: Parser(), session: URLSession(configuration: .default))
+    private var homeViewDependencyContainer = HomeViewDependencyContainer()
+    private lazy var homeViewModel: HomeViewModelType = homeViewDependencyContainer.generateHomeViewModel()
     private var disposeBag = DisposeBag()
     
     private lazy var cellConfiguration: CellConfiguration = { (dataSource, collectionView, indexPath, grade) in
@@ -32,6 +34,7 @@ class HomeViewController: UIViewController {
         cell.backgroundColor = grade.color
         return cell
     }
+    
     private lazy var supplementaryViewConfiguration: SupplementaryViewConfiguration = { (dataSource, collectionView, kind, indexPath) in
         guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.reusableIdentifier, for: indexPath) as? SectionHeaderView else {
             return UICollectionReusableView()
@@ -39,6 +42,7 @@ class HomeViewController: UIViewController {
         view.weekLabel.text = dataSource.sectionModels[indexPath.section].model
         return view
     }
+    
     private var dotsDataSource: DotsDataSources {
         let dataSource = DotsDataSources(configureCell: cellConfiguration)
         dataSource.configureSupplementaryView = supplementaryViewConfiguration
@@ -49,15 +53,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        bindCollectionView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        homeViewModel.fetch(id: "ehdrjsdlzzzz")
+        bind()
     }
 
-    // MARK: Setups
+    // MARK: Setup Views
     private func setupViews() {
         setupNaviagtionBar()
         setupCollectionView()
@@ -70,6 +69,7 @@ class HomeViewController: UIViewController {
 
     fileprivate func setupCollectionView() {
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.allowsSelection = false
     }
     
@@ -83,8 +83,19 @@ class HomeViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
+    private func bind() {
+        bindButtonTitle()
+        bindCollectionView()
+    }
+    
+    private func bindButtonTitle() {
+        homeViewModel.buttonTitle
+            .bind(to: githubInputAlertButton.rx.title(for: .normal))
+            .disposed(by: disposeBag)
+    }
+    
     private func bindCollectionView() {
-        homeViewModel.sectionModels
+        homeViewModel.sections
             .bind(to: collectionView.rx.items(dataSource: dotsDataSource))
             .disposed(by: disposeBag)
     }
@@ -99,7 +110,9 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func handleShowGithubInputAlert(_ sender: Any) {
-
+        guard let idInputViewController = IDInputViewController.instantiate(with: homeViewDependencyContainer.generateIDInputViewModel()) else { return }
+        idInputViewController.modalPresentationStyle = .overCurrentContext
+        present(idInputViewController, animated: false, completion: nil)
     }
 }
 
@@ -111,8 +124,5 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: self.view.frame.width, height: 30)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return section == 0 ? CGSize(width: self.view.frame.width, height: 0) : CGSize(width: self.view.frame.width, height: 20)
     }
 }

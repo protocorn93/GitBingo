@@ -24,7 +24,7 @@
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Isk-Of-5ej">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
-                                    <size key="footerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
@@ -56,22 +56,6 @@
                                     <connections>
                                         <outlet property="weekLabel" destination="12F-Vo-7eD" id="BEf-Z2-ICs"/>
                                     </connections>
-                                </collectionReusableView>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionFooterView" id="OHZ-r4-jDX" customClass="SectionFooterView" customModule="GitBingo" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="100" width="414" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks to JSnow and nailerHeum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBi-pb-7Jp">
-                                            <rect key="frame" x="195.5" y="16.5" width="209" height="17"/>
-                                            <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="10"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="QBi-pb-7Jp" firstAttribute="centerX" secondItem="OHZ-r4-jDX" secondAttribute="centerX" id="MIH-Ty-Bb1"/>
-                                        <constraint firstItem="QBi-pb-7Jp" firstAttribute="centerY" secondItem="OHZ-r4-jDX" secondAttribute="centerY" id="mKS-4J-TDb"/>
-                                    </constraints>
                                 </collectionReusableView>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xjp-6I-juT">
