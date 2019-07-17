@@ -11,14 +11,16 @@ import RxDataSources
 import RxSwift
 
 protocol HomeViewModelType {
-    var buttonTitle: BehaviorSubject<String> { get }
-    var sectionModels: PublishSubject<[SectionModel<String, ContributionGrade>]> { get }
+    var buttonTitle: Observable<String> { get }
+    var sections: Observable<[SectionModel<String, ContributionGrade>]> { get }
 }
 
 class HomeViewModel: HomeViewModelType {
-    private (set) var sectionModels: PublishSubject<[SectionModel<String, ContributionGrade>]> = PublishSubject()
-    private (set) var buttonTitle: BehaviorSubject<String> = BehaviorSubject(value: "아이디를 입력해주세요.")
-    private var disposeBag = DisposeBag()
+    private var receiver: Receiver
+    var buttonTitle: Observable<String> { return receiver.githubID.asObservable() }
+    var sections: Observable<[SectionModel<String, ContributionGrade>]> { return receiver.sectionModels.asObservable() }
     
-    init() { }
+    init(receiver: Receiver) {
+        self.receiver = receiver
+    }
 }
