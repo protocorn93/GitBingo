@@ -77,6 +77,9 @@
 		3EE0A3CE219FD3720003962E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0A3CC219FD3280003962E /* Parser.swift */; };
 		3EE0A3D6219FD4540003962E /* GitBingoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE0A3D5219FD4540003962E /* GitBingoTests.swift */; };
 		3EEBA6B122DF7970009F907C /* HomeViewDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEBA6B022DF7970009F907C /* HomeViewDependencyContainer.swift */; };
+		3EEBA6B322DF79B9009F907C /* GithubIdReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEBA6B222DF79B9009F907C /* GithubIdReceiver.swift */; };
+		3EEBA6B522DF79D3009F907C /* SectionModelsReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEBA6B422DF79D3009F907C /* SectionModelsReceiver.swift */; };
+		3EEBA6B722DF79FE009F907C /* ContributionReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEBA6B622DF79FE009F907C /* ContributionReceiver.swift */; };
 		3EF465E821674C6700E877D7 /* ReusableIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */; };
 		3EFBF117213AA222002B3142 /* RefreshMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF116213AA222002B3142 /* RefreshMode.swift */; };
 		3EFBF11B213AE2BE002B3142 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFBF11A213AE2BE002B3142 /* SectionHeaderView.swift */; };
@@ -173,6 +176,9 @@
 		3EE0A3D5219FD4540003962E /* GitBingoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBingoTests.swift; sourceTree = "<group>"; };
 		3EE0A3D7219FD4540003962E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EEBA6B022DF7970009F907C /* HomeViewDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewDependencyContainer.swift; sourceTree = "<group>"; };
+		3EEBA6B222DF79B9009F907C /* GithubIdReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubIdReceiver.swift; sourceTree = "<group>"; };
+		3EEBA6B422DF79D3009F907C /* SectionModelsReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModelsReceiver.swift; sourceTree = "<group>"; };
+		3EEBA6B622DF79FE009F907C /* ContributionReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionReceiver.swift; sourceTree = "<group>"; };
 		3EFBF116213AA222002B3142 /* RefreshMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshMode.swift; sourceTree = "<group>"; };
 		3EFBF11A213AE2BE002B3142 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		3EFBF11E213AE60F002B3142 /* ReusableIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableIdentifier.swift; sourceTree = "<group>"; };
@@ -427,6 +433,9 @@
 			isa = PBXGroup;
 			children = (
 				3EEBA6B022DF7970009F907C /* HomeViewDependencyContainer.swift */,
+				3EEBA6B222DF79B9009F907C /* GithubIdReceiver.swift */,
+				3EEBA6B422DF79D3009F907C /* SectionModelsReceiver.swift */,
+				3EEBA6B622DF79FE009F907C /* ContributionReceiver.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -729,6 +738,7 @@
 				3EAD214C21401EE000049859 /* LocalizedString.swift in Sources */,
 				3EFBF11B213AE2BE002B3142 /* SectionHeaderView.swift in Sources */,
 				3EEBA6B122DF7970009F907C /* HomeViewDependencyContainer.swift in Sources */,
+				3EEBA6B722DF79FE009F907C /* ContributionReceiver.swift in Sources */,
 				3E9F6AE2212EFE84005E76DA /* HomeViewController.swift in Sources */,
 				3E80980D22C39F2400980879 /* HomeViewModel.swift in Sources */,
 				3EBC8594212F0CC3002540A8 /* Contributions.swift in Sources */,
@@ -748,7 +758,9 @@
 				3E007BCE213BD0780007DD5C /* RegisterAlertViewController.swift in Sources */,
 				3E80980F22C4E07000980879 /* IDInputViewController.swift in Sources */,
 				3EBC8592212F09D1002540A8 /* ContributionGrade.swift in Sources */,
+				3EEBA6B522DF79D3009F907C /* SectionModelsReceiver.swift in Sources */,
 				3EBC8590212F094D002540A8 /* Dot.swift in Sources */,
+				3EEBA6B322DF79B9009F907C /* GithubIdReceiver.swift in Sources */,
 				3E80981322C4E0A900980879 /* Storyboarded.swift in Sources */,
 				3EBC858D212F0912002540A8 /* UIColorExtensions.swift in Sources */,
 				3E80981822C7A57800980879 /* IDInputViewModel.swift in Sources */,
