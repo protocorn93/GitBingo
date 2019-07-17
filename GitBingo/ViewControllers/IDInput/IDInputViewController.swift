@@ -21,7 +21,7 @@ class IDInputViewController: UIViewController {
             case .show:
                 return 144
             case .hide:
-                return -220
+                return -250
             }
         }
     }
@@ -54,8 +54,9 @@ class IDInputViewController: UIViewController {
     }
     
     private func setupErrorMessageLabel() {
-        errorMessageLabel.layer.cornerRadius = 20
-        errorMessageLabel.layer.masksToBounds = true 
+        errorMessageLabel.layer.cornerRadius = 7
+        errorMessageLabel.layer.masksToBounds = true
+        errorMessageLabel.isHidden = true
     }
     
     private func setupAlertView() {
@@ -79,16 +80,38 @@ class IDInputViewController: UIViewController {
     
     private func bindViewAttributes() {
         guard let idInputViewModel = idInputViewModel else { return }
-        idTextField.rx.text.orEmpty.bind(to: idInputViewModel.inputText).disposed(by: disposeBag)
-        idInputViewModel.doneButtonValidation.bind(to: doneButton.rx.isEnabled).disposed(by: disposeBag)
-        idInputViewModel.isLoading.subscribe(onNext: { isLoading in
-            isLoading ? SVProgressHUD.show() : SVProgressHUD.dismiss()
-            if !isLoading {
-                self.handleDismiss()
-            }
-        }, onError: { _ in
-            SVProgressHUD.showError(withStatus: "Error")
-        }).disposed(by: disposeBag)
+        
+        idTextField.rx.text.orEmpty
+            .bind(to: idInputViewModel.inputText)
+            .disposed(by: disposeBag)
+        
+        idInputViewModel.doneButtonValidation
+            .bind(to: doneButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        idInputViewModel.responseStatus.observeOn(MainScheduler.instance)
+            .subscribe(onNext: { status in
+                switch status {
+                case .success:
+                    self.handleDismiss()
+                case .failed(let error):
+                    self.showError(error)
+                    self.animateAlertView(.show)
+                }
+            }).disposed(by: disposeBag)
+        
+        idInputViewModel.isLoading
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: {
+                $0 ? SVProgressHUD.show() : SVProgressHUD.dismiss()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func showError(_ error: Error) {
+        guard let error = error as? GitBingoError else { return }
+        errorMessageLabel.text = error.description
+        self.errorMessageLabel.isHidden = false
     }
     
     private func handleDismiss() {
@@ -102,6 +125,8 @@ class IDInputViewController: UIViewController {
     }
     
     @objc func handleDone() {
+        animateAlertView(.hide)
+        errorMessageLabel.isHidden = true
         idInputViewModel?.fetch()
     }
     
@@ -116,34 +141,10 @@ class IDInputViewController: UIViewController {
     }
 }
 
-protocol IDInputViewDependencyFactoryType {
-    func generateIDInputViewModel() -> IDInputViewModelType
-}
-
-class IDInputViewDependencyFactory: IDInputViewDependencyFactoryType {
-    private var parser: Parser
-    private var session: SessionManagerProtocol
-    private var homeViewModel: HomeViewModelType
-    
-    init(parser: Parser, session: SessionManagerProtocol, homeViewModel: HomeViewModelType) {
-        self.parser = parser
-        self.session = session
-        self.homeViewModel = homeViewModel
-    }
-    
-    func generateIDInputViewModel() -> IDInputViewModelType {
-        return IDInputViewModel(contributionsDotsRepository: generateContributionDotsRepository(), homeViewModel: homeViewModel)
-    }
-    
-    private func generateContributionDotsRepository() -> ContributionDotsRepository {
-        return GitBingoContributionDotsRepository(parser: parser, session: session)
-    }
-}
-
 extension IDInputViewController: Storyboarded {
-    static func instantiate(with dependencyFactory: IDInputViewDependencyFactoryType) -> IDInputViewController? {
+    static func instantiate(with viewModel: IDInputViewModelType) -> IDInputViewController? {
         let idInputViewController = IDInputViewController.instantiate()
-        idInputViewController?.idInputViewModel = dependencyFactory.generateIDInputViewModel()
+        idInputViewController?.idInputViewModel = viewModel
         return idInputViewController
     }
 }

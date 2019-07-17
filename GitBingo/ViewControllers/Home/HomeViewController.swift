@@ -25,7 +25,8 @@ class HomeViewController: UIViewController {
 
     // MARK: Properties
     private var refreshControl = UIRefreshControl()
-    private var homeViewModel = HomeViewModel()
+    private var homeViewDependencyContainer = HomeViewDependencyContainer()
+    private lazy var homeViewModel: HomeViewModelType = homeViewDependencyContainer.generateHomeViewModel()
     private var disposeBag = DisposeBag()
     
     private lazy var cellConfiguration: CellConfiguration = { (dataSource, collectionView, indexPath, grade) in
@@ -94,7 +95,7 @@ class HomeViewController: UIViewController {
     }
     
     private func bindCollectionView() {
-        homeViewModel.sectionModels
+        homeViewModel.sections
             .bind(to: collectionView.rx.items(dataSource: dotsDataSource))
             .disposed(by: disposeBag)
     }
@@ -109,9 +110,7 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func handleShowGithubInputAlert(_ sender: Any) {
-        guard let idInputViewController = IDInputViewController.instantiate(with: IDInputViewDependencyFactory(parser: Parser(),
-                                                                                                               session: URLSession(configuration: .default),
-                                                                                                               homeViewModel: homeViewModel)) else { return }
+        guard let idInputViewController = IDInputViewController.instantiate(with: homeViewDependencyContainer.generateIDInputViewModel()) else { return }
         idInputViewController.modalPresentationStyle = .overCurrentContext
         present(idInputViewController, animated: false, completion: nil)
     }
