@@ -214,10 +214,9 @@
 		3E007BCC213BD0560007DD5C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3E9F6AE1212EFE84005E76DA /* HomeViewController.swift */,
-				3E007BCD213BD0780007DD5C /* RegisterAlertViewController.swift */,
-				3E80980E22C4E07000980879 /* IDInputViewController.swift */,
-				3E80981022C4E07E00980879 /* IDInputViewController.storyboard */,
+				3EEBA6AB22DF7833009F907C /* RegisterAlert */,
+				3EEBA6AA22DF782C009F907C /* IDInput */,
+				3EEBA6A922DF7826009F907C /* Home */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -378,6 +377,31 @@
 				3EE0A3D7219FD4540003962E /* Info.plist */,
 			);
 			path = GitBingoTests;
+			sourceTree = "<group>";
+		};
+		3EEBA6A922DF7826009F907C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3E9F6AE1212EFE84005E76DA /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3EEBA6AA22DF782C009F907C /* IDInput */ = {
+			isa = PBXGroup;
+			children = (
+				3E80980E22C4E07000980879 /* IDInputViewController.swift */,
+				3E80981022C4E07E00980879 /* IDInputViewController.storyboard */,
+			);
+			path = IDInput;
+			sourceTree = "<group>";
+		};
+		3EEBA6AB22DF7833009F907C /* RegisterAlert */ = {
+			isa = PBXGroup;
+			children = (
+				3E007BCD213BD0780007DD5C /* RegisterAlertViewController.swift */,
+			);
+			path = RegisterAlert;
 			sourceTree = "<group>";
 		};
 		3EFBF118213AE2A1002B3142 /* View */ = {
