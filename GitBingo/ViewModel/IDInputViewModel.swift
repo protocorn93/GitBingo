@@ -11,17 +11,23 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
+enum ResponseStatus {
+    case success
+    case failed(Error)
+}
+
 protocol IDInputViewModelType {
     var inputText: BehaviorSubject<String> { get }
     var isLoading: PublishSubject<Bool> { get }
+    var responseStatus: PublishSubject<ResponseStatus> { get }
     var doneButtonValidation: BehaviorSubject<Bool> { get }
     func fetch()
 }
 
 class IDInputViewModel: IDInputViewModelType {
-    
     var inputText: BehaviorSubject<String> = BehaviorSubject(value: "")
     var isLoading: PublishSubject<Bool> = PublishSubject()
+    var responseStatus: PublishSubject<ResponseStatus> = PublishSubject()
     var doneButtonValidation: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     
     private var homeViewModel: HomeViewModelType
