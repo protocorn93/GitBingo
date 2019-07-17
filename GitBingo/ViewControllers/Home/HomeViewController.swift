@@ -110,9 +110,7 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func handleShowGithubInputAlert(_ sender: Any) {
-        guard let idInputViewController = IDInputViewController.instantiate(with: IDInputViewDependencyFactory(parser: Parser(),
-                                                                                                               session: URLSession(configuration: .default),
-                                                                                                               homeViewModel: homeViewModel)) else { return }
+        guard let idInputViewController = IDInputViewController.instantiate(with: homeViewDependencyContainer.generateIDInputViewModel()) else { return }
         idInputViewController.modalPresentationStyle = .overCurrentContext
         present(idInputViewController, animated: false, completion: nil)
     }

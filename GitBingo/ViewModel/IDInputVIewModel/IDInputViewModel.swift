@@ -30,13 +30,13 @@ class IDInputViewModel: IDInputViewModelType {
     var responseStatus: PublishSubject<ResponseStatus> = PublishSubject()
     var doneButtonValidation: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     
-    private var homeViewModel: HomeViewModelType
+    private var receiver: Receiver
     private var contributionsDotsRepository: ContributionDotsRepository
     private var id: BehaviorRelay<String> = BehaviorRelay(value: "")
     private var disposeBag = DisposeBag()
     
-    init(contributionsDotsRepository: ContributionDotsRepository, homeViewModel: HomeViewModelType) {
-        self.homeViewModel = homeViewModel
+    init(contributionsDotsRepository: ContributionDotsRepository, receiver: Receiver) {
+        self.receiver = receiver
         self.contributionsDotsRepository = contributionsDotsRepository
         bind()
     }
@@ -50,7 +50,8 @@ class IDInputViewModel: IDInputViewModelType {
             .subscribe(onNext: { sectionModels in
                 self.isLoading.onNext(false)
                 self.responseStatus.onNext(.success)
-                self.homeViewModel.sectionModels.onNext(sectionModels)
+                self.receiver.githubID.onNext(input)
+                self.receiver.sectionModels.onNext(sectionModels)
             }, onError: { error in
                 self.isLoading.onNext(false)
                 self.responseStatus.onNext(.failed(error))
