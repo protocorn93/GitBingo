@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ul0-jW-FfK">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Alarm-->
+        <scene sceneID="uxW-yd-jaT">
+            <objects>
+                <viewController storyboardIdentifier="RegisterAlertViewController" title="Alarm" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ul0-jW-FfK" customClass="RegisterAlertViewController" customModule="GitBingo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DJO-wC-PVR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="94v-We-P2R">
+                                <rect key="frame" x="0.0" y="360" width="414" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="557566951.04415405">
+                                    <!--2018-09-02 07:42:31 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="valueDidChanged:" destination="Ul0-jW-FfK" eventType="valueChanged" id="HTa-lL-Ce0"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please notify me at" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fku-iu-1z2">
+                                <rect key="frame" x="87.5" y="322" width="239" height="28"/>
+                                <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qiw-7o-7Vc">
+                                <rect key="frame" x="166" y="586" width="82" height="39"/>
+                                <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="17"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleRegister:" destination="Ul0-jW-FfK" eventType="touchUpInside" id="E02-Qa-Y8H"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Scheduled Notifications so far" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKe-na-ysh">
+                                <rect key="frame" x="70.5" y="118" width="273" height="20"/>
+                                <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUd-1I-i25">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="23"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Notification" id="05U-05-aQT">
+                                        <barButtonItem key="leftBarButtonItem" image="icons8-trash" id="U55-Xz-VNm">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="handleRemoveNotification:" destination="Ul0-jW-FfK" id="zLl-Vb-FSe"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="icons8-grid" id="eHJ-Go-e4z">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="handleDone:" destination="Ul0-jW-FfK" id="xqV-Wn-pwc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dUd-1I-i25" firstAttribute="top" secondItem="gej-Jh-mcN" secondAttribute="top" id="0vW-dr-9P0"/>
+                            <constraint firstItem="dUd-1I-i25" firstAttribute="leading" secondItem="gej-Jh-mcN" secondAttribute="leading" id="1JV-wr-qI9"/>
+                            <constraint firstItem="94v-We-P2R" firstAttribute="centerY" secondItem="DJO-wC-PVR" secondAttribute="centerY" constant="20" id="3yE-8T-0AJ"/>
+                            <constraint firstItem="94v-We-P2R" firstAttribute="leading" secondItem="gej-Jh-mcN" secondAttribute="leading" id="9UC-5v-0uF"/>
+                            <constraint firstItem="QKe-na-ysh" firstAttribute="top" secondItem="dUd-1I-i25" secondAttribute="bottom" constant="30" id="DgZ-16-JUU"/>
+                            <constraint firstItem="94v-We-P2R" firstAttribute="top" secondItem="Fku-iu-1z2" secondAttribute="bottom" constant="10" id="IYh-QE-748"/>
+                            <constraint firstItem="94v-We-P2R" firstAttribute="trailing" secondItem="gej-Jh-mcN" secondAttribute="trailing" id="KNS-dl-az2"/>
+                            <constraint firstItem="Fku-iu-1z2" firstAttribute="centerX" secondItem="DJO-wC-PVR" secondAttribute="centerX" id="S4O-Fq-OHk"/>
+                            <constraint firstItem="Qiw-7o-7Vc" firstAttribute="centerX" secondItem="DJO-wC-PVR" secondAttribute="centerX" id="StB-3I-nJz"/>
+                            <constraint firstItem="dUd-1I-i25" firstAttribute="trailing" secondItem="gej-Jh-mcN" secondAttribute="trailing" id="fN6-Hg-M8Z"/>
+                            <constraint firstItem="Qiw-7o-7Vc" firstAttribute="top" secondItem="94v-We-P2R" secondAttribute="bottom" constant="10" id="opo-t9-sKL"/>
+                            <constraint firstItem="QKe-na-ysh" firstAttribute="centerX" secondItem="DJO-wC-PVR" secondAttribute="centerX" id="xbL-PK-NTy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gej-Jh-mcN"/>
+                    </view>
+                    <connections>
+                        <outlet property="scheduledNotificationIndicator" destination="QKe-na-ysh" id="sdF-Yh-Wug"/>
+                        <outlet property="timePicker" destination="94v-We-P2R" id="EcB-Z3-aab"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kmx-N3-OwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1958" y="130"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icons8-grid" width="25" height="25"/>
+        <image name="icons8-trash" width="25" height="25"/>
+    </resources>
+</document>
