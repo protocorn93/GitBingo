@@ -7,6 +7,27 @@
 //
 
 import Foundation
+import RxSwift
+
+class GitbingoAppDependencyContainer {
+    private let userProfileStorage: GitbingoStorage
+    
+    init(_ suiteName: String) {
+        self.userProfileStorage = UserProfileStorage(suiteName)
+    }
+    
+    private func generateReceiver() -> Receiver {
+        return ContributionReceiver()
+    }
+    
+    func generateHomeViewController() -> HomeViewController? {
+        return HomeViewController.instantiate(with: generateHomeViewDependencyContainer())
+    }
+    
+    func generateHomeViewDependencyContainer() -> HomeViewDependencyContainer {
+        return HomeViewDependencyContainer(receiver: generateReceiver(), userProfileStorage)
+    }
+}
 
 class HomeViewDependencyContainer {
     private let receiver: Receiver
