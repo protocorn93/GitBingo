@@ -65,6 +65,9 @@ class HomeViewController: UIViewController {
     
     fileprivate func setupNaviagtionBar() {
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+        title = "GitBingo"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(handleTapRefresh))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "icons8-time"), style: .plain, target: self, action: #selector(handleScheduleTime))
     }
 
     fileprivate func setupCollectionView() {
@@ -81,6 +84,14 @@ class HomeViewController: UIViewController {
         }
 
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    }
+    
+    @objc func handleTapRefresh(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    @objc func handleScheduleTime(_ sender: UIBarButtonItem) {
+        
     }
     
     private func bind() {
