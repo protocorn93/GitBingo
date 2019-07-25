@@ -22,7 +22,6 @@ protocol ContributionDotsRepository {
 class GitBingoContributionDotsRepository: ContributionDotsRepository {
     private let session: SessionManagerProtocol
     private let parser: HTMLParsingProtocol
-    private var disposeBag = DisposeBag()
     
     init(parser: HTMLParsingProtocol, session: SessionManagerProtocol) {
         self.parser = parser
