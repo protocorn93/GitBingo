@@ -25,8 +25,8 @@ class HomeViewController: UIViewController {
 
     // MARK: Properties
     private var refreshControl = UIRefreshControl()
-    private var homeViewDependencyContainer = HomeViewDependencyContainer()
-    private lazy var homeViewModel: HomeViewModelType = homeViewDependencyContainer.generateHomeViewModel()
+    private var homeViewDependencyContainer: HomeViewDependencyContainer?
+    private lazy var homeViewModel: HomeViewModelType = homeViewDependencyContainer!.generateHomeViewModel()
     private var disposeBag = DisposeBag()
     
     private lazy var cellConfiguration: CellConfiguration = { (dataSource, collectionView, indexPath, grade) in
@@ -110,7 +110,7 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func handleShowGithubInputAlert(_ sender: Any) {
-        guard let idInputViewController = IDInputViewController.instantiate(with: homeViewDependencyContainer.generateIDInputViewModel()) else { return }
+        guard let idInputViewController = IDInputViewController.instantiate(with: homeViewDependencyContainer!.generateIDInputViewModel()) else { return }
         idInputViewController.modalPresentationStyle = .overCurrentContext
         present(idInputViewController, animated: false, completion: nil)
     }
@@ -124,5 +124,13 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: self.view.frame.width, height: 30)
+    }
+}
+
+extension HomeViewController: Storyboarded {
+    static func instantiate(with homeViewDependencyContainer: HomeViewDependencyContainer) -> HomeViewController? {
+        guard let viewController = HomeViewController.instantiate() else { return nil }
+        viewController.homeViewDependencyContainer = homeViewDependencyContainer
+        return viewController
     }
 }
