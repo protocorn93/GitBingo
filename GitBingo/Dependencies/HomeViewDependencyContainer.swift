@@ -9,7 +9,19 @@
 import Foundation
 
 class HomeViewDependencyContainer {
-    private let receiver: Receiver = ContributionReceiver()
+    private let receiver: Receiver
+    private let storage: GitbingoStorage
+    private let disposeBag = DisposeBag()
+    
+    init(receiver: Receiver, _ storage: GitbingoStorage) {
+        self.receiver = receiver
+        self.storage = storage
+        bind()
+    }
+    
+    private func bind() {
+        receiver.githubID.skip(1).subscribe(onNext: { [weak self] in self?.storage.save($0, of: .id) }).disposed(by: disposeBag)
+    }
     
     func generateHomeViewModel() -> HomeViewModelType {
         return HomeViewModel(receiver: receiver)
