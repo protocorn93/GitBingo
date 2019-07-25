@@ -34,6 +34,7 @@
 
 // CustomAlert.swift
 "Input your Github ID" = "Github 아이디를 입력하세요.";
+"Welcome! %@👋"="안녕하세요! %@님👋";
 "Done" = "완료";
 "Cancel" = "취소";
 "Ok" = "확인";
