@@ -129,8 +129,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeViewController: Storyboarded {
     static func instantiate(with homeViewDependencyContainer: HomeViewDependencyContainer) -> HomeViewController? {
-        guard let viewController = HomeViewController.instantiate() else { return nil }
-        viewController.homeViewDependencyContainer = homeViewDependencyContainer
+        let viewController = HomeViewController.instantiate()
+        viewController?.homeViewDependencyContainer = homeViewDependencyContainer
         return viewController
     }
 }
