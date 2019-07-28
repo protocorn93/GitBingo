@@ -13,6 +13,7 @@
 		3E41C2FC213A319100371B4F /* GitBingoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E41C2FB213A319100371B4F /* GitBingoError.swift */; };
 		3E49ACC1216EDA6200E834F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3EAD214721401E4D00049859 /* Localizable.strings */; };
 		3E5D403A21B0FC15006F6E6A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3E5D403921B0FC15006F6E6A /* .swiftlint.yml */; };
+		3E73288722EDF2DC006166DD /* ContributionsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E73288622EDF2DC006166DD /* ContributionsMapper.swift */; };
 		3E74ADFF21AF75EC00DE3B82 /* SessionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74ADFE21AF75EC00DE3B82 /* SessionManagerProtocol.swift */; };
 		3E74AE0021AF765100DE3B82 /* SessionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74ADFE21AF75EC00DE3B82 /* SessionManagerProtocol.swift */; };
 		3E74AE0121AF765300DE3B82 /* SessionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E74ADFE21AF75EC00DE3B82 /* SessionManagerProtocol.swift */; };
@@ -129,6 +130,7 @@
 		3E49ACBE216EDA5800E834F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		3E49ACC0216EDA5D00E834F7 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		3E5D403921B0FC15006F6E6A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		3E73288622EDF2DC006166DD /* ContributionsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionsMapper.swift; sourceTree = "<group>"; };
 		3E74ADFE21AF75EC00DE3B82 /* SessionManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerProtocol.swift; sourceTree = "<group>"; };
 		3E74AE0421AF777300DE3B82 /* HTMLParsingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLParsingProtocol.swift; sourceTree = "<group>"; };
 		3E74AE0F21AF8FAE00DE3B82 /* SessionManagerStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerStub.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				3EEBA6B222DF79B9009F907C /* GithubIdReceiver.swift */,
 				3EEBA6B422DF79D3009F907C /* SectionModelsReceiver.swift */,
 				3EEBA6B622DF79FE009F907C /* ContributionReceiver.swift */,
+				3E73288622EDF2DC006166DD /* ContributionsMapper.swift */,
 			);
 			path = Dependencies;
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 				3E9ECD08215DD2C30089755E /* AppURL.swift in Sources */,
 				3EBC858A212EFF4C002540A8 /* APIService.swift in Sources */,
 				3E74ADFF21AF75EC00DE3B82 /* SessionManagerProtocol.swift in Sources */,
+				3E73288722EDF2DC006166DD /* ContributionsMapper.swift in Sources */,
 				3E9D2AE0213D1B8F0009DAD8 /* KeyIdentifier.swift in Sources */,
 				3ED9666F2156FB60008A8897 /* GitBingoAlertState.swift in Sources */,
 				3E9D2AE2213D1D100009DAD8 /* RegisterViewPresenter.swift in Sources */,

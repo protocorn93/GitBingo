@@ -24,20 +24,22 @@ protocol IDInputViewModelType {
     func fetch()
 }
 
-class IDInputViewModel: IDInputViewModelType {
+class IDInputViewModel<M: ContributionsMapper>: IDInputViewModelType where M.Source == Contributions, M.Target == SectionModel<String, ContributionGrade> {
     var inputText: BehaviorSubject<String> = BehaviorSubject(value: "")
     var isLoading: PublishSubject<Bool> = PublishSubject()
     var responseStatus: PublishSubject<ResponseStatus> = PublishSubject()
     var doneButtonValidation: BehaviorSubject<Bool> = BehaviorSubject(value: false)
     
-    private var receiver: Receiver
     private var contributionsDotsRepository: ContributionDotsRepository
+    private var receiver: Receiver
+    private var mapper: M
     private var id: BehaviorRelay<String> = BehaviorRelay(value: "")
     private var disposeBag = DisposeBag()
     
-    init(contributionsDotsRepository: ContributionDotsRepository, receiver: Receiver) {
-        self.receiver = receiver
+    init(contributionsDotsRepository: ContributionDotsRepository, receiver: Receiver, mapper: M) {
         self.contributionsDotsRepository = contributionsDotsRepository
+        self.receiver = receiver
+        self.mapper = mapper
         bind()
     }
     
@@ -46,7 +48,7 @@ class IDInputViewModel: IDInputViewModelType {
         let input = id.value
         contributionsDotsRepository
             .fetch(input)
-            .map(mapping)
+            .map { self.mapper.mapping(from: $0)}
             .subscribe(onNext: { sectionModels in
                 self.isLoading.onNext(false)
                 self.responseStatus.onNext(.success)
@@ -57,11 +59,6 @@ class IDInputViewModel: IDInputViewModelType {
                 self.responseStatus.onNext(.failed(error))
             })
             .disposed(by: disposeBag)
-    }
-   
-    private func mapping(from contributions: Contributions) -> [SectionModel<String, ContributionGrade>] {
-        return [SectionModel<String, ContributionGrade>(model: "This Week", items: contributions.grades.prefix(7).map { $0 }),
-                SectionModel<String, ContributionGrade>(model: "Last Weeks", items: contributions.grades.suffix(from: 7).map { $0 })]
     }
     
     private func bind() {

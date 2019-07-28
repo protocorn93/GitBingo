@@ -49,7 +49,7 @@ class HomeViewDependencyContainer {
     }
     
     func generateIDInputViewModel() -> IDInputViewModelType {
-        return IDInputViewModel(contributionsDotsRepository: generateContributionDotsRepository(), receiver: receiver)
+        return IDInputViewModel(contributionsDotsRepository: generateContributionDotsRepository(), receiver: receiver, mapper: ContributionsSectionModelMapper())
     }
     
     private func generateContributionDotsRepository() -> ContributionDotsRepository {
