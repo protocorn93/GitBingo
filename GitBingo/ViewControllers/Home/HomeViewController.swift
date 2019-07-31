@@ -25,8 +25,8 @@ class HomeViewController: UIViewController {
 
     // MARK: Properties
     private var refreshControl = UIRefreshControl()
-    private var homeViewDependencyContainer = HomeViewDependencyContainer()
-    private lazy var homeViewModel: HomeViewModelType = homeViewDependencyContainer.generateHomeViewModel()
+    private var homeViewDependencyContainer: HomeViewDependencyContainer?
+    private lazy var homeViewModel: HomeViewModelType = homeViewDependencyContainer!.generateHomeViewModel()
     private var disposeBag = DisposeBag()
     
     private lazy var cellConfiguration: CellConfiguration = { (dataSource, collectionView, indexPath, grade) in
@@ -65,6 +65,9 @@ class HomeViewController: UIViewController {
     
     fileprivate func setupNaviagtionBar() {
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
+        title = "GitBingo"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(handleTapRefresh))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "icons8-time"), style: .plain, target: self, action: #selector(handleScheduleTime))
     }
 
     fileprivate func setupCollectionView() {
@@ -83,20 +86,28 @@ class HomeViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
+    @objc func handleTapRefresh(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    @objc func handleScheduleTime(_ sender: UIBarButtonItem) {
+        
+    }
+    
     private func bind() {
         bindButtonTitle()
         bindCollectionView()
     }
     
     private func bindButtonTitle() {
-        homeViewModel.buttonTitle
-            .bind(to: githubInputAlertButton.rx.title(for: .normal))
+        homeViewModel.title
+            .drive(githubInputAlertButton.rx.title(for: .normal))
             .disposed(by: disposeBag)
     }
     
     private func bindCollectionView() {
         homeViewModel.sections
-            .bind(to: collectionView.rx.items(dataSource: dotsDataSource))
+            .drive(collectionView.rx.items(dataSource: dotsDataSource))
             .disposed(by: disposeBag)
     }
 
@@ -110,7 +121,7 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func handleShowGithubInputAlert(_ sender: Any) {
-        guard let idInputViewController = IDInputViewController.instantiate(with: homeViewDependencyContainer.generateIDInputViewModel()) else { return }
+        guard let idInputViewController = IDInputViewController.instantiate(with: homeViewDependencyContainer!.generateIDInputViewModel()) else { return }
         idInputViewController.modalPresentationStyle = .overCurrentContext
         present(idInputViewController, animated: false, completion: nil)
     }
@@ -124,5 +135,13 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: self.view.frame.width, height: 30)
+    }
+}
+
+extension HomeViewController: Storyboarded {
+    static func instantiate(with homeViewDependencyContainer: HomeViewDependencyContainer) -> HomeViewController? {
+        let viewController = HomeViewController.instantiate()
+        viewController?.homeViewDependencyContainer = homeViewDependencyContainer
+        return viewController
     }
 }

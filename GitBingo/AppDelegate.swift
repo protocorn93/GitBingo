@@ -13,17 +13,34 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    private var appDependencyContainer = GitbingoAppDependencyContainer("group.Gitbingo")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        setupNavigationBarAppearance()
+        setupUserNotification()
+        setupWindow()
+        addShortcuts(to: application)
+        return true
+    }
+    
+    private func setupNavigationBarAppearance() {
+        UINavigationBar.appearance().tintColor = .black
+        UINavigationBar.appearance().backgroundColor = .white
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                                                            NSAttributedString.Key.font: UIFont(name: "Apple Color Emoji", size: 21)!]
+    }
+    
+    private func setupUserNotification() {
         let center = UNUserNotificationCenter.current()
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
-
         center.requestAuthorization(options: options) { (_, _) in }
-
-        addShortcuts(to: application)
-
-        return true
+    }
+    
+    private func setupWindow() {
+        window = UIWindow()
+        window?.rootViewController = UINavigationController(rootViewController: appDependencyContainer.generateHomeViewController()!)
+        window?.makeKeyAndVisible()
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {

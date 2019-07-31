@@ -9,16 +9,19 @@
 import Foundation
 import RxDataSources
 import RxSwift
+import RxCocoa
+
+typealias ContributionsSectionModel = [SectionModel<String, ContributionGrade>]
 
 protocol HomeViewModelType {
-    var buttonTitle: Observable<String> { get }
-    var sections: Observable<[SectionModel<String, ContributionGrade>]> { get }
+    var title: Driver<String> { get }
+    var sections: Driver<ContributionsSectionModel> { get }
 }
 
 class HomeViewModel: HomeViewModelType {
     private var receiver: Receiver
-    var buttonTitle: Observable<String> { return receiver.githubID.asObservable() }
-    var sections: Observable<[SectionModel<String, ContributionGrade>]> { return receiver.sectionModels.asObservable() }
+    var title: Driver<String> { return receiver.githubID.asDriver(onErrorJustReturn: "") } 
+    var sections: Driver<ContributionsSectionModel> { return receiver.sectionModels.asDriver(onErrorJustReturn: [])}
     
     init(receiver: Receiver) {
         self.receiver = receiver
