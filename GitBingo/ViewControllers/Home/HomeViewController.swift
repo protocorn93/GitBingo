@@ -100,14 +100,14 @@ class HomeViewController: UIViewController {
     }
     
     private func bindButtonTitle() {
-        homeViewModel.buttonTitle
-            .bind(to: githubInputAlertButton.rx.title(for: .normal))
+        homeViewModel.title
+            .drive(githubInputAlertButton.rx.title(for: .normal))
             .disposed(by: disposeBag)
     }
     
     private func bindCollectionView() {
         homeViewModel.sections
-            .bind(to: collectionView.rx.items(dataSource: dotsDataSource))
+            .drive(collectionView.rx.items(dataSource: dotsDataSource))
             .disposed(by: disposeBag)
     }
 
